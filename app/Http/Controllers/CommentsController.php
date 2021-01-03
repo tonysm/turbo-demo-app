@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use Illuminate\Validation\ValidationException;
 
 class CommentsController extends Controller
 {
@@ -19,9 +20,17 @@ class CommentsController extends Controller
     {
         $this->authorize('update', $comment);
 
-        $comment->update(request()->validate([
-            'content' => 'required|min:1|string',
-        ]));
+        try {
+            $comment->update(request()->validate([
+                'content' => 'required|min:1|string',
+            ]));
+        } catch (ValidationException $exception) {
+            throw $exception->redirectTo(route('comments.edit', $comment));
+        }
+
+        if (request()->wantsTurboStream()) {
+            return response()->turboStream($comment);
+        }
 
         return redirect()->route('posts.show', $comment->post);
     }
@@ -31,6 +40,10 @@ class CommentsController extends Controller
         $this->authorize('destroy', $comment);
 
         $comment->delete();
+
+        if (request()->wantsTurboStream()) {
+            return response()->turboStream($comment);
+        }
 
         return redirect()->route('posts.show', $comment->post);
     }

@@ -15,19 +15,21 @@
                 <h3 class="font-semibold text-lg text-gray-800 leading-tight">Comments
                     <small>({{ $post->comments->count() }})</small></h3>
 
-                <div class="space-y-4">
+                <turbo-frame id="comments">
                     @foreach($post->comments as $comment)
                         @include('comments._comment', ['comment' => $comment])
                     @endforeach
-                </div>
+                </turbo-frame>
 
                 <div class="mt-4">
-                    <a
-                        class="text-base font-semibold text-indigo-400"
-                        href="{{ route('posts.comments.create', $post) }}"
-                    >
-                        New Comment
-                    </a>
+                    <turbo-frame id="new_comment" src="{{ route('posts.comments.create', $post) }}">
+                        <a
+                            class="text-base font-semibold text-indigo-400"
+                            href="{{ route('posts.comments.create', $post) }}"
+                        >
+                            New Comment
+                        </a>
+                    </turbo-frame>
                 </div>
             </div>
         </div>

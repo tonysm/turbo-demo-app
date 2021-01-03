@@ -13,7 +13,7 @@
     @endif
 
     <label class="block">
-        <span class="text-gray-700">Comment</span>
+        <span class="text-gray-700 {{ $comment ?? false ? 'sr-only' : '' }}">Comment</span>
         <textarea name="content" class="form-textarea mt-1 block w-full" rows="3"
                   placeholder="Say something nice...">{{ old('content', optional($comment)->content) }}</textarea>
         @error('content')

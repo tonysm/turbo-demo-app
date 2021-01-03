@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Validation\ValidationException;
 
 class PostCommentsController extends Controller
 {
@@ -19,14 +20,22 @@ class PostCommentsController extends Controller
     {
         $this->authorize('addComment', $post);
 
-        $post->comments()->create(
-            $this->commentParams() + ['user_id' => request()->user()->id]
-        );
+        try {
+            $comment = $post->comments()->create(
+                $this->commentParams() + ['user_id' => request()->user()->id]
+            );
+        } catch (ValidationException $exception) {
+            throw $exception->redirectTo(route('posts.comments.create', $post));
+        }
+
+        if (request()->wantsTurboStream()) {
+            return response()->turboStream($comment);
+        }
 
         return redirect()->route('posts.show', $post);
     }
 
-    private function commentParams(): array
+    private function commentParams()
     {
         return request()->validate([
             'content' => 'required|min:1|string',
