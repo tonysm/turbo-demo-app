@@ -5,7 +5,7 @@
     action="{{ route('posts.comments.store', $post) }}"
     @endif
     method="POST"
-    class="space-y-4"
+    class="space-y-4 p-4 bg-white rounded shadow"
 >
     @csrf
     @if($comment ?? false)
