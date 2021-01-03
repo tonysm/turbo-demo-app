@@ -5,6 +5,7 @@ import('./bootstrap');
 import('./turbo-echo-stream-tag');
 import { Application } from "stimulus"
 import { definitionsFromContext } from "@stimulus/webpack-helpers"
+require('alpinejs');
 
 startTurbo();
 const application = Application.start()
