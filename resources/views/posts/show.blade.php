@@ -15,9 +15,15 @@
                 <h3 class="font-semibold text-lg text-gray-800 leading-tight">Comments
                     <small>({{ $post->comments->count() }})</small></h3>
 
-                @foreach($post->comments as $comment)
-                    @include('comments._comment', ['comment' => $comment])
-                @endforeach
+                <div class="space-y-4">
+                    @foreach($post->comments as $comment)
+                        @include('comments._comment', ['comment' => $comment])
+                    @endforeach
+                </div>
+
+                <div class="mt-4">
+                    @include('comments._form', ['post' => $post])
+                </div>
             </div>
         </div>
     </div>

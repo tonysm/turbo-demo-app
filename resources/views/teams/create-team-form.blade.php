@@ -12,7 +12,19 @@
             <x-jet-label value="{{ __('Team Owner') }}" />
 
             <div class="flex items-center mt-2">
-                <img class="w-12 h-12 rounded-full object-cover" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
+                <img class="w-12 h-12 ro
+        $creator->create(Auth::user(), $this->state);
+
+        return $this->redirectPath($creator);
+    }
+
+    /**
+     * Get the current user of the application.
+     *
+     * @return mixed
+     */
+    public function getUserProperty()
+    {unded-full object-cover" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
 
                 <div class="ml-4 leading-tight">
                     <div>{{ $this->user->name }}</div>
