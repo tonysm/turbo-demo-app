@@ -17,9 +17,6 @@ class PostCommentsController extends Controller
         return redirect()->route('posts.show', $post);
     }
 
-    /**
-     * @return array
-     */
     private function commentParams(): array
     {
         return request()->validate([

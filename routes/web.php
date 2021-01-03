@@ -10,6 +10,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::redirect('/dashboard', '/posts')->name('dashboard');
 
-    Route::resource('posts', Controllers\PostsController::class);
-    Route::resource('posts.comments', Controllers\PostCommentsController::class);
+    Route::resource('posts', Controllers\PostsController::class)->only(['index', 'show']);
+    Route::resource('posts.comments', Controllers\PostCommentsController::class)->only(['store']);
+    Route::resource('comments', Controllers\CommentsController::class)->only(['edit', 'update', 'destroy']);
 });
