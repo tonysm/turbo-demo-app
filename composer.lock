@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "59f0e4b15d1a30b27ae12e976ef6c71b",
+    "content-hash": "98fe54669c6eafa531c7b0585b90c656",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5324,6 +5324,86 @@
             "time": "2020-07-13T06:12:54+00:00"
         },
         {
+            "name": "tonysm/turbo-laravel",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./workspaces/turbo-laravel",
+                "reference": "0e2c2cdf37b628afd9bf048e94ba0c611f1aad24"
+            },
+            "require": {
+                "illuminate/contracts": "^8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tonysm\\TurboLaravel\\TurboLaravelServiceProvider"
+                    ],
+                    "aliases": {
+                        "TurboLaravel": "Tonysm\\TurboLaravel\\TurboLaravelFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tonysm\\TurboLaravel\\": "src",
+                    "Tonysm\\TurboLaravel\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tonysm\\TurboLaravel\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "psalm": [
+                    "vendor/bin/psalm"
+                ],
+                "test": [
+                    "vendor/bin/phpunit --colors=always"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tony Messias",
+                    "email": "tonysm@hey.com",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Turbo Laravel gives you a set of conventions to make the most out of the Hotwire stack (inspired by turbo-rails gem).",
+            "homepage": "https://github.com/tonysm/turbo-laravel",
+            "keywords": [
+                "tonysm",
+                "turbo-laravel"
+            ],
+            "funding": [
+                {
+                    "type": "github",
+                    "url": "https://github.com/sponsors/spatie"
+                },
+                {
+                    "type": "other",
+                    "url": "https://spatie.be/open-source/support-us"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v5.2.0",
             "source": {
@@ -8015,7 +8095,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "tonysm/turbo-laravel": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

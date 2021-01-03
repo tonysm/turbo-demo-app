@@ -3,6 +3,7 @@
 /public/storage
 /public/css
 /public/js
+/public/*.js
 mix-manifest.json
 /storage/*.key
 /vendor
@@ -14,3 +15,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/workspaces

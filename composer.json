@@ -7,6 +7,12 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./workspaces/turbo-laravel"
+        }
+    ],
     "require": {
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
@@ -16,7 +22,8 @@
         "laravel/jetstream": "^1.6",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.0"
+        "livewire/livewire": "^2.0",
+        "tonysm/turbo-laravel": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
