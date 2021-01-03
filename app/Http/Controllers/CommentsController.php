@@ -7,6 +7,15 @@ use Illuminate\Validation\ValidationException;
 
 class CommentsController extends Controller
 {
+    public function show(Comment $comment)
+    {
+        $this->authorize('view', $comment);
+
+        return view('comments.show', [
+            'comment' => $comment,
+        ]);
+    }
+
     public function edit(Comment $comment)
     {
         $this->authorize('update', $comment);

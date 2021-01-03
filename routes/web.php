@@ -12,5 +12,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::resource('posts', Controllers\PostsController::class)->only(['index', 'show']);
     Route::resource('posts.comments', Controllers\PostCommentsController::class)->only(['create', 'store']);
-    Route::resource('comments', Controllers\CommentsController::class)->only(['edit', 'update', 'destroy']);
+    Route::resource('comments', Controllers\CommentsController::class)->only(['show', 'edit', 'update', 'destroy']);
 });

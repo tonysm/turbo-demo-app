@@ -26,7 +26,14 @@
             {{ __('Save') }}
         </x-jet-button>
 
-        <a href="{{ route('posts.show', $post ?? $comment->post) }}" class="text-base text-gray-500">
+        <a
+            @if($comment ?? false)
+            href="{{ route('comments.show', $comment) }}"
+            @else
+            href="{{ route('posts.show', $post) }}"
+            @endif
+            class="text-base text-gray-500"
+        >
             Cancel
         </a>
     </div>

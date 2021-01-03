@@ -10,6 +10,11 @@ class CommentPolicy
 {
     use HandlesAuthorization;
 
+    public function view(User $user, Comment $comment)
+    {
+        return $user->allTeams()->contains($comment->post->team);
+    }
+
     public function update(User $user, Comment $comment)
     {
         return $user->id === $comment->user_id;
