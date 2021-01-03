@@ -3,7 +3,10 @@
         <p class="flex justify-between text-xs">
             <span>{{ $comment->user->name }} said:</span>
             <span class="space-x-2 text-gray-500 flex items-center">
-                <a href="{{ route('comments.edit', $comment) }}">
+                <a href="{{ route('comments.edit', $comment) }}"
+                   data-controller="hide-actions"
+                   data-hide-actions-owner-id-value="{{ $comment->user_id }}"
+                >
                     <svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -11,7 +14,11 @@
                     </svg>
                 </a>
 
-                <button type="submit" form="delete_comment_{{ $comment->id }}">
+                <button
+                    type="submit" form="delete_comment_{{ $comment->id }}"
+                    data-controller="hide-actions"
+                    data-hide-actions-owner-id-value="{{ $comment->user_id }}"
+                >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                          xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
