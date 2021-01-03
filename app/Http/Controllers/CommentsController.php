@@ -42,7 +42,7 @@ class CommentsController extends Controller
         $comment->delete();
 
         if (request()->wantsTurboStream()) {
-            return response()->turboStream($comment);
+            return response()->turboStreamView(view('comments.turbo.deleted_stream', ['comment' => $comment]));
         }
 
         return redirect()->route('posts.show', $comment->post);

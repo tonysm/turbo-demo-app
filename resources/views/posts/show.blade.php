@@ -13,7 +13,10 @@
 
             <div class="space-y-4">
                 <h3 class="font-semibold text-lg text-gray-800 leading-tight">Comments
-                    <small>({{ $post->comments->count() }})</small></h3>
+                    <turbo-frame id="@domid($post, 'comments_count')">
+                        @include('posts._post_comments_count', ['post' => $post])
+                    </turbo-frame>
+                </h3>
 
                 <turbo-frame id="comments">
                     @foreach($post->comments as $comment)
