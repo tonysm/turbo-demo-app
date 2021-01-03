@@ -26,12 +26,12 @@
         </p>
 
         <p class="mt-3 text-sm text-gray-600">
-            {{ $comment->content }}
+            {!! nl2br(e($comment->content)) !!}
         </p>
 
         <form action="{{ route('comments.destroy', $comment) }}" method="POST" class="hidden"
-              onsubmit="return confirm('Are you sure you want to delete it?')"
               data-turbo-target="_top"
+              data-controller="confirms-submission"
               id="delete_comment_{{ $comment->id }}">
             @csrf
             @method('DELETE')

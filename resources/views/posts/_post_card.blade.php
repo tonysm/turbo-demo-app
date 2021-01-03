@@ -1,4 +1,4 @@
-<div class="bg-white p-4 rounded shadow hover:shadow-md">
+<div class="bg-white p-4 my-4 rounded shadow hover:shadow-md">
     <a href="{{ route('posts.show', $post) }}" class="block">
         <h2 class="text-xl text-gray-900">
             {{ $post->title }}

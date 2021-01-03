@@ -15,7 +15,14 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'content' => $this->faker->text,
+            'content' => implode(PHP_EOL . PHP_EOL, [
+                $this->faker->text(300),
+                $this->faker->text(240),
+                $this->faker->text(300),
+                $this->faker->text(150),
+                $this->faker->text(300),
+                $this->faker->text(200),
+            ]),
             'user_id' => User::factory(),
             'published_at' => $this->faker->optional()->dateTime,
         ];

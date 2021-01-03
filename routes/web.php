@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::redirect('/dashboard', '/posts')->name('dashboard');
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
 
     Route::resource('posts', Controllers\PostsController::class)->only(['index', 'show']);
     Route::resource('posts.comments', Controllers\PostCommentsController::class)->only(['create', 'store']);
