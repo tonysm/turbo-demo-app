@@ -3,8 +3,9 @@
         <h2 class="text-xl text-gray-900">
             {{ $post->title }}
         </h2>
-        <small>
-            <time datetime="{{ $post->published_at->toDateTimeString() }}">
+        <small class="space-x-2">
+            <span>{{ $post->user->name }}</span>
+            <time datetime="{{ $post->published_at->toDateTimeString() }}" class="text-gray-600">
                 {{ $post->published_at->toFormattedDateString() }}
             </time>
         </small>

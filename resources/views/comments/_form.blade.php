@@ -1,4 +1,8 @@
-<form action="{{ route('posts.comments.store', $post) }}" method="POST" class="space-y-4">
+<form
+    action="{{ route('posts.comments.store', $post) }}"
+    method="POST"
+    class="space-y-4"
+>
     @csrf
 
     <label class="block">
