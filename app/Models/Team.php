@@ -18,7 +18,7 @@ class Team extends JetstreamTeam
         'personal_team' => 'boolean',
     ];
 
-    /**
+    /**hasMany
      * The attributes that are mass assignable.
      *
      * @var array
@@ -38,4 +38,9 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
