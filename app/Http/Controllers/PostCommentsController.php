@@ -6,6 +6,15 @@ use App\Models\Post;
 
 class PostCommentsController extends Controller
 {
+    public function create(Post $post)
+    {
+        $this->authorize('addComment', $post);
+
+        return view('comments.create', [
+            'post' => $post,
+        ]);
+    }
+
     public function store(Post $post)
     {
         $this->authorize('addComment', $post);

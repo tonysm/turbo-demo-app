@@ -22,7 +22,12 @@
                 </div>
 
                 <div class="mt-4">
-                    @include('comments._form', ['post' => $post])
+                    <a
+                        class="text-base font-semibold text-indigo-400"
+                        href="{{ route('posts.comments.create', $post) }}"
+                    >
+                        New Comment
+                    </a>
                 </div>
             </div>
         </div>

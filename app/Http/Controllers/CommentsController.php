@@ -23,7 +23,7 @@ class CommentsController extends Controller
             'content' => 'required|min:1|string',
         ]));
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.show', $comment->post);
     }
 
     public function destroy(Comment $comment)
