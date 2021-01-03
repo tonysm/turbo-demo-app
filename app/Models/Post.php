@@ -2,11 +2,21 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
     use HasFactory;
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
+    public function scopePublished(Builder $query)
+    {
+        $query->whereNotNull('published_at');
+    }
 
     public function comments()
     {

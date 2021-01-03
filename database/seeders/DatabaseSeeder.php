@@ -21,14 +21,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'tonysm@hey.com',
         ]);
 
-        $posts = Post::factory()->count(2)->create(['user_id' => $user->id]);
-
-        Comment::factory()->count(2)->create(['post_id' => $posts->first()]);
-        Comment::factory()->count(3)->create(['post_id' => $posts->last()]);
+        Post::factory()
+            ->times(5)
+            ->has(Comment::factory()->times(4))
+            ->create(['user_id' => $user->id]);
 
         Post::factory()
             ->times(10)
-            ->has(Comment::factory()->count(5))
+            ->has(Comment::factory()->times(5))
             ->create();
     }
 }
