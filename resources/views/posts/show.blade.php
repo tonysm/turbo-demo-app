@@ -18,10 +18,8 @@
                     </turbo-frame>
                 </h3>
 
-                <turbo-frame id="comments">
-                    @foreach($post->comments as $comment)
-                        @include('comments._comment', ['comment' => $comment])
-                    @endforeach
+                <turbo-frame id="@domid($post, 'comments')" src="{{ route('posts.comments.index', $post) }}">
+                    <p>Loading comments...</p>
                 </turbo-frame>
 
                 <div class="mt-4">

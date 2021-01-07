@@ -1,4 +1,4 @@
-<turbo-stream target="comments" action="append">
+<turbo-stream target="@domid($comment->post, 'comments')" action="append">
     <template>
         @include('comments._comment', ['comment' => $comment])
     </template>
