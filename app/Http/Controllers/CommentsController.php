@@ -29,13 +29,9 @@ class CommentsController extends Controller
     {
         $this->authorize('update', $comment);
 
-        try {
-            $comment->update(request()->validate([
-                'content' => 'required|min:1|string',
-            ]));
-        } catch (ValidationException $exception) {
-            throw $exception->redirectTo(route('comments.edit', $comment));
-        }
+        $comment->update(request()->validate([
+            'content' => 'required|min:10|string',
+        ]));
 
         if (request()->wantsTurboStream()) {
             return response()->turboStream($comment);

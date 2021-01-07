@@ -1129,16 +1129,16 @@
         },
         {
             "name": "laravel/fortify",
-            "version": "v1.7.2",
+            "version": "v1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/fortify.git",
-                "reference": "1333184e4797de9f6fe5891e4b6f07919a151289"
+                "reference": "94d22e00e407966e125a3c3af9b2310f7ff7e54b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/fortify/zipball/1333184e4797de9f6fe5891e4b6f07919a151289",
-                "reference": "1333184e4797de9f6fe5891e4b6f07919a151289",
+                "url": "https://api.github.com/repos/laravel/fortify/zipball/94d22e00e407966e125a3c3af9b2310f7ff7e54b",
+                "reference": "94d22e00e407966e125a3c3af9b2310f7ff7e54b",
                 "shasum": ""
             },
             "require": {
@@ -1188,20 +1188,20 @@
                 "issues": "https://github.com/laravel/fortify/issues",
                 "source": "https://github.com/laravel/fortify"
             },
-            "time": "2020-11-24T16:52:33+00:00"
+            "time": "2021-01-05T16:27:23+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v8.20.1",
+            "version": "v8.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b5d8573ab16027867eaa1ac148893833434f9b02"
+                "reference": "a61cab167c35f465a923737ee6e6fb99cd5fde88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b5d8573ab16027867eaa1ac148893833434f9b02",
-                "reference": "b5d8573ab16027867eaa1ac148893833434f9b02",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a61cab167c35f465a923737ee6e6fb99cd5fde88",
+                "reference": "a61cab167c35f465a923737ee6e6fb99cd5fde88",
                 "shasum": ""
             },
             "require": {
@@ -1355,20 +1355,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-12-22T21:21:19+00:00"
+            "time": "2021-01-05T15:43:10+00:00"
         },
         {
             "name": "laravel/jetstream",
-            "version": "v1.6.5",
+            "version": "v1.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "0d3d5a9c91702892c0b0d2047fd81540747053e9"
+                "reference": "9de2b4555b34a857465b14d1ada66c9b672f4251"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/0d3d5a9c91702892c0b0d2047fd81540747053e9",
-                "reference": "0d3d5a9c91702892c0b0d2047fd81540747053e9",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/9de2b4555b34a857465b14d1ada66c9b672f4251",
+                "reference": "9de2b4555b34a857465b14d1ada66c9b672f4251",
                 "shasum": ""
             },
             "require": {
@@ -1421,7 +1421,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2020-12-15T19:12:42+00:00"
+            "time": "2021-01-05T15:53:01+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -5329,7 +5329,7 @@
             "dist": {
                 "type": "path",
                 "url": "./workspaces/turbo-laravel",
-                "reference": "0e2c2cdf37b628afd9bf048e94ba0c611f1aad24"
+                "reference": "106786d14a54ae31582d836f67922a83a9b30786"
             },
             "require": {
                 "illuminate/contracts": "^8.0",
@@ -5343,17 +5343,16 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Tonysm\\TurboLaravel\\TurboLaravelServiceProvider"
+                        "\\Tonysm\\TurboLaravel\\TurboServiceProvider"
                     ],
                     "aliases": {
-                        "TurboLaravel": "Tonysm\\TurboLaravel\\TurboLaravelFacade"
+                        "Turbo": "\\Tonysm\\TurboLaravel\\TurboFacade"
                     }
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Tonysm\\TurboLaravel\\": "src",
-                    "Tonysm\\TurboLaravel\\Database\\Factories\\": "database/factories"
+                    "Tonysm\\TurboLaravel\\": "src"
                 }
             },
             "autoload-dev": {
@@ -5379,7 +5378,7 @@
                 {
                     "name": "Tony Messias",
                     "email": "tonysm@hey.com",
-                    "homepage": "https://spatie.be",
+                    "homepage": "https://tonysm.com",
                     "role": "Developer"
                 }
             ],
@@ -5388,16 +5387,6 @@
             "keywords": [
                 "tonysm",
                 "turbo-laravel"
-            ],
-            "funding": [
-                {
-                    "type": "github",
-                    "url": "https://github.com/sponsors/spatie"
-                },
-                {
-                    "type": "other",
-                    "url": "https://spatie.be/open-source/support-us"
-                }
             ],
             "transport-options": {
                 "relative": true
@@ -6046,16 +6035,16 @@
         },
         {
             "name": "laravel/sail",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/sail.git",
-                "reference": "7457004969dd62fa727fbc596bb2accccb1409a5"
+                "reference": "277d868441b49898caf0ce3cb4e19b439e419133"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/7457004969dd62fa727fbc596bb2accccb1409a5",
-                "reference": "7457004969dd62fa727fbc596bb2accccb1409a5",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/277d868441b49898caf0ce3cb4e19b439e419133",
+                "reference": "277d868441b49898caf0ce3cb4e19b439e419133",
                 "shasum": ""
             },
             "require": {
@@ -6101,7 +6090,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2020-12-22T17:36:59+00:00"
+            "time": "2021-01-05T16:40:11+00:00"
         },
         {
             "name": "mockery/mockery",
