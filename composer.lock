@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f050eeb6bb78ff126a62dfc848c6e10a",
+    "content-hash": "b1fb404e61ad0ab91d2abec9a1208f7f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1808,16 +1808,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.3.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "781a1250dc8eab9121fd856ff0b6efca8c32756f"
+                "reference": "34cbdc7c661c27fe75f9ed4f9cba4a9ead166951"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/781a1250dc8eab9121fd856ff0b6efca8c32756f",
-                "reference": "781a1250dc8eab9121fd856ff0b6efca8c32756f",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/34cbdc7c661c27fe75f9ed4f9cba4a9ead166951",
+                "reference": "34cbdc7c661c27fe75f9ed4f9cba4a9ead166951",
                 "shasum": ""
             },
             "require": {
@@ -1836,6 +1836,7 @@
                 "phpunit/phpunit": "^8.4|^9.0",
                 "psy/psysh": "@stable"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1868,7 +1869,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.3.5"
+                "source": "https://github.com/livewire/livewire/tree/master"
             },
             "funding": [
                 {
@@ -1876,7 +1877,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-01T20:51:29+00:00"
+            "time": "2021-01-06T16:15:47+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -8279,6 +8280,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "livewire/livewire": 20,
         "tonysm/turbo-laravel": 20
     },
     "prefer-stable": true,
