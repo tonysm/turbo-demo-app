@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-param" content="XSRF-TOKEN">
 
         <meta name="current-user-id" content="{{ auth()->id() }}" />
         <meta name="current-team-id" content="{{ optional(auth()->user()->currentTeam)->id }}">

@@ -3,10 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Tonysm\TurboLaravel\Models\Broadcasts;
 
 class Comment extends Model
 {
     use HasFactory;
+    use Broadcasts;
+
+    protected $broadcastsTo = [
+        'post',
+    ];
 
     public function user()
     {

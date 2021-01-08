@@ -1,4 +1,8 @@
 <x-app-layout>
+    <turbo-echo-stream-source
+        channel="App.Models.Post.{{ $post->id }}"
+    />
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="{{ route('posts.index') }}" class="text-cool-gray-500">Posts</a> / {{ $post->title }}

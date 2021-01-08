@@ -31,7 +31,7 @@ class PostCommentsController extends Controller
         );
 
         if (request()->wantsTurboStream()) {
-            return response()->turboStreamView(view('post_comments.turbo.created_stream', ['comment' => $comment]));
+            return response()->turboStreamView(view('comments.turbo.created_stream', ['comment' => $comment]));
         }
 
         return redirect()->route('posts.show', $post);
