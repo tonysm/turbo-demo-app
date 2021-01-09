@@ -10,8 +10,7 @@ class PostsController extends Controller
     {
         return view('posts.index', [
             'posts' => request()->user()->currentTeam->posts()
-                ->published()
-                ->latest('published_at')
+                ->latest('created_at')
                 ->get(),
         ]);
     }
@@ -20,6 +19,30 @@ class PostsController extends Controller
     {
         return view('posts.show', [
             'post' => $post,
+        ]);
+    }
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store()
+    {
+        $post = auth()->user()->currentTeam->posts()->create(
+            $this->postParams() + ['user_id' => auth()->id()]
+        );
+
+        ray($post);
+
+        return redirect()->route('posts.show', $post);
+    }
+
+    private function postParams(): array
+    {
+        return request()->validate([
+            'title' => 'required|string|min:5|max:100',
+            'content' => 'required|string',
         ]);
     }
 }

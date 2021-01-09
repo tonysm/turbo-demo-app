@@ -5,8 +5,8 @@
         </h2>
         <small class="space-x-2">
             <span>{{ $post->user->name }}</span>
-            <time datetime="{{ $post->published_at->toDateTimeString() }}" class="text-gray-600">
-                {{ $post->published_at->toFormattedDateString() }}
+            <time datetime="{{ $post->created_at->toDateTimeString() }}" class="text-gray-600">
+                {{ $post->created_at->toFormattedDateString() }}
             </time>
         </small>
         <p class="mt-3 text-base text-gray-500">
