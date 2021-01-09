@@ -21,7 +21,9 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-dropdown')
+            <div id="app-navigation" data-turbo-permanent>
+                @livewire('navigation-dropdown')
+            </div>
 
             <!-- Page Heading -->
             <header class="bg-white shadow">

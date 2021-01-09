@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
-use Illuminate\Validation\ValidationException;
 
 class CommentsController extends Controller
 {
