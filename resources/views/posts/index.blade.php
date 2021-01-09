@@ -1,4 +1,8 @@
 <x-app-layout>
+    <turbo-echo-stream-source
+        channel="App.Models.Team.{{ auth()->user()->currentTeam->id }}"
+    />
+
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -19,7 +23,7 @@
                 </turbo-frame>
 
                 @if($posts->isEmpty())
-                    <turbo-frame id="posts_empty">
+                    <turbo-frame id="empty_posts">
                         <div class="bg-white rounded shadow p-4 text-gray-700 text-center">
                             <p>Nothing was shared just yet. Create your first post!</p>
                         </div>
