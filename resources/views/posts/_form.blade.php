@@ -27,7 +27,7 @@
     </label>
 
     <div class="flex justify-between items-center">
-        <x-jet-button>
+        <x-jet-button data-controller="loading-button">
             {{ __('Save') }}
         </x-jet-button>
 
