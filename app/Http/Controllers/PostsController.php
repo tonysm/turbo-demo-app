@@ -33,8 +33,6 @@ class PostsController extends Controller
             $this->postParams() + ['user_id' => auth()->id()]
         );
 
-        ray($post);
-
         return redirect()->route('posts.show', $post);
     }
 
