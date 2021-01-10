@@ -1,6 +1,6 @@
 <turbo-frame id="@domid($comment)">
     <div class="bg-white p-4 rounded shadow my-4">
-        <p class="flex justify-between text-xs">
+        <p class="flex justify-between text-sm">
             <span>{{ $comment->user->name }} said:</span>
             <span class="space-x-2 text-gray-500 flex items-center"
 
@@ -60,8 +60,8 @@
             </span>
         </p>
 
-        <p class="mt-3 text-sm text-gray-600">
-            {!! nl2br(e($comment->content)) !!}
+        <p class="mt-3 trix-content">
+            {!! $comment->content !!}
         </p>
 
         @if($deleting ?? false)

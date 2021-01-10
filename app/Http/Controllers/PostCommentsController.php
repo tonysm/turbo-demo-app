@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 
 class PostCommentsController extends Controller
@@ -19,6 +20,7 @@ class PostCommentsController extends Controller
 
         return view('comments.create', [
             'post' => $post,
+            'newComment' => new Comment(),
         ]);
     }
 

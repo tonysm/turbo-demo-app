@@ -9,9 +9,11 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-12">
-            <div class="bg-white p-4 shadow rounded-lg">
+            <div>
                 <turbo-frame id="@domid($comment)">
-                    @include('comments._form', ['comment' => $comment])
+                    <div class="rounded-lg shadow">
+                        @include('comments._form', ['comment' => $comment])
+                    </div>
                 </turbo-frame>
             </div>
         </div>

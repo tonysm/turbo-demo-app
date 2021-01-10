@@ -10,10 +10,10 @@
     </template>
 </turbo-stream>
 
-@unless(app()->runningInConsole())
+@if($comment->wasRecentlyCreated)
     <turbo-stream target="new_comment" action="update">
         <template>
-            @include('comments._form', ['post' => $comment->post, 'comment' => null])
+            @include('comments._form', ['post' => $comment->post, 'comment' => new \App\Models\Comment()])
         </template>
     </turbo-stream>
-@endunless
+@endif
