@@ -10,7 +10,7 @@ class Comment extends Model
     use HasFactory;
     use Broadcasts;
 
-    protected $broadcastsTo = [
+    public $broadcastsTo = [
         'post',
     ];
 
