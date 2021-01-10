@@ -23,6 +23,7 @@
             id="{{ \Tonysm\TurboLaravel\NamesResolver::resourceIdFor($post, 'content') }}"
             value="{!! old('content', $post->content) !!}"
             name="content"
+            style="min-height: 300px"
         ></x-trix-editor>
         @error('content')
         <span class="text-gray-700">{{ $message }}</span>

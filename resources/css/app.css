@@ -5,3 +5,11 @@
 .trix-content {
     @apply .text-sm .text-gray-600;
 }
+
+.trix-content blockquote {
+    @apply .border-l-2 .border-gray-300 .text-gray-600;
+}
+
+.trix-content h1 {
+    @apply .font-semibold .text-gray-900 !important;
+}

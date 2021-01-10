@@ -60,9 +60,9 @@
             </span>
         </p>
 
-        <p class="mt-3 trix-content">
+        <div class="mt-3 trix-content">
             {!! $comment->content !!}
-        </p>
+        </div>
 
         @if($deleting ?? false)
             <form id="@domid($comment, 'delete_form')" action="{{ route('comments.destroy', $comment) }}" method="POST"

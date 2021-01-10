@@ -7,6 +7,8 @@ import('./turbo-livewire-stream-tag');
 import { Application } from "stimulus"
 import { definitionsFromContext } from "@stimulus/webpack-helpers"
 import 'alpinejs';
+import 'trix';
+import 'trix/dist/trix.css';
 
 startTurbo();
 const application = Application.start()

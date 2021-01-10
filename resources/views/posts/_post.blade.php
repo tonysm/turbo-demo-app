@@ -1,7 +1,7 @@
 <div>
     <h1>{{ $post->title }}</h1>
 
-    <article>
+    <div>
         {!! $post->content !!}
-    </article>
+    </div>
 </div>
