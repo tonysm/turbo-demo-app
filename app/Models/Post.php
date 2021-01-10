@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use App\Events\PostCreated;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Tonysm\TurboLaravel\Events\TurboStreamModelCreated;
 
+/**
+ * @property \App\Models\Team $team
+ * @property \App\Models\User $user
+ */
 class Post extends Model
 {
     use HasFactory;
 
     protected $dispatchesEvents = [
-        'created' => TurboStreamModelCreated::class,
+        'created' => PostCreated::class,
     ];
 
     public $broadcastsTo = [
