@@ -16,4 +16,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('livewire-integration', function () {
         return view('livewire-integration');
     })->name('livewire.integration');
+
+    Route::get('notifications', function () {
+        return view('notifications.index', [
+            'notifications' => auth()->user()
+                ->notifications()
+                ->paginate(),
+        ]);
+    })->name('notifications.index');
 });
