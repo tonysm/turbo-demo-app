@@ -41,4 +41,9 @@ class Post extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function setContentAttribute(string $content = "")
+    {
+        $this->attributes['content'] = clean($content);
+    }
 }

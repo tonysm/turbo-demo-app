@@ -17,7 +17,7 @@
 
         <x-trix-editor
             :id="\Tonysm\TurboLaravel\NamesResolver::resourceIdFor($comment, 'content')"
-            value="{!! $comment->content  !!}"
+            value="{!! $comment->content !!}"
             name="content"
         />
 

@@ -10,7 +10,7 @@
             </time>
         </small>
         <p class="mt-3 text-base text-gray-500">
-            {{ \Illuminate\Support\Str::limit($post->content, 180) }}
+            {!! \Illuminate\Support\Str::limit(html_entity_decode($post->content), 180) !!}
         </p>
     </a>
     <div class="mt-3">

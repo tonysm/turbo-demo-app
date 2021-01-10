@@ -17,14 +17,17 @@
         @enderror
     </label>
 
-    <label class="block">
-        <span class="text-gray-700 {{ $comment ?? false ? 'sr-only' : '' }}">Content</span>
-        <textarea name="content" class="form-textarea mt-1 block w-full" rows="3"
-                  placeholder="Write your story...">{{ old('content') }}</textarea>
+    <div class="block">
+        <label class="text-gray-700 mb-2">Content</label>
+        <x-trix-editor
+            id="{{ \Tonysm\TurboLaravel\NamesResolver::resourceIdFor($post, 'content') }}"
+            value="{!! old('content', $post->content) !!}"
+            name="content"
+        ></x-trix-editor>
         @error('content')
         <span class="text-gray-700">{{ $message }}</span>
         @enderror
-    </label>
+    </div>
 
     <div class="flex justify-between items-center">
         <x-jet-button data-controller="loading-button">

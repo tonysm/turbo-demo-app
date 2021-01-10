@@ -12,7 +12,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-12">
             <div class="bg-white p-4 shadow rounded-lg">
-                {!! nl2br(e($post->content)) !!}
+                {!! $post->content !!}
             </div>
 
             <div class="space-y-4">

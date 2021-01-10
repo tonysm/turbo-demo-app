@@ -23,6 +23,7 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "dev-master",
+        "mews/purifier": "^3.3",
         "pusher/pusher-php-server": "~4.0",
         "tonysm/turbo-laravel": "dev-master"
     },
