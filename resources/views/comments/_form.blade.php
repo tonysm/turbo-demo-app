@@ -5,7 +5,7 @@
     action="{{ route('posts.comments.store', $post) }}"
     @endif
     method="POST"
-    class="p-4 bg-white rounded"
+    class="p-4 bg-white rounded my-4"
 >
     @csrf
     @if($comment->exists)

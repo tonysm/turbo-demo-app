@@ -9,11 +9,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-12">
-            <div class="bg-white p-4 shadow rounded-lg">
-                <turbo-frame id="@domid($comment)">
-                    @include('comments._comment', ['comment' => $comment, 'deleting' => true])
-                </turbo-frame>
-            </div>
+            @include('comments._comment', ['comment' => $comment, 'deleting' => true])
         </div>
     </div>
 </x-app-layout>
