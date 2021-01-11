@@ -22,6 +22,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             'notifications' => auth()->user()
                 ->notifications()
                 ->paginate(),
+            'frame' => request()->input('notifications-frame', '') == "box" ? 'notifications-box' : 'notifications',
         ]);
     })->name('notifications.index');
 });
