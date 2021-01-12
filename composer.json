@@ -15,6 +15,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "beyondcode/laravel-websockets": "^2.0@beta",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",

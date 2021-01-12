@@ -3,7 +3,7 @@ version: '3'
 services:
     laravel.test:
         build:
-            context: ./vendor/laravel/sail/runtimes/8.0
+            context: ./.docker/php/8.0
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
@@ -21,6 +21,23 @@ services:
             - mysql
             - redis
             # - selenium
+    websockets.test:
+      image: sail-8.0/app
+      command: 'php artisan websockets:serve --port=${LARAVEL_WEBSOCKETS_PORT} --host=0.0.0.0'
+      depends_on:
+          - laravel.test
+          - mysql
+          - redis
+      ports:
+          - '${LARAVEL_WEBSOCKETS_PORT:-6003}:6003'
+      environment:
+          WWWUSER: '${WWWUSER}'
+          LARAVEL_SAIL: 1
+          LARAVEL_WEBSOCKETS_PORT: '${LARAVEL_WEBSOCKETS_PORT}'
+      volumes:
+          - '.:/var/www/html'
+      networks:
+          - sail
     # selenium:
     #     image: 'selenium/standalone-chrome'
     #     volumes:
