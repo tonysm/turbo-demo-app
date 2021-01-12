@@ -6,6 +6,8 @@
     @endif
     method="POST"
     class="p-4 bg-white rounded my-4"
+    x-data=""
+    x-init="$refs.contentField.focus()"
 >
     @csrf
     @if($comment->exists)
@@ -22,6 +24,7 @@
                 :id="\Tonysm\TurboLaravel\NamesResolver::resourceIdFor($comment, 'content')"
                 value="{!! $comment->content !!}"
                 name="content"
+                x-ref="contentField"
             />
         </div>
 

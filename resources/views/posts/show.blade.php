@@ -27,9 +27,9 @@
                 </turbo-frame>
 
                 <div class="mt-4">
-                    <turbo-frame id="new_comment" src="{{ route('posts.comments.create', $post) }}">
+                    <turbo-frame id="new_comment">
                         <a
-                            class="text-base font-semibold text-indigo-400"
+                            class="block bg-white p-4 text-base text-gray-500 text-center rounded shadow"
                             href="{{ route('posts.comments.create', $post) }}"
                         >
                             New Comment
