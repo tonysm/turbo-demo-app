@@ -7,12 +7,6 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./workspaces/turbo-laravel"
-        }
-    ],
     "require": {
         "php": "^7.4|^8.0",
         "beyondcode/laravel-websockets": "^2.0@beta",
