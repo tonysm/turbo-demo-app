@@ -2,8 +2,8 @@ import {
     start as startTurbo
 } from "@hotwired/turbo";
 import('./bootstrap');
-import('./turbo-echo-stream-tag');
-import('./turbo-livewire-stream-tag');
+import('./elements/turbo-echo-stream-tag');
+import('./elements/turbo-livewire-stream-tag');
 import { Application } from "stimulus"
 import { definitionsFromContext } from "@stimulus/webpack-helpers"
 import 'alpinejs';
