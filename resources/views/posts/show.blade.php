@@ -2,11 +2,14 @@
     <turbo-echo-stream-source
         channel="App.Models.Post.{{ $post->id }}"
     />
+    <turbo-echo-stream-source
+        channel="App.Models.Team.{{ auth()->user()->currentTeam->id }}"
+    />
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             <a href="{{ route('posts.index') }}" class="text-cool-gray-500">Posts</a> /
-            <turbo-frame id="@domid($post, 'header')">{{ $post->title }}</turbo-frame>
+            <turbo-frame id="@domid($post, 'title')">{{ $post->title }}</turbo-frame>
         </h2
     </x-slot>
 

@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Events\PostCreated;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Tonysm\TurboLaravel\Events\TurboStreamModelUpdated;
+use Tonysm\TurboLaravel\Events\TurboStreamModelDeleted;
 
 /**
  * @property \App\Models\Team $team
@@ -16,6 +18,8 @@ class Post extends Model
 
     protected $dispatchesEvents = [
         'created' => PostCreated::class,
+        'updated' => TurboStreamModelUpdated::class,
+        'deleted' => TurboStreamModelDeleted::class,
     ];
 
     public $broadcastsTo = [

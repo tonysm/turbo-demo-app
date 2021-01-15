@@ -1,13 +1,15 @@
-<turbo-stream target="@domid($post, 'header')" action="replace">
+<turbo-stream target="@domid($post, 'title')" action="update">
+    <template>{{ $post->title }}</template>
+</turbo-stream>
+
+<turbo-stream target="@domid($post)" action="update">
     <template>
-        <turbo-frame id="@domid($post, 'header')">{{ $post->title }}</turbo-frame>
+        @include('posts._post', ['post' => $post])
     </template>
 </turbo-stream>
 
-<turbo-stream target="@domid($post)" action="replace">
+<turbo-stream target="@domid($post, 'card')" action="replace">
     <template>
-        <turbo-frame id="@domid($post)">
-            @include('posts._post', ['post' => $post])
-        </turbo-frame>
+        @include('posts._post_card', ['post' => $post])
     </template>
 </turbo-stream>

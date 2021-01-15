@@ -21,7 +21,9 @@
                 <form
                       method="post"
                       action="{{ route('posts.destroy', $post) }}"
+                      data-turbo="false"
                       data-turbo-frame="_top"
+                      data-turbo-action="replace"
                 >
                     @csrf
                     @method('delete')

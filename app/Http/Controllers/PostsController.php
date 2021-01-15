@@ -73,13 +73,16 @@ class PostsController extends Controller
     {
         $this->authorize('delete', $post);
 
-        $post->comments()->delete();
-        $post->delete();
-
-        // Buggy
         // if (request()->wantsTurboStream()) {
         //     return response()->turboStreamView(view('posts.turbo.deleted_stream', ['post' => $post]));
         // }
+
+        $post->comments()->delete();
+        $post->delete();
+
+        if (request()->wantsTurboStream()) {
+            return response()->turboStreamView(view('posts.turbo.deleted_stream', ['post' => $post]));
+        }
 
         return redirect()->route('posts.index');
     }
