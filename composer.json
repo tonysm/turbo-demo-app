@@ -20,7 +20,7 @@
         "livewire/livewire": "dev-master",
         "mews/purifier": "^3.3",
         "pusher/pusher-php-server": "~4.0",
-        "tonysm/turbo-laravel": "dev-master"
+        "tonysm/turbo-laravel": "dev-main"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
