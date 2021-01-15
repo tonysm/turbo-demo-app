@@ -8,7 +8,8 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::resource('posts', Controllers\PostsController::class)->only(['index', 'show', 'create', 'store']);
+    Route::resource('posts', Controllers\PostsController::class);
+    Route::get('posts/{post}/delete', [Controllers\PostsController::class, 'delete'])->name('posts.delete');
     Route::resource('posts.comments', Controllers\PostCommentsController::class)->only(['index', 'create', 'store']);
     Route::resource('comments', Controllers\CommentsController::class)->only(['show', 'edit', 'update', 'destroy']);
     Route::get('comments/{comment}/delete', [Controllers\CommentsController::class, 'delete'])->name('comments.delete');

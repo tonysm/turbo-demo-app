@@ -38,6 +38,52 @@ class PostsController extends Controller
         return redirect()->route('posts.show', $post);
     }
 
+    public function edit(Post $post)
+    {
+        $this->authorize('update', $post);
+
+        return view('posts.edit', [
+            'post' => $post,
+        ]);
+    }
+
+    public function update(Post $post)
+    {
+        $this->authorize('update', $post);
+
+        $post->update($this->postParams());
+
+        if (request()->wantsTurboStream()) {
+            return response()->turboStream($post);
+        }
+
+        return redirect()->route('posts.show', $post);
+    }
+
+    public function delete(Post $post)
+    {
+        $this->authorize('delete', $post);
+
+        return view('posts.delete', [
+            'post' => $post,
+        ]);
+    }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('delete', $post);
+
+        $post->comments()->delete();
+        $post->delete();
+
+        // Buggy
+        // if (request()->wantsTurboStream()) {
+        //     return response()->turboStreamView(view('posts.turbo.deleted_stream', ['post' => $post]));
+        // }
+
+        return redirect()->route('posts.index');
+    }
+
     private function postParams(): array
     {
         return request()->validate([
