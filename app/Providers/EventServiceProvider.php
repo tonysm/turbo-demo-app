@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Events\PostCreated;
-use App\Listeners\Posts\BroadcastPost;
 use App\Listeners\Posts\NotifyTeamMembers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
