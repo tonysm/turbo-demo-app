@@ -2,9 +2,7 @@
     <div class="bg-white p-4 rounded shadow my-4">
         <p class="flex justify-between text-sm">
             <span>{{ $comment->user->name }} said:</span>
-            <span class="space-x-2 text-gray-500 flex items-center"
-
-            >
+            <span class="space-x-2 text-gray-500 flex items-center">
                 <span
                     class="flex items-center space-x-2 transform transition-all duration-75 ease-out scale-0"
                     data-controller="replace-class"

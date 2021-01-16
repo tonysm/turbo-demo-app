@@ -1,18 +1,23 @@
 <x-app-layout>
+    <turbo-echo-stream-source channel="App.Models.Post.{{ $post->id }}"></turbo-echo-stream-source>
     <turbo-echo-stream-source
-        channel="App.Models.Post.{{ $post->id }}"
-    />
+        channel="App.Models.Team.{{ auth()->user()->currentTeam->id }}"></turbo-echo-stream-source>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <a href="{{ route('posts.index') }}" class="text-cool-gray-500">Posts</a> / {{ $post->title }}
-        </h2>
+        <a href="{{ route('posts.index') }}"
+           class="font-semibold text-xl text-gray-800 leading-tight flex space-x-1 items-center">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <span>back</span>
+        </a>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-12">
-            <div class="bg-white p-4 shadow rounded-lg trix-content">
-                {!! $post->content !!}
+            <div class="bg-white rounded shadow p-8">
+                @include('posts._post', ['post' => $post])
             </div>
 
             <div class="space-y-4">
