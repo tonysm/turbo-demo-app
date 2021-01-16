@@ -5,7 +5,6 @@
     action="{{ route('posts.comments.store', $post) }}"
     @endif
     method="POST"
-    class="p-4 bg-white rounded my-4"
     x-data=""
     x-init="$refs.contentField.focus()"
 >
@@ -21,7 +20,7 @@
 
         <div class="mt-2">
             <x-trix-editor
-                :id="\Tonysm\TurboLaravel\NamesResolver::resourceIdFor($comment, 'content')"
+                id="@domid($comment, 'content')"
                 value="{!! $comment->content !!}"
                 name="content"
                 x-ref="contentField"

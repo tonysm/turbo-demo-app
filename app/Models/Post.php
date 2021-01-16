@@ -5,8 +5,7 @@ namespace App\Models;
 use App\Events\PostCreated;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Tonysm\TurboLaravel\Events\TurboStreamModelUpdated;
-use Tonysm\TurboLaravel\Events\TurboStreamModelDeleted;
+use Tonysm\TurboLaravel\Models\Broadcasts;
 
 /**
  * @property \App\Models\Team $team
@@ -15,20 +14,20 @@ use Tonysm\TurboLaravel\Events\TurboStreamModelDeleted;
 class Post extends Model
 {
     use HasFactory;
+    use Broadcasts;
 
     protected $dispatchesEvents = [
         'created' => PostCreated::class,
-        'updated' => TurboStreamModelUpdated::class,
-        'deleted' => TurboStreamModelDeleted::class,
-    ];
-
-    public $broadcastsTo = [
-        'team',
     ];
 
     protected $casts = [
         'published_at' => 'datetime',
     ];
+
+    public function broadcastsTo()
+    {
+        return [$this->team, $this];
+    }
 
     public function scopePublished(Builder $query)
     {

@@ -16,19 +16,17 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="space-y-8">
-                <turbo-frame id="post_cards" target="_top" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-2 md:gap-3 lg:gap-4">
+                <div id="post_cards" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-2 md:gap-3 lg:gap-4">
                     @foreach($posts as $post)
                         @include('posts._post_card', ['post' => $post])
                     @endforeach
-                </turbo-frame>
+                </div>
             </div>
 
             @if($posts->isEmpty())
-                <turbo-frame id="empty_posts">
-                    <div class="bg-white rounded shadow p-4 text-gray-700 text-center">
-                        <p>Nothing was shared just yet. Create your first post!</p>
-                    </div>
-                </turbo-frame>
+                <div id="empty_posts" class="bg-white rounded shadow p-4 text-gray-700 text-center">
+                    <p>Nothing was shared just yet. Create your first post!</p>
+                </div>
             @endif
         </div>
     </div>

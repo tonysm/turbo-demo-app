@@ -1,8 +1,4 @@
-<turbo-stream target="@domid($post, 'title')" action="update">
-    <template>{{ $post->title }}</template>
-</turbo-stream>
-
-<turbo-stream target="@domid($post)" action="update">
+<turbo-stream target="@domid($post)" action="replace">
     <template>
         @include('posts._post', ['post' => $post])
     </template>

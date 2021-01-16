@@ -9,9 +9,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-12">
-            <div class="bg-white rounded-lg shadow">
+            <div class="bg-white p-8 shadow rounded-lg">
                 <turbo-frame id="@domid($post)">
-                        @include('posts._form', ['post' => $post])
+                    @include('posts._form', ['post' => $post])
                 </turbo-frame>
             </div>
         </div>

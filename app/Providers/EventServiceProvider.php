@@ -21,7 +21,6 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         PostCreated::class => [
-            BroadcastPost::class,
             NotifyTeamMembers::class,
         ],
     ];
