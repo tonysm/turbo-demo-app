@@ -2,8 +2,8 @@
 
 This application serves as an example of applying Hotwire in Laravel. Uses:
 
-- Turbo (via `tonysm/turbo-laravel` package)
-- Laravel WebSockets (via `beyondcode/laravel-websockets` package)
+- Turbo (via [`tonysm/turbo-laravel`](https://github.com/tonysm/turbo-laravel) package)
+- Laravel WebSockets (via [`beyondcode/laravel-websockets`](https://github.com/beyondcode/laravel-websockets) package)
 - Many built-in components from Laravel
 
 ## Setup
