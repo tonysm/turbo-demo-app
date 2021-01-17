@@ -6915,16 +6915,16 @@
         },
         {
             "name": "tonysm/turbo-laravel",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/turbo-laravel.git",
-                "reference": "47fe2c46b9eecc7949baff25b7a87a0e076075bc"
+                "reference": "be32b8b832f99d475336397e813ba3c9070a077e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/47fe2c46b9eecc7949baff25b7a87a0e076075bc",
-                "reference": "47fe2c46b9eecc7949baff25b7a87a0e076075bc",
+                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/be32b8b832f99d475336397e813ba3c9070a077e",
+                "reference": "be32b8b832f99d475336397e813ba3c9070a077e",
                 "shasum": ""
             },
             "require": {
@@ -6974,9 +6974,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/turbo-laravel/issues",
-                "source": "https://github.com/tonysm/turbo-laravel/tree/0.0.3"
+                "source": "https://github.com/tonysm/turbo-laravel/tree/0.0.4"
             },
-            "time": "2021-01-17T00:48:44+00:00"
+            "time": "2021-01-17T02:22:07+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
