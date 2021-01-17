@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ec6cf800f3e5a0f6442ad3c264022bd",
+    "content-hash": "a3042a6f2f802a939334a273a7b1b99a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6919,12 +6919,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/turbo-laravel.git",
-                "reference": "6d1c3d1b2774496ed899743a8e211f8386de3297"
+                "reference": "4a5f057485f2e11716fdc7dd7f2c50e9476b6e96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/6d1c3d1b2774496ed899743a8e211f8386de3297",
-                "reference": "6d1c3d1b2774496ed899743a8e211f8386de3297",
+                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/4a5f057485f2e11716fdc7dd7f2c50e9476b6e96",
+                "reference": "4a5f057485f2e11716fdc7dd7f2c50e9476b6e96",
                 "shasum": ""
             },
             "require": {
@@ -6972,9 +6972,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/turbo-laravel/issues",
-                "source": "https://github.com/tonysm/turbo-laravel/tree/0.0.2"
+                "source": "https://github.com/tonysm/turbo-laravel/tree/main"
             },
-            "time": "2021-01-15T16:45:24+00:00"
+            "time": "2021-01-16T19:42:41+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -9824,6 +9824,80 @@
             "time": "2021-01-13T15:36:44+00:00"
         },
         {
+            "name": "symfony/dom-crawler",
+            "version": "v5.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dom-crawler.git",
+                "reference": "ee7cf316fb0de786cfe5ae32ee79502b290c81ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/ee7cf316fb0de786cfe5ae32ee79502b290c81ea",
+                "reference": "ee7cf316fb0de786cfe5ae32ee79502b290c81ea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "symfony/polyfill-ctype": "~1.8",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "conflict": {
+                "masterminds/html5": "<2.6"
+            },
+            "require-dev": {
+                "masterminds/html5": "^2.6",
+                "symfony/css-selector": "^4.4|^5.0"
+            },
+            "suggest": {
+                "symfony/css-selector": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/dom-crawler/tree/v5.2.1"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-12-18T08:02:46+00:00"
+        },
+        {
             "name": "symfony/stopwatch",
             "version": "v5.2.1",
             "source": {
@@ -9934,9 +10008,77 @@
                 }
             ],
             "time": "2020-07-12T23:59:07+00:00"
+        },
+        {
+            "name": "tonysm/turbo-laravel-test-helpers",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tonysm/turbo-laravel-test-helpers.git",
+                "reference": "003567f07d691cc3aa9b7d2505b7b16478e9d5e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tonysm/turbo-laravel-test-helpers/zipball/003567f07d691cc3aa9b7d2505b7b16478e9d5e4",
+                "reference": "003567f07d691cc3aa9b7d2505b7b16478e9d5e4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.4|^8.0",
+                "symfony/css-selector": "^5.2",
+                "symfony/dom-crawler": "^5.2",
+                "tonysm/turbo-laravel": "^0.0.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tonysm\\TurboLaravelTestHelpers\\TurboLaravelTestHelpersServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tonysm\\TurboLaravelTestHelpers\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tony Messias",
+                    "email": "tonysm@hey.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A couple of testing helpers for applications using Turbo Laravel.",
+            "homepage": "https://github.com/tonysm/turbo-laravel-test-helpers",
+            "keywords": [
+                "tonysm",
+                "turbo-laravel-test-helpers"
+            ],
+            "support": {
+                "issues": "https://github.com/tonysm/turbo-laravel-test-helpers/issues",
+                "source": "https://github.com/tonysm/turbo-laravel-test-helpers/tree/0.0.1"
+            },
+            "time": "2021-01-17T00:13:01+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "tonysm/turbo-laravel",
+            "version": "dev-main",
+            "alias": "0.0.2",
+            "alias_normalized": "0.0.2.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
         "beyondcode/laravel-websockets": 10,
