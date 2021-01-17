@@ -29,7 +29,7 @@
         </div>
 
         @error('content')
-        <span class="text-gray-700">{{ $message }}</span>
+        <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
         @enderror
     </div>
 
