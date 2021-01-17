@@ -26,11 +26,13 @@ class UserFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (User $user) {
-            $user->ownedTeams()->save(Team::forceCreate([
+            $user->ownedTeams()->save($team = Team::forceCreate([
                 'user_id' => $user->id,
                 'name' => explode(' ', $user->name, 2)[0]."'s Team",
                 'personal_team' => true,
             ]));
+
+            $user->currentTeam()->associate($team)->save();
         });
     }
 }

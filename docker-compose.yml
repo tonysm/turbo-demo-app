@@ -19,6 +19,7 @@ services:
             - sail
         depends_on:
             - mysql
+            - mysql.test
             - redis
             # - selenium
     websockets.test:
@@ -58,6 +59,17 @@ services:
             - 'sailmysql:/var/lib/mysql'
         networks:
             - sail
+    mysql.test:
+      image: 'mysql:8.0'
+      environment:
+        MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+        MYSQL_DATABASE: '${DB_DATABASE}'
+        MYSQL_USER: '${DB_USERNAME}'
+        MYSQL_PASSWORD: '${DB_PASSWORD}'
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      tmpfs: '/var/lib/mysql'
+      networks:
+        - sail
     redis:
         image: 'redis:alpine'
         ports:
