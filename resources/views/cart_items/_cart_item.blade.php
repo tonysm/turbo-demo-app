@@ -5,16 +5,16 @@
 
         <div>
             <div class="font-bold text-lg">
-                Product XPTO
+                {{ $cartItem->name }}
             </div>
 
             <div class="flex items-center space-x-2">
                 <div>
-                    $ 55.00
+                    {{ $cartItem->price_for_display }}
                 </div>
                 <div>
                     <form action="">
-                        Quantity: <input type="number" value="15" class="form-input w-16 border-transparent" />
+                        Quantity: <input type="number" value="{{ $cartItem->quantity }}" class="form-input w-16 border-transparent" />
                     </form>
                 </div>
             </div>

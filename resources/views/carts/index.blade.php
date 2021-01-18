@@ -19,21 +19,29 @@
                                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
 
-                            <div id="cart_items_counter" class="rounded-full px-2 text-gray-700">6</div>
+                            <div id="cart_items_counter" class="rounded-full px-2 text-gray-700">
+                                {{ count($cart->items) }}
+                            </div>
                         </button>
                     </x-slot>
 
                     <x-slot name="content">
                         <div class="p-4 space-y-4">
-                            <div id="cart_items" class="space-y-4">
-                                @foreach(range(1, 4) as $i)
-                                    @include('cart_items._cart_item')
+                            <div id="cart_items" class="space-y-4 max-h-3/4 overflow-y-auto">
+                                @foreach($cart->items as $cartItem)
+                                    @include('cart_items._cart_item', ['cartItem' => $cartItem])
                                 @endforeach
+
+                                @empty($cart->items)
+                                    <div class="bg-white text-base rounded py-2 px-4 flex justify-between items-center">
+                                        No items on your cart just yet.
+                                    </div>
+                                @endempty
                             </div>
 
                             <div class="flex items-center justify-between">
                                 <div id="cart_total" class="text-lg font-semibold">
-                                    Total: R$ 33.00
+                                    Total: R$ {{ $cart->total_price_for_display }}
                                 </div>
 
                                 <div>
