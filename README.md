@@ -20,6 +20,14 @@ docker run --rm \
     composer install
 ```
 
+**Copy the `.env.example` file**:
+
+```bash
+cp .env.example .env
+```
+Then you can edit this new `.env` file as you want.
+Of course you can also add your own file `.env` file.
+
 **Generate the APP_KEY**:
 
 ```bash
