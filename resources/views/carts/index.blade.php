@@ -26,7 +26,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="p-4 space-y-4">
+                        <div class="p-4 space-y-4" x-data @click.stop>
                             <div id="cart_items" class="space-y-4 overflow-y-auto" style="max-height: 400px">
                                 @foreach($cart->items as $cartItem)
                                     @include('cart_items._cart_item', ['cartItem' => $cartItem])
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div>
-                                    <button class="px-4 py-2 rounded bg-indigo-500 text-white">
+                                    <button class="px-4 py-2 text-sm rounded bg-indigo-500 text-white">
                                         Proceed to Checkout
                                     </button>
                                 </div>

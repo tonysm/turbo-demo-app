@@ -22,7 +22,7 @@ class CartItemsController extends Controller
     public function update(CartItem $cartItem)
     {
         $cartItem->update([
-            'quantity' => intval(request()->input('quantity', 1)),
+            'quantity' => max(intval(request()->input('quantity', 1)), 1),
         ]);
 
         if (request()->wantsTurboStream()) {
