@@ -1,14 +1,14 @@
 <div class="bg-white rounded border border-gray-100 shadow hover:shadow-lg py-4 px-6 space-y-4">
-    <img src="http://placekitten.com/250/200" alt="Example Product"
+    <img src="http://placekitten.com/250/200" alt="{{ $product->name }}"
          class="mx-auto rounded border-4 border-white shadow"/>
 
     <div class="font-bold text-xl text-center">
-        Product XPTO
+        {{ $product->name }}
     </div>
 
     <div class="flex justify-between items-center">
         <div>
-            $ 55.00
+            {{ $product->price_for_display }}
         </div>
 
         <div>

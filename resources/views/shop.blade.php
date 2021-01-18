@@ -14,8 +14,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="sm:grid sm:gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-                @foreach(range(1, 11) as $i)
-                    @include('products._product_card')
+                @foreach($products as $product)
+                    @include('products._product_card', ['product' => $product])
                 @endforeach
             </div>
         </div>
