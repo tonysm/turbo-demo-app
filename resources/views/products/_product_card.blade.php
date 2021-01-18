@@ -12,7 +12,7 @@
         </div>
 
         <div>
-            <button class="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-500 text-white">Add to Cart</button>
+            <button class="px-4 py-2 text-sm rounded bg-indigo-600 hover:bg-indigo-500 text-white">Add to Cart</button>
         </div>
     </div>
 </div>
