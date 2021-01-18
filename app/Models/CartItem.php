@@ -17,4 +17,16 @@ class CartItem extends Model
     {
         return $this->belongsTo(Cart::class);
     }
+
+    public function getNameForDisplayAttribute()
+    {
+        return $this->product->name;
+    }
+
+    public function getPriceForDisplayAttribute()
+    {
+        $priceCents = $this->unit_price_cents * $this->quantity;
+
+        return sprintf('$ %s', number_format($priceCents / 100, 2));
+    }
 }

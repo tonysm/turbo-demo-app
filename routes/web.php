@@ -17,7 +17,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('merch')->group(function () {
         Route::get('/', [Controllers\ShopController::class, 'index'])->name('shop.index');
         Route::resource('carts', Controllers\CartsController::class)->only(['index']);
-        Route::resource('cart-items', Controllers\CartItemsController::class)->only(['store']);
+        Route::resource('cart-items', Controllers\CartItemsController::class)->only(['store', 'update', 'destroy']);
     });
 
     Route::get('livewire-integration', function () {

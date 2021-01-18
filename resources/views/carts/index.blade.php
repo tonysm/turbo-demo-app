@@ -27,21 +27,19 @@
 
                     <x-slot name="content">
                         <div class="p-4 space-y-4">
-                            <div id="cart_items" class="space-y-4 max-h-3/4 overflow-y-auto">
+                            <div id="cart_items" class="space-y-4 overflow-y-auto" style="max-height: 400px">
                                 @foreach($cart->items as $cartItem)
                                     @include('cart_items._cart_item', ['cartItem' => $cartItem])
                                 @endforeach
 
-                                @empty($cart->items)
-                                    <div class="bg-white text-base rounded py-2 px-4 flex justify-between items-center">
-                                        No items on your cart just yet.
-                                    </div>
-                                @endempty
+                                @if(count($cart->items) === 0)
+                                    @include('cart_items._empty_items')
+                                @endif
                             </div>
 
                             <div class="flex items-center justify-between">
                                 <div id="cart_total" class="text-lg font-semibold">
-                                    Total: R$ {{ $cart->total_price_for_display }}
+                                    Total: {{ $cart->total_price_for_display }}
                                 </div>
 
                                 <div>

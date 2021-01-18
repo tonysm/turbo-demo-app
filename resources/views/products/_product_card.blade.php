@@ -12,7 +12,12 @@
         </div>
 
         <div>
-            <button class="px-4 py-2 text-sm rounded bg-indigo-600 hover:bg-indigo-500 text-white">Add to Cart</button>
+            <form action="{{ route('cart-items.store', ['product_id' => $product->id]) }}" method="post">
+                @csrf
+                <button type="submit" class="px-4 py-2 text-sm rounded bg-indigo-600 hover:bg-indigo-500 text-white">
+                    Add to Cart
+                </button>
+            </form>
         </div>
     </div>
 </div>

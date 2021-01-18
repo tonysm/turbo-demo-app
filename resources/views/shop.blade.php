@@ -5,7 +5,7 @@
                 {{ __('Shop') }}
             </h2>
 
-            <div class="sm:absolute sm:top-0 sm:-mt-2 sm:right-0">
+            <div class="sm:z-10 sm:absolute sm:top-0 sm:-mt-2 sm:right-0">
                 <turbo-frame id="carts" src="{{ route('carts.index') }}"></turbo-frame>
             </div>
         </div>
