@@ -15,6 +15,7 @@
         "@stimulus/webpack-helpers": "^2.0.0",
         "@tailwindcss/custom-forms": "^0.2.1",
         "@tailwindcss/ui": "^0.6.0",
+        "alpine-turbo-drive-adapter": "^1.0.1",
         "alpinejs": "^2.8.0",
         "axios": "^0.19",
         "cross-env": "^7.0",
