@@ -4,9 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * @property-read \App\Models\User $user
+ * @property-read int $total_price_cents
+ * @property-read int $total_price_for_display
+ */
 class Cart extends Model
 {
     use HasFactory;
+    use FormatsPrice;
 
     public function user()
     {
@@ -18,24 +24,25 @@ class Cart extends Model
         return $this->hasMany(CartItem::class);
     }
 
-    public function getTotalPriceForDisplayAttribute()
-    {
-        $totalPriceCents = $this->items->sum(function (CartItem $cartItem) {
-            return $cartItem->unit_price_cents * $cartItem->quantity;
-        });
-
-        return sprintf('$ %s', number_format($totalPriceCents / 100, 2));
-    }
-
     public function addOrIncrementItem(Product $product): CartItem
     {
         $cartItem = $this->items()->firstOrCreate(
             ['product_id' => $product->id],
-            ['unit_price_cents' => $product->price_cents, 'quantity' => 0]
+            ['unit_price_cents' => $product->price_cents, 'quantity' => 1]
         );
 
-        $cartItem->increment('quantity');
-
         return $cartItem;
+    }
+
+    public function getTotalPriceCentsAttribute()
+    {
+        return $this->items->sum(function ($item) {
+            return $item->total_price_cents;
+        });
+    }
+
+    public function getTotalPriceForDisplayAttribute()
+    {
+        return $this->priceCentsToDisplayPrice($this->total_price_cents);
     }
 }

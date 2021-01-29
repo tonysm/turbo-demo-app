@@ -101,6 +101,10 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            {{ __('Orders') }}
+                        </x-jet-dropdown-link>
+
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                 {{ __('API Tokens') }}
@@ -206,6 +210,10 @@
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}"
                                            :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('orders.index') }}"
+                                           :active="request()->routeIs('orders.show')">
+                    {{ __('Orders') }}
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

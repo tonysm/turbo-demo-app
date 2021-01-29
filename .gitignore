@@ -16,4 +16,5 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 phpunit.xml
+_ide_helper.php
 /workspaces

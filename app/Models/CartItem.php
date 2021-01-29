@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class CartItem extends Model
 {
     use HasFactory;
+    use FormatsPrice;
 
     public function product()
     {
@@ -23,10 +24,22 @@ class CartItem extends Model
         return $this->product->name;
     }
 
-    public function getPriceForDisplayAttribute()
+    public function getUnitPriceForDisplayAttribute()
     {
-        $priceCents = $this->unit_price_cents * $this->quantity;
+        return $this->priceCentsToDisplayPrice(
+            $this->unit_price_cents
+        );
+    }
 
-        return sprintf('$ %s', number_format($priceCents / 100, 2));
+    public function getTotalPriceCentsAttribute()
+    {
+        return $this->unit_price_cents * $this->quantity;
+    }
+
+    public function getTotalPriceForDisplayAttribute()
+    {
+        return $this->priceCentsToDisplayPrice(
+            $this->total_price_cents
+        );
     }
 }

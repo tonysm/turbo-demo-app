@@ -43,9 +43,9 @@
                                 </div>
 
                                 <div>
-                                    <button class="px-4 py-2 text-sm rounded bg-indigo-500 text-white">
+                                    <a href="{{ route('checkout.index') }}" class="px-4 py-2 text-sm rounded bg-indigo-500 text-white">
                                         Proceed to Checkout
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

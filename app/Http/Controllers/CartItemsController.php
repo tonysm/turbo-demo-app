@@ -21,6 +21,8 @@ class CartItemsController extends Controller
 
     public function update(CartItem $cartItem)
     {
+        $this->authorize('update', $cartItem);
+
         $cartItem->update([
             'quantity' => max(intval(request()->input('quantity', 1)), 1),
         ]);
@@ -34,6 +36,8 @@ class CartItemsController extends Controller
 
     public function destroy(CartItem $cartItem)
     {
+        $this->authorize('delete', $cartItem);
+
         $cartItem->delete();
 
         if (request()->wantsTurboStream()) {

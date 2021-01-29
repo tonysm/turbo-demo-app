@@ -10,22 +10,17 @@
 
             <div class="flex items-center justify-between space-x-2">
                 <div>
-                    {{ $cartItem->price_for_display }}
+                    {{ $cartItem->unit_price_for_display }} und.
                 </div>
                 <div>
                     <form
                         action="{{ route('cart-items.update', $cartItem) }}"
                         method="post"
                         x-data
-                        @turbo:submit-end="
-                            setTimeout(function () {
-                                document.querySelector('#{{ \Tonysm\TurboLaravel\dom_id($cartItem, 'quantity_input') }}').focus();
-                            });
-                        "
                     >
                         @csrf
                         @method('PUT')
-                        qnt.: <input id="@domid($cartItem, 'quantity_input')" @change.debounce.300ms="$refs.btn.click()" type="number" x-ref="qnt" name="quantity" value="{{ $cartItem->quantity }}" class="form-input w-16 border-transparent" />
+                        qnt: <input id="@domid($cartItem, 'quantity_input')" min="1" @change.debounce.300ms="$refs.btn.click()" type="number" x-ref="qnt" name="quantity" value="{{ $cartItem->quantity }}" class="form-input w-16 border-transparent" />
                         <button class="hidden" x-ref="btn">Save</button>
                     </form>
                 </div>
