@@ -28,7 +28,7 @@
     <div class="block">
         <label class="text-gray-700 mb-2">Content</label>
         <x-trix-editor
-            id="{{ \Tonysm\TurboLaravel\NamesResolver::resourceIdFor($post, 'content') }}"
+            id="{{ \Tonysm\TurboLaravel\dom_id($post, 'content') }}"
             value="{!! old('content', $post->content) !!}"
             name="content"
             style="min-height: 300px"
