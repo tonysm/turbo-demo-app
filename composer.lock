@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f96f898387ff3193b29b16e81a757e4",
+    "content-hash": "a27d42a51cf9a9f6607cf23069636cfc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2092,27 +2092,28 @@
         },
         {
             "name": "laravel/jetstream",
-            "version": "v1.6.6",
+            "version": "v2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "9de2b4555b34a857465b14d1ada66c9b672f4251"
+                "reference": "daa199f0a8dae5360bd331b19ef3ec1864961567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/9de2b4555b34a857465b14d1ada66c9b672f4251",
-                "reference": "9de2b4555b34a857465b14d1ada66c9b672f4251",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/daa199f0a8dae5360bd331b19ef3ec1864961567",
+                "reference": "daa199f0a8dae5360bd331b19ef3ec1864961567",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "illuminate/support": "^8.0",
                 "jenssegers/agent": "^2.6",
-                "laravel/fortify": "^1.0",
+                "laravel/fortify": "^1.6.1",
+                "league/commonmark": "^1.3",
                 "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "inertiajs/inertia-laravel": "^0.2.4",
+                "inertiajs/inertia-laravel": "^0.3",
                 "laravel/sanctum": "^2.6",
                 "mockery/mockery": "^1.0",
                 "orchestra/testbench": "^6.0",
@@ -2121,7 +2122,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -2154,7 +2155,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2021-01-05T15:53:01+00:00"
+            "time": "2021-01-26T19:27:31+00:00"
         },
         {
             "name": "laravel/sanctum",
