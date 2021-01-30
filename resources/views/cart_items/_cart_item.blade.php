@@ -10,7 +10,7 @@
 
             <div class="flex items-center justify-between space-x-2">
                 <div>
-                    {{ $cartItem->unit_price_for_display }} und.
+                    {{ $cartItem->unit_price_for_display }} unt.
                 </div>
                 <div>
                     <form

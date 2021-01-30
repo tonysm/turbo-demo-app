@@ -10,7 +10,7 @@
 
             <div class="flex items-center justify-between space-x-2">
                 <div>
-                    {{ $orderItem->unit_price_for_display }} und.
+                    {{ $orderItem->unit_price_for_display }} unt.
                 </div>
                 <div>
                     qnt.: {{ $orderItem->quantity }}
