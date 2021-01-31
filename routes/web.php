@@ -22,6 +22,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::resource('orders', Controllers\OrdersController::class)->only(['index', 'show']);
     });
 
+    Route::resource('tweets', Controllers\TweetsController::class);
+
+    Route::get('trending', function () {
+        sleep(2);
+        return view('trending');
+    })->name('trending');
+
     Route::get('livewire-integration', function () {
         return view('livewire-integration');
     })->name('livewire.integration');

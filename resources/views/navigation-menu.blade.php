@@ -28,10 +28,47 @@
                     <x-jet-nav-link href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index')">
                         {{ __('Merch') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('tweets.index') }}" :active="request()->routeIs('tweets.index')">
+                        {{ __('Tweets') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                @if(request()->input('notifications-frame', '') !== "box")
+                    <x-jet-dropdown align="right" width="w-96" contentClasses="py-1 bg-gray-100">
+                        <x-slot name="trigger">
+                            <button
+                                class="flex text-sm border-2 border-transparent rounded-full text-gray-500 hover:text-gray-700 focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+                            >
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                                </svg>
+                            </button>
+                        </x-slot>
+
+                        <x-slot name="content">
+                            <div class="px-2">
+                                <turbo-frame id="notifications-box"
+                                             src="{{ route('notifications.index', ['notifications-frame' => 'box']) }}"
+                                             loading="lazy">
+                                    <div class="p-8 w-full">
+                                        <div class="w-6 h-6 bg-gray-300 rounded-full animate-ping mx-auto"></div>
+                                        <p class="sr-only">Loading...</p>
+                                    </div>
+                                </turbo-frame>
+
+                                <div class="text-center text-gray-500 underline text-xs py-2">
+                                    <a href="{{ route('notifications.index') }}">Go to Notifications</a>
+                                </div>
+                            </div>
+                        </x-slot>
+                    </x-jet-dropdown>
+                @endif
+
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
@@ -166,6 +203,10 @@
 
             <x-jet-responsive-nav-link href="{{ route('shop.index') }}" :active="request()->routeIs('shop.index')">
                 {{ __('Merch') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('tweets.index') }}" :active="request()->routeIs('tweets.index')">
+                {{ __('Tweets') }}
             </x-jet-responsive-nav-link>
         </div>
 
