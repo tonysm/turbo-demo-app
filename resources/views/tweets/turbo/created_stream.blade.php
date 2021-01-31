@@ -4,6 +4,8 @@
     </template>
 </turbo-stream>
 
+<turbo-stream target="empty_tweets" action="remove"></turbo-stream>
+
 @if($tweet->wasRecentlyCreated)
     <turbo-stream target="create_tweet" action="update">
         <template>
@@ -11,10 +13,12 @@
         </template>
     </turbo-stream>
 
-    <turbo-stream target="create_tweet_modal" action="update">
+    <turbo-stream target="modal_tweet" action="update">
         <template>
-            <span x-data x-init="$dispatch('close-modal-modal-create-tweet')"></span>
-            @include('tweets._form', ['tweet' => new \App\Models\Tweet(), 'frame' => 'modal'])
+            <div>
+                <span style="display: none;" x-data x-init="$dispatch('close-modal-modal-create-tweet')"></span>
+                @include('tweets._form', ['tweet' => new \App\Models\Tweet(), 'frame' => 'modal'])
+            </div>
         </template>
     </turbo-stream>
 @endif

@@ -25,7 +25,7 @@ class TweetsController extends Controller
     {
         return view('tweets.create', [
             'tweet' => new Tweet(),
-            'frame' => request()->input('frame', '') === 'modal' ? '_modal' : '',
+            'frame' => request()->input('frame', ''),
         ]);
     }
 
@@ -46,7 +46,7 @@ class TweetsController extends Controller
     {
         return view('tweets.edit', [
             'tweet' => $tweet,
-            'frame' => request()->input('frame', '') === 'modal' ? '_modal' : '',
+            'frame' => request()->input('frame', ''),
         ]);
     }
 
@@ -55,6 +55,10 @@ class TweetsController extends Controller
         $tweet->update(request()->validate([
             'content' => 'required|min:1|max:280',
         ]));
+
+        if (request()->wantsTurboStream()) {
+            return response()->turboStream($tweet);
+       }
 
         return redirect()->route('tweets.index');
     }

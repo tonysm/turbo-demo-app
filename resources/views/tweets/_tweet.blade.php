@@ -1,12 +1,12 @@
 <turbo-frame id="@domid($tweet)">
-    <div class="bg-white flex px-4 pb-2 pt-4 space-x-4">
+    <div class="bg-white flex px-4 pb-2 pt-4 space-x-4 hover:bg-gray-50">
         <div>
             <img class="h-8 w-8 rounded-full object-cover" src="{{ $tweet->user->profile_photo_url }}" alt="{{ $tweet->user->name }}" />
         </div>
         <div class="flex-1 space-y-1">
             <a href="{{ route('tweets.show', $tweet) }}" class="block space-y-1" data-turbo-frame="_top">
                 <div class="px-2 space-x-1">
-                    <span class="font-semibold">{{ $tweet->user->name }}</span>
+                    <span class="font-semibold whitespace-no-wrap">{{ $tweet->user->name }}</span>
                     <span class="text-gray-500">@WeDontHaveHandles</span>
                     <span class="text-gray-500"><time data-timestamp="{{ $tweet->created_at }}">{{ $tweet->created_at->diffForHumans() }}</time></span>
                 </div>
@@ -46,6 +46,15 @@
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                                     <span>Edit</span>
                                 </a>
+                                <a
+                                    href="{{ route('tweets.edit', ['tweet' => $tweet, 'frame' => 'flyout']) }}"
+                                    data-turbo-frame="@domid($tweet, 'flyout')"
+                                    @click="$dispatch('toggle-flyout-modal-{{ $tweet->id }}')"
+                                    class="block w-full px-4 py-2 text-gray-500 flex items-center space-x-2"
+                                >
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                                    <span>Edit in Flyout</span>
+                                </a>
                             </div>
                         </x-slot>
                     </x-jet-dropdown>
@@ -53,4 +62,10 @@
             </div>
         </div>
     </div>
+    <x-flyout id="modal-{{ $tweet->id }}">
+        <div class="p-4 border-b">
+            <span class="text-lg font-semibold">Edit Tweet</span>
+        </div>
+        <turbo-frame id="@domid($tweet, 'flyout')" loading="lazy"></turbo-frame>
+    </x-flyout>
 </turbo-frame>

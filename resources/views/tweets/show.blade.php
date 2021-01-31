@@ -1,10 +1,16 @@
 <x-app-layout>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex space-x-6">
-            <div class="w-3/12" id="tweets_sidebar" data-turbo-permanent>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Tweets') }}
+        </h2>
+    </x-slot>
+
+    <div class="md:py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 md:flex md:space-x-6">
+            <div class="hidden md:block w-3/12" id="tweets_sidebar" data-turbo-permanent>
                 @include('tweets._sidebar')
             </div>
-            <div class="w-6/12 space-y-4">
+            <div class="w-full md:w-9/12 lg:w-6/12 sm:space-y-4">
                 <div class="shadow">
                     <div class="bg-white border-b px-4 py-2 flex items-center space-x-4">
                         <a href="{{ route('tweets.index') }}" data-turbo-frame="_top" class="p-2 rounded-full hover:bg-blue-50">
@@ -17,8 +23,7 @@
                     </turbo-frame>
                 </div>
             </div>
-
-            <div class="w-3/12" id="whats_happening" data-turbo-permanent>
+            <div class="hidden lg:block w-3/12" id="whats_happening" data-turbo-permanent>
                 @include('tweets._whats_happening')
             </div>
         </div>
