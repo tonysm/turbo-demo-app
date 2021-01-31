@@ -16,6 +16,8 @@ class TweetsController extends Controller
 
     public function show(Tweet $tweet)
     {
+        $this->authorize('view', $tweet);
+
         return view('tweets.show', [
             'tweet' => $tweet,
         ]);
@@ -44,6 +46,8 @@ class TweetsController extends Controller
 
     public function edit(Tweet $tweet)
     {
+        $this->authorize('update', $tweet);
+
         return view('tweets.edit', [
             'tweet' => $tweet,
             'frame' => request()->input('frame', ''),
@@ -52,6 +56,8 @@ class TweetsController extends Controller
 
     public function update(Tweet $tweet)
     {
+        $this->authorize('update', $tweet);
+
         $tweet->update(request()->validate([
             'content' => 'required|min:1|max:280',
         ]));
