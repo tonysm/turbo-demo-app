@@ -6,8 +6,10 @@
     @endif
     method="POST"
     class="p-4 bg-white rounded my-4"
-    x-data=""
+    x-data="{ sending: false }"
     x-init="$refs.contentField.focus()"
+    @turbo:submit-start="sending = true"
+    @turbo:submit-end="sending = false"
 >
     @csrf
     @if($comment->exists)
@@ -35,8 +37,9 @@
 
 
     <div class="mt-4 flex justify-between items-center">
-        <x-jet-button data-controller="loading-button">
-            {{ __('Save') }}
+        <x-jet-button x-bind:disabled="sending" data-controller="loading-button">
+            <span x-show="sending">{{ __('Sending...') }}</span>
+            <span x-show="!sending">{{ __('Save') }}</span>
         </x-jet-button>
 
         <a
