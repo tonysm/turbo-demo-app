@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "754f0ea9a8519e9a5af11e999e0959df",
+    "content-hash": "ff35e8af4f2170eabd3b1430d359a36a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6924,16 +6924,16 @@
         },
         {
             "name": "tonysm/turbo-laravel",
-            "version": "1.0.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/turbo-laravel.git",
-                "reference": "029378deec538ebae77301b9254b5dd61a806b89"
+                "reference": "c0ee59673e25197b04b85093c3d6d1b1fed99794"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/029378deec538ebae77301b9254b5dd61a806b89",
-                "reference": "029378deec538ebae77301b9254b5dd61a806b89",
+                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/c0ee59673e25197b04b85093c3d6d1b1fed99794",
+                "reference": "c0ee59673e25197b04b85093c3d6d1b1fed99794",
                 "shasum": ""
             },
             "require": {
@@ -6983,9 +6983,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/turbo-laravel/issues",
-                "source": "https://github.com/tonysm/turbo-laravel/tree/1.0.0"
+                "source": "https://github.com/tonysm/turbo-laravel/tree/0.2.0"
             },
-            "time": "2021-02-07T23:32:40+00:00"
+            "time": "2021-02-08T01:00:18+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -10811,16 +10811,16 @@
         },
         {
             "name": "tonysm/turbo-laravel-test-helpers",
-            "version": "1.0.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/turbo-laravel-test-helpers.git",
-                "reference": "e375b379276eee3c27b19af71092ab6fd83c4b00"
+                "reference": "e2400f568c379750db111dc5e1284d4f0079588d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/turbo-laravel-test-helpers/zipball/e375b379276eee3c27b19af71092ab6fd83c4b00",
-                "reference": "e375b379276eee3c27b19af71092ab6fd83c4b00",
+                "url": "https://api.github.com/repos/tonysm/turbo-laravel-test-helpers/zipball/e2400f568c379750db111dc5e1284d4f0079588d",
+                "reference": "e2400f568c379750db111dc5e1284d4f0079588d",
                 "shasum": ""
             },
             "require": {
@@ -10828,7 +10828,7 @@
                 "php": "^7.4|^8.0",
                 "symfony/css-selector": "^5.2",
                 "symfony/dom-crawler": "^5.2",
-                "tonysm/turbo-laravel": "^0.0|^0.1|^1.0"
+                "tonysm/turbo-laravel": "^0.0|^0.1|^0.2"
             },
             "require-dev": {
                 "orchestra/testbench": "^6.0",
@@ -10866,9 +10866,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/turbo-laravel-test-helpers/issues",
-                "source": "https://github.com/tonysm/turbo-laravel-test-helpers/tree/1.0.0"
+                "source": "https://github.com/tonysm/turbo-laravel-test-helpers/tree/0.2.0"
             },
-            "time": "2021-02-08T00:22:11+00:00"
+            "time": "2021-02-08T02:22:28+00:00"
         },
         {
             "name": "zbateson/mail-mime-parser",
