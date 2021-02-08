@@ -23,7 +23,7 @@
 
         <div class="mt-2">
             <x-trix-editor
-                :id="\Tonysm\TurboLaravel\TurboFacade::domId($comment, 'content')"
+                :id="\Tonysm\TurboLaravel\dom_id($comment, 'content')"
                 value="{!! $comment->content !!}"
                 name="content"
                 x-ref="contentField"
