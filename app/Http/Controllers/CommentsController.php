@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 class CommentsController extends Controller
 {
@@ -32,8 +34,8 @@ class CommentsController extends Controller
             'content' => 'required|min:10|string',
         ]));
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStream($comment);
+        if (Request::wantsTurboStream()) {
+            return Response::turboStream($comment);
         }
 
         return redirect()->route('posts.show', $comment->post);
@@ -54,8 +56,8 @@ class CommentsController extends Controller
 
         $comment->delete();
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStreamView(view('comments.turbo.deleted_stream', ['comment' => $comment]));
+        if (Request::wantsTurboStream()) {
+            return Response::turboStreamView(view('comments.turbo.deleted_stream', ['comment' => $comment]));
         }
 
         return redirect()->route('posts.show', $comment->post);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 class PostsController extends Controller
 {
@@ -53,8 +55,8 @@ class PostsController extends Controller
 
         $post->update($this->postParams());
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStream($post);
+        if (Request::wantsTurboStream()) {
+            return Response::turboStream($post);
         }
 
         return redirect()->route('posts.show', $post);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tweet;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 class TweetsController extends Controller
 {
@@ -37,8 +39,8 @@ class TweetsController extends Controller
             'content' => 'required|min:1|max:280',
         ]));
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStream($tweet, 'prepend');
+        if (Request::wantsTurboStream()) {
+            return Response::turboStream($tweet, 'prepend');
         }
 
         return redirect()->route('tweets.index');
@@ -62,8 +64,8 @@ class TweetsController extends Controller
             'content' => 'required|min:1|max:280',
         ]));
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStream($tweet);
+        if (Request::wantsTurboStream()) {
+            return Response::turboStream($tweet);
        }
 
         return redirect()->route('tweets.index');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CartItem;
 use App\Models\Product;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 class CartItemsController extends Controller
 {
@@ -12,8 +14,8 @@ class CartItemsController extends Controller
         $cart = auth()->user()->cart()->firstOrCreate();
         $cartItem = $cart->addOrIncrementItem(Product::findOrFail(request()->input('product_id')));
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStream($cartItem);
+        if (Request::wantsTurboStream()) {
+            return Response::turboStream($cartItem);
         }
 
         return redirect()->route('shop.index');
@@ -27,8 +29,8 @@ class CartItemsController extends Controller
             'quantity' => max(intval(request()->input('quantity', 1)), 1),
         ]);
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStream($cartItem);
+        if (Request::wantsTurboStream()) {
+            return Response::turboStream($cartItem);
         }
 
         return redirect()->route('shop.index');
@@ -40,8 +42,8 @@ class CartItemsController extends Controller
 
         $cartItem->delete();
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStream($cartItem);
+        if (Request::wantsTurboStream()) {
+            return Response::turboStream($cartItem);
         }
 
         return redirect()->route('shop.index');

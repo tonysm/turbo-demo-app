@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Post;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 class PostCommentsController extends Controller
 {
@@ -32,8 +34,8 @@ class PostCommentsController extends Controller
             $this->commentParams() + ['user_id' => request()->user()->id]
         );
 
-        if (request()->wantsTurboStream()) {
-            return response()->turboStreamView(view('comments.turbo.created_stream', ['comment' => $comment]));
+        if (Request::wantsTurboStream()) {
+            return Response::turboStreamView(view('comments.turbo.created_stream', ['comment' => $comment]));
         }
 
         return redirect()->route('posts.show', $post);
