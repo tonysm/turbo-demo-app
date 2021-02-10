@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff35e8af4f2170eabd3b1430d359a36a",
+    "content-hash": "993822f6ce15183af58ba9f6065c0ae2",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6924,16 +6924,16 @@
         },
         {
             "name": "tonysm/turbo-laravel",
-            "version": "0.2.0",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/turbo-laravel.git",
-                "reference": "c0ee59673e25197b04b85093c3d6d1b1fed99794"
+                "reference": "b47c4a08e56ba221a5e434a854ee14be87e922b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/c0ee59673e25197b04b85093c3d6d1b1fed99794",
-                "reference": "c0ee59673e25197b04b85093c3d6d1b1fed99794",
+                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/b47c4a08e56ba221a5e434a854ee14be87e922b1",
+                "reference": "b47c4a08e56ba221a5e434a854ee14be87e922b1",
                 "shasum": ""
             },
             "require": {
@@ -6951,7 +6951,7 @@
                         "\\Tonysm\\TurboLaravel\\TurboServiceProvider"
                     ],
                     "aliases": {
-                        "Turbo": "\\Tonysm\\TurboLaravel\\TurboFacade"
+                        "Turbo": "\\Tonysm\\TurboLaravel\\Facades\\Turbo"
                     }
                 }
             },
@@ -6983,9 +6983,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/turbo-laravel/issues",
-                "source": "https://github.com/tonysm/turbo-laravel/tree/0.2.0"
+                "source": "https://github.com/tonysm/turbo-laravel/tree/0.3.1"
             },
-            "time": "2021-02-08T01:00:18+00:00"
+            "time": "2021-02-10T03:13:58+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -10811,16 +10811,16 @@
         },
         {
             "name": "tonysm/turbo-laravel-test-helpers",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/turbo-laravel-test-helpers.git",
-                "reference": "e2400f568c379750db111dc5e1284d4f0079588d"
+                "reference": "964e796c2b69be09e2597cbdbd4af71e86c47484"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/turbo-laravel-test-helpers/zipball/e2400f568c379750db111dc5e1284d4f0079588d",
-                "reference": "e2400f568c379750db111dc5e1284d4f0079588d",
+                "url": "https://api.github.com/repos/tonysm/turbo-laravel-test-helpers/zipball/964e796c2b69be09e2597cbdbd4af71e86c47484",
+                "reference": "964e796c2b69be09e2597cbdbd4af71e86c47484",
                 "shasum": ""
             },
             "require": {
@@ -10828,7 +10828,7 @@
                 "php": "^7.4|^8.0",
                 "symfony/css-selector": "^5.2",
                 "symfony/dom-crawler": "^5.2",
-                "tonysm/turbo-laravel": "^0.0|^0.1|^0.2"
+                "tonysm/turbo-laravel": "^0.0|^0.1|^0.2|^0.3"
             },
             "require-dev": {
                 "orchestra/testbench": "^6.0",
@@ -10866,9 +10866,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/turbo-laravel-test-helpers/issues",
-                "source": "https://github.com/tonysm/turbo-laravel-test-helpers/tree/0.2.0"
+                "source": "https://github.com/tonysm/turbo-laravel-test-helpers/tree/0.3.0"
             },
-            "time": "2021-02-08T02:22:28+00:00"
+            "time": "2021-02-10T03:20:59+00:00"
         },
         {
             "name": "zbateson/mail-mime-parser",

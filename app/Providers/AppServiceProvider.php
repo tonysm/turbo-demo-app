@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Tonysm\TurboLaravel\TurboFacade;
+use Tonysm\TurboLaravel\Facades\Turbo;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        TurboFacade::broadcastToOthers(true);
+        Turbo::broadcastToOthers(true);
     }
 }
