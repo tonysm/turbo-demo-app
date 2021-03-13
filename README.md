@@ -1,10 +1,16 @@
-# Turbo Demo App
+# Turbo Laravel Demo App
 
-This application serves as an example of applying Hotwire in Laravel. Uses:
+This application serves as an example of applying Hotwire in Laravel.
 
-- Turbo (via [`tonysm/turbo-laravel`](https://github.com/tonysm/turbo-laravel) package)
+![Demo App](./screenshot.png)
+
+It uses:
+
+- Turbo Laravel (via [`tonysm/turbo-laravel`](https://github.com/tonysm/turbo-laravel) package)
 - Laravel WebSockets (via [`beyondcode/laravel-websockets`](https://github.com/beyondcode/laravel-websockets) package)
 - Many built-in components from Laravel
+
+This app is live. You can test it out at [turbo-laravel.tonysm.com](https://turbo-laravel.tonysm.com).
 
 ## Setup
 
