@@ -34,7 +34,7 @@
             </div>
 
             <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                <div class="p-12 space-y-4 text-2xl font-medium">
+                <div class="p-12 space-y-4 text-lg md:text-2xl font-medium">
                     <h1 class="">Hey, folks —</h1>
 
                     <p>I'm <a class="text-indigo-500 hover:text-indigo-600" href="https://twitter.com/tonysmdev">Tony
