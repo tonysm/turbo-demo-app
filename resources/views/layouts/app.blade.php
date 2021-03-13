@@ -23,6 +23,8 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
+            @include('demo-heading')
+
             <div id="app-navigation" data-turbo-permanent>
                 @livewire('navigation-menu')
             </div>
