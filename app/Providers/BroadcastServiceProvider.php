@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Octane\Events\RequestReceived;
 
 class BroadcastServiceProvider extends ServiceProvider
 {
@@ -17,8 +16,6 @@ class BroadcastServiceProvider extends ServiceProvider
     {
         Broadcast::routes();
 
-        $this->app['events']->listen(RequestReceived::class, function () {
-            require base_path('routes/channels.php');
-        });
+        require base_path('routes/channels.php');
     }
 }
