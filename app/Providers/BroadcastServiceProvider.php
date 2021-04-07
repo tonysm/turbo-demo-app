@@ -16,6 +16,8 @@ class BroadcastServiceProvider extends ServiceProvider
     {
         Broadcast::routes();
 
-        require base_path('routes/channels.php');
+        $this->app['events']->listen(function () {
+            require base_path('routes/channels.php');
+        });
     }
 }
