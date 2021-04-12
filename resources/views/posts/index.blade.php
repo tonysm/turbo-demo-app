@@ -1,7 +1,7 @@
 <x-app-layout>
     <turbo-echo-stream-source
         channel="App.Models.Team.{{ auth()->user()->currentTeam->id }}"
-    />
+    ></turbo-echo-stream-source>
 
     <x-slot name="header">
         <div class="flex justify-between items-center">

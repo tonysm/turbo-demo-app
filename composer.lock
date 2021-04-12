@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93f624c112979b526b717380acd8272c",
+    "content-hash": "51b48c1334f3909157a6997d76b7618f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7448,17 +7448,11 @@
         },
         {
             "name": "tonysm/turbo-laravel",
-            "version": "0.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tonysm/turbo-laravel.git",
-                "reference": "e85955fae40192f604486cb582698fefd3b314c2"
-            },
+            "version": "dev-main",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/e85955fae40192f604486cb582698fefd3b314c2",
-                "reference": "e85955fae40192f604486cb582698fefd3b314c2",
-                "shasum": ""
+                "type": "path",
+                "url": "./workspaces/turbo-laravel",
+                "reference": "37baf4cfeb02f26ecf883343cfbfab7383c3f246"
             },
             "require": {
                 "illuminate/support": "^8.0",
@@ -7487,7 +7481,22 @@
                     "src/helpers.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tonysm\\TurboLaravel\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "psalm": [
+                    "vendor/bin/psalm"
+                ],
+                "test": [
+                    "vendor/bin/phpunit --colors=always"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -7505,11 +7514,9 @@
                 "tonysm",
                 "turbo-laravel"
             ],
-            "support": {
-                "issues": "https://github.com/tonysm/turbo-laravel/issues",
-                "source": "https://github.com/tonysm/turbo-laravel/tree/0.3.2"
-            },
-            "time": "2021-02-26T02:02:43+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "vlucas/phpdotenv",
@@ -9088,6 +9095,70 @@
                 "source": "https://github.com/laravel/sail"
             },
             "time": "2021-04-06T14:00:39+00:00"
+        },
+        {
+            "name": "laravel/telescope",
+            "version": "v4.4.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/telescope.git",
+                "reference": "45c7420f222d8ee1ffca4424afdf07f7c6a2fe91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/45c7420f222d8ee1ffca4424afdf07f7c6a2fe91",
+                "reference": "45c7420f222d8ee1ffca4424afdf07f7c6a2fe91",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "^8.29",
+                "php": "^7.3|^8.0",
+                "symfony/var-dumper": "^5.0"
+            },
+            "require-dev": {
+                "ext-gd": "*",
+                "orchestra/testbench": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Telescope\\TelescopeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Telescope\\": "src/",
+                    "Laravel\\Telescope\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "mohamed@laravel.com"
+                }
+            ],
+            "description": "An elegant debug assistant for the Laravel framework.",
+            "keywords": [
+                "debugging",
+                "laravel",
+                "monitoring"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/telescope/issues",
+                "source": "https://github.com/laravel/telescope/tree/v4.4.8"
+            },
+            "time": "2021-04-06T20:46:24+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -11919,10 +11990,18 @@
             "time": "2020-08-10T18:59:43+00:00"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "package": "tonysm/turbo-laravel",
+            "version": "dev-main",
+            "alias": "0.3",
+            "alias_normalized": "0.3.0.0"
+        }
+    ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "livewire/livewire": 20
+        "livewire/livewire": 20,
+        "tonysm/turbo-laravel": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

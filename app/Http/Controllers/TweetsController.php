@@ -66,7 +66,7 @@ class TweetsController extends Controller
 
         if (Request::wantsTurboStream()) {
             return Response::turboStream($tweet);
-       }
+        }
 
         return redirect()->route('tweets.index');
     }

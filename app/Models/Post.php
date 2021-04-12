@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Tonysm\TurboLaravel\Models\Broadcasts;
 
+use function Illuminate\Events\queueable;
+use function Tonysm\TurboLaravel\dom_id;
+
 /**
  * @property \App\Models\Team $team
  * @property \App\Models\User $user
@@ -24,9 +27,33 @@ class Post extends Model
         'published_at' => 'datetime',
     ];
 
-    public function broadcastsTo()
+    public static function booted()
     {
-        return [$this->team, $this];
+        static::created(function (Post $post) {
+            $post->broadcastPrependTo($post->team)
+                ->target('post_cards')
+                ->partial('posts._post_card', ['post' => $post])
+                ->toOthers()
+                ->later();
+
+            $post->broadcastRemove()
+                ->target('empty_posts')
+                ->toOthers()
+                ->later();
+        });
+
+        static::updated(queueable(function (Post $post) {
+            $post->broadcastReplaceTo($post->team)
+                ->target(dom_id($post, 'card'))
+                ->partial('posts._post_card', ['post' => $post]);
+
+            $post->broadcastReplace();
+        }));
+
+        static::deleted(queueable(function (Post $post) {
+            $post->broadcastRemoveTo($post->team)
+                ->target(dom_id($post, 'card'));
+        }));
     }
 
     public function scopePublished(Builder $query)

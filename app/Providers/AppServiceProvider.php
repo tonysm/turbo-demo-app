@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Turbo::broadcastToOthers(true);
+        // Turbo::broadcastToOthers(true);
     }
 }

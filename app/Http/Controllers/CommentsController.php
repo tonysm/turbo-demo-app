@@ -6,6 +6,8 @@ use App\Models\Comment;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Response;
 
+use function Tonysm\TurboLaravel\dom_id;
+
 class CommentsController extends Controller
 {
     public function show(Comment $comment)
@@ -34,8 +36,10 @@ class CommentsController extends Controller
             'content' => 'required|min:10|string',
         ]));
 
+        $comment->broadcastReplaceTo($comment->post);
+
         if (Request::wantsTurboStream()) {
-            return Response::turboStream($comment);
+            return Response::noContent();
         }
 
         return redirect()->route('posts.show', $comment->post);
@@ -56,8 +60,14 @@ class CommentsController extends Controller
 
         $comment->delete();
 
+        $comment->broadcastRemoveTo($comment->post);
+
+        $comment->broadcastUpdateTo($comment->post)
+            ->target(dom_id($comment->post, 'comments_count'))
+            ->partial('posts._post_comments_count', ['post' => $comment->post]);
+
         if (Request::wantsTurboStream()) {
-            return Response::turboStreamView(view('comments.turbo.deleted_stream', ['comment' => $comment]));
+            return Response::noContent();
         }
 
         return redirect()->route('posts.show', $comment->post);
