@@ -5,9 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Tonysm\TurboLaravel\Models\Broadcasts;
 
-use function Illuminate\Events\queueable;
-use function Tonysm\TurboLaravel\dom_id;
-
 class Comment extends Model
 {
     use HasFactory;
