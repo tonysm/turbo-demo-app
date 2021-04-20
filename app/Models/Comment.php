@@ -10,10 +10,6 @@ class Comment extends Model
     use HasFactory;
     use Broadcasts;
 
-    public $broadcastsTo = [
-        'post',
-    ];
-
     public function user()
     {
         return $this->belongsTo(User::class);
