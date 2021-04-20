@@ -7,12 +7,6 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": {
-        "turbo-laravel": {
-            "type": "path",
-            "url": "./workspaces/turbo-laravel/"
-        }
-    },
     "require": {
         "php": "^7.4|^8.0",
         "beyondcode/laravel-websockets": "^1.12",
@@ -28,7 +22,7 @@
         "mews/purifier": "^3.3",
         "pusher/pusher-php-server": "~4.0",
         "spiral/roadrunner": "^2.0",
-        "tonysm/turbo-laravel": "dev-main as 0.3"
+        "tonysm/turbo-laravel": "0.5"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",
@@ -40,7 +34,7 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3",
         "spatie/laravel-ray": "^1.3",
-        "tonysm/turbo-laravel-test-helpers": "^0.3"
+        "tonysm/turbo-laravel-test-helpers": "^0.5"
     },
     "config": {
         "optimize-autoloader": true,
