@@ -36,10 +36,10 @@ class CommentsController extends Controller
             'content' => 'required|min:10|string',
         ]));
 
-        $comment->broadcastReplaceTo($comment->post);
+        $comment->broadcastReplaceTo($comment->post)->toOthers()->later();
 
         if (Request::wantsTurboStream()) {
-            return Response::noContent();
+            return Response::turboStream()->replace($comment);
         }
 
         return redirect()->route('posts.show', $comment->post);
@@ -60,14 +60,15 @@ class CommentsController extends Controller
 
         $comment->delete();
 
-        $comment->broadcastRemoveTo($comment->post);
+        $comment->broadcastRemoveTo($comment->post)->toOthers()->later();
 
         $comment->broadcastUpdateTo($comment->post)
             ->target(dom_id($comment->post, 'comments_count'))
-            ->partial('posts._post_comments_count', ['post' => $comment->post]);
+            ->partial('posts._post_comments_count', ['post' => $comment->post])
+            ->later();
 
         if (Request::wantsTurboStream()) {
-            return Response::noContent();
+            return Response::turboStream()->remove($comment);
         }
 
         return redirect()->route('posts.show', $comment->post);

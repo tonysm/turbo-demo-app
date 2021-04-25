@@ -39,6 +39,7 @@ class PostCommentsController extends Controller
 
         $comment->broadcastAppendTo($comment->post)
             ->target(dom_id($comment->post, 'comments'))
+            ->toOthers()
             ->later();
 
         $comment->broadcastUpdateTo($comment->post)
@@ -47,7 +48,9 @@ class PostCommentsController extends Controller
             ->later();
 
         if (Request::wantsTurboStream()) {
-            return Response::turboStreamView(view('comments.turbo.created_stream', ['comment' => $comment]));
+            return Response::turboStreamView('comments.turbo.created_stream', [
+                'comment' => $comment,
+            ]);
         }
 
         return redirect()->route('posts.show', $post);
