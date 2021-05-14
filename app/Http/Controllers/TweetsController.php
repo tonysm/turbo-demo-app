@@ -40,7 +40,9 @@ class TweetsController extends Controller
         ]));
 
         if (Request::wantsTurboStream()) {
-            return Response::turboStream($tweet, 'prepend');
+            return Response::turboStreamView('tweets.turbo.created_stream', [
+                'tweet' => $tweet,
+            ]);
         }
 
         return redirect()->route('tweets.index');
@@ -65,7 +67,9 @@ class TweetsController extends Controller
         ]));
 
         if (Request::wantsTurboStream()) {
-            return Response::turboStream($tweet);
+            return Response::turboStreamView('tweets.turbo.updated_stream', [
+                'tweet' => $tweet,
+            ]);
         }
 
         return redirect()->route('tweets.index');
