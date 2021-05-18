@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f87f42acd2eee712792839daaf48780",
+    "content-hash": "f51235932c33e0567bde04dbfdc603f3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1932,21 +1932,21 @@
         },
         {
             "name": "laravel/octane",
-            "version": "v0.1.1",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/octane.git",
-                "reference": "f28fc04971e7cc3fa2b6d6f87181a71cf9a8b632"
+                "reference": "6dbd45ed76c81fd0fa25da875d36d986f7d2b72d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/octane/zipball/f28fc04971e7cc3fa2b6d6f87181a71cf9a8b632",
-                "reference": "f28fc04971e7cc3fa2b6d6f87181a71cf9a8b632",
+                "url": "https://api.github.com/repos/laravel/octane/zipball/6dbd45ed76c81fd0fa25da875d36d986f7d2b72d",
+                "reference": "6dbd45ed76c81fd0fa25da875d36d986f7d2b72d",
                 "shasum": ""
             },
             "require": {
                 "laminas/laminas-diactoros": "^2.5",
-                "laravel/framework": "^8.35",
+                "laravel/framework": "^8.37",
                 "php": "^8.0",
                 "symfony/psr-http-message-bridge": "^2.0"
             },
@@ -1957,7 +1957,8 @@
                 "orchestra/testbench": "^6.16",
                 "phpunit/phpunit": "^9.3",
                 "spatie/laravel-ray": "^1.14",
-                "spiral/roadrunner": "^2.0"
+                "spiral/roadrunner": "^2.0",
+                "swoole/ide-helper": "^4.6"
             },
             "bin": [
                 "bin/roadrunner-worker",
@@ -1965,12 +1966,15 @@
             ],
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                },
                 "laravel": {
                     "providers": [
                         "Laravel\\Octane\\OctaneServiceProvider"
                     ],
                     "aliases": {
-                        "Octane": "Laravel\\Octane\\OctaneFacade"
+                        "Octane": "Laravel\\Octane\\Facades\\Octane"
                     }
                 }
             },
@@ -2000,7 +2004,7 @@
                 "issues": "https://github.com/laravel/octane/issues",
                 "source": "https://github.com/laravel/octane"
             },
-            "time": "2021-04-07T14:14:11+00:00"
+            "time": "2021-05-11T18:30:50+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -9157,70 +9161,6 @@
                 "source": "https://github.com/laravel/sail"
             },
             "time": "2021-04-20T16:17:55+00:00"
-        },
-        {
-            "name": "laravel/telescope",
-            "version": "v4.4.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/telescope.git",
-                "reference": "506aa21c7ead98d6666cf8341f25d4d2f333f385"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/506aa21c7ead98d6666cf8341f25d4d2f333f385",
-                "reference": "506aa21c7ead98d6666cf8341f25d4d2f333f385",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "laravel/framework": "^8.29",
-                "php": "^7.3|^8.0",
-                "symfony/var-dumper": "^5.0"
-            },
-            "require-dev": {
-                "ext-gd": "*",
-                "orchestra/testbench": "^6.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Telescope\\TelescopeServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Telescope\\": "src/",
-                    "Laravel\\Telescope\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                },
-                {
-                    "name": "Mohamed Said",
-                    "email": "mohamed@laravel.com"
-                }
-            ],
-            "description": "An elegant debug assistant for the Laravel framework.",
-            "keywords": [
-                "debugging",
-                "laravel",
-                "monitoring"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/v4.4.9"
-            },
-            "time": "2021-04-13T15:47:06+00:00"
         },
         {
             "name": "mockery/mockery",
