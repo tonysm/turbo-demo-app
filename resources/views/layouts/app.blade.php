@@ -32,7 +32,7 @@
             <!-- Page Heading -->
             @isset($header)
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
@@ -48,5 +48,6 @@
 
         @livewireScripts
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+        @include('scripts/_alpine-turbo-adapter')
     </body>
 </html>
