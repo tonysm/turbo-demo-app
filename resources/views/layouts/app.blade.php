@@ -9,17 +9,22 @@
         <meta name="current-user-id" content="{{ auth()->id() }}" />
         <meta name="current-team-id" content="{{ optional(auth()->user()->currentTeam)->id }}">
 
+        @if (config('jetstream-page'))
+            <meta name="turbo-cache-control" content="no-cache">
+            <meta name="turbo-visit-control" content="reload">
+        @endif
+
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" data-turbo-track="reload" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script data-turbo-track="reload" src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
