@@ -61,6 +61,13 @@ class User extends Authenticatable implements AttachableContract
         'profile_photo_url',
     ];
 
+    public static function booted()
+    {
+        static::deleting(function (User $user) {
+            $user->mentions()->delete();
+        });
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -84,6 +91,11 @@ class User extends Authenticatable implements AttachableContract
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
+    }
+
+    public function mentions()
+    {
+        return $this->hasMany(Mention::class, 'mentionee_id');
     }
 
     public function richTextRender(): string
