@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Events\PostCreated;
+use App\Models\Mentions\HasMentions;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Tonysm\RichTextLaravel\Casts\AsRichTextContent;
 use Tonysm\TurboLaravel\Models\Broadcasts;
 
 use function Illuminate\Events\queueable;
@@ -18,6 +20,7 @@ class Post extends Model
 {
     use HasFactory;
     use Broadcasts;
+    use HasMentions;
 
     protected $dispatchesEvents = [
         'created' => PostCreated::class,
@@ -25,6 +28,7 @@ class Post extends Model
 
     protected $casts = [
         'published_at' => 'datetime',
+        'content' => AsRichTextContent::class,
     ];
 
     public static function booted()
@@ -74,10 +78,5 @@ class Post extends Model
     public function team()
     {
         return $this->belongsTo(Team::class);
-    }
-
-    public function setContentAttribute(string $content = "")
-    {
-        $this->attributes['content'] = clean($content);
     }
 }

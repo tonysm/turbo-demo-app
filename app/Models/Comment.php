@@ -2,13 +2,20 @@
 
 namespace App\Models;
 
+use App\Models\Mentions\HasMentions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Tonysm\RichTextLaravel\Casts\AsRichTextContent;
 use Tonysm\TurboLaravel\Models\Broadcasts;
 
 class Comment extends Model
 {
     use HasFactory;
     use Broadcasts;
+    use HasMentions;
+
+    protected $casts = [
+        'content' => AsRichTextContent::class,
+    ];
 
     public function user()
     {
@@ -18,10 +25,5 @@ class Comment extends Model
     public function post()
     {
         return $this->belongsTo(Post::class);
-    }
-
-    public function setContentAttribute(string $content = "")
-    {
-        $this->attributes['content'] = clean($content);
     }
 }

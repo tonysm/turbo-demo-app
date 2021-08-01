@@ -1,16 +1,16 @@
 <turbo-frame id="@domid($comment)">
-    <div class="bg-white p-4 rounded shadow my-4">
+    <div class="p-4 my-4 bg-white rounded shadow">
         <p class="flex justify-between text-sm">
             <span>{{ $comment->user->name }} said:</span>
-            <span class="space-x-2 text-gray-500 flex items-center">
+            <span class="flex items-center space-x-2 text-gray-500">
                 <span
-                    class="flex items-center space-x-2 transform transition-all duration-75 ease-out scale-0"
+                    class="flex items-center space-x-2 transition-all duration-75 ease-out transform scale-0"
                     data-controller="replace-class"
                     data-replace-class-remove-class-value="scale-0"
                     data-replace-class-add-class-value="scale-100"
                 >
                     @if($deleting ?? false)
-                        <strong class="transition delay-150 duration-300 ease-in-out">Are you sure?</strong>
+                        <strong class="transition duration-300 ease-in-out delay-150">Are you sure?</strong>
                         <a href="{{ route('comments.show', $comment) }}"
                            data-controller="hide-actions"
                            data-hide-actions-owner-id-value="{{ $comment->user_id }}"
@@ -32,7 +32,7 @@
                            data-controller="hide-actions"
                            data-hide-actions-owner-id-value="{{ $comment->user_id }}"
                         >
-                            <svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            <svg class="inline-block w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
@@ -59,7 +59,7 @@
         </p>
 
         <div class="mt-3 trix-content">
-            {!! $comment->content !!}
+            {!! clean($comment->content) !!}
         </div>
 
         @if($deleting ?? false)
@@ -69,7 +69,7 @@
                 @method('DELETE')
                 <div class="flex items-center justify-center space-x-1">
                     <a class="text-cool-gray-600" href="{{ route('comments.show', $comment) }}">Cancel</a>
-                    <button class="px-2 py-1 bg-red-500 text-white rounded shadow hover:shadow-lg">Delete</button>
+                    <button class="px-2 py-1 text-white bg-red-500 rounded shadow hover:shadow-lg">Delete</button>
                 </div>
             </form>
         @endif

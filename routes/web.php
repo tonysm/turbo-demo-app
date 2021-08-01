@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,6 +9,8 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('mentions', [Controllers\MentionsController::class, 'index'])->name('mentions.index');
+
     Route::resource('posts', Controllers\PostsController::class);
     Route::get('posts/{post}/delete', [Controllers\PostsController::class, 'delete'])->name('posts.delete');
     Route::resource('posts.comments', Controllers\PostCommentsController::class)->only(['index', 'create', 'store']);

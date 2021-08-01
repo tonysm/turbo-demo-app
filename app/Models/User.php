@@ -9,8 +9,10 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Tonysm\RichTextLaravel\Attachables\Attachable;
+use Tonysm\RichTextLaravel\Attachables\AttachableContract;
 
-class User extends Authenticatable
+class User extends Authenticatable implements AttachableContract
 {
     use HasApiTokens;
     use HasFactory;
@@ -18,6 +20,7 @@ class User extends Authenticatable
     use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use Attachable;
 
     /**
      * The attributes that are mass assignable.
@@ -81,5 +84,12 @@ class User extends Authenticatable
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
+    }
+
+    public function richTextRender(): string
+    {
+        return view('users._mention', [
+            'user' => $this,
+        ])->render();
     }
 }

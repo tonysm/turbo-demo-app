@@ -5,7 +5,7 @@
     action="{{ route('posts.store') }}"
     @endif
     method="POST"
-    class="space-y-4 p-4"
+    class="p-4 space-y-4"
 >
     @csrf
     @if($post->exists)
@@ -15,7 +15,7 @@
     <label class="block">
         <span class="text-gray-700">Title</span>
         <input type="text"
-               class="mt-1 block w-full form-input"
+               class="block w-full mt-1 form-input"
                placeholder="Share something cool..."
                value="{!! old('title', $post->title) !!}"
                name="title"
@@ -26,10 +26,10 @@
     </label>
 
     <div class="block">
-        <label class="text-gray-700 mb-2">Content</label>
+        <label class="mb-2 text-gray-700">Content</label>
         <x-trix-editor
             id="{{ \Tonysm\TurboLaravel\dom_id($post, 'content') }}"
-            value="{!! old('content', $post->content) !!}"
+            value="{{ old('content', (string) $post->content) }}"
             name="content"
             style="min-height: 300px"
         ></x-trix-editor>
@@ -38,7 +38,7 @@
         @enderror
     </div>
 
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
         <x-jet-button data-controller="loading-button">
             {{ __('Save') }}
         </x-jet-button>

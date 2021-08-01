@@ -22,7 +22,8 @@
         "mews/purifier": "^3.3",
         "pusher/pusher-php-server": "~4.0",
         "spiral/roadrunner": "^2.0",
-        "tonysm/turbo-laravel": "^0.9"
+        "tonysm/turbo-laravel": "^0.9",
+        "tonysm/rich-text-laravel": "^0.0.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",

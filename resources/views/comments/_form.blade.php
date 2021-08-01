@@ -5,7 +5,7 @@
     action="{{ route('posts.comments.store', $post) }}"
     @endif
     method="POST"
-    class="p-4 bg-white rounded my-4"
+    class="p-4 my-4 bg-white rounded"
     x-data="{ sending: false }"
     x-init="$refs.contentField.focus()"
     @turbo:submit-start="sending = true"
@@ -24,7 +24,7 @@
         <div class="mt-2">
             <x-trix-editor
                 :id="\Tonysm\TurboLaravel\dom_id($comment, 'content')"
-                value="{!! $comment->content !!}"
+                value="{{ $comment->content }}"
                 name="content"
                 x-ref="contentField"
             />
@@ -36,7 +36,7 @@
     </div>
 
 
-    <div class="mt-4 flex justify-between items-center">
+    <div class="flex items-center justify-between mt-4">
         <x-jet-button x-bind:disabled="sending" data-controller="loading-button">
             <span x-show="sending">{{ __('Sending...') }}</span>
             <span x-show="!sending">{{ __('Save') }}</span>
