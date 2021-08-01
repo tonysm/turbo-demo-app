@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b70ca8bcacb742555631ccb4c0ca548",
+    "content-hash": "f458cd7b50b2894cb0ef4c6799123402",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7597,16 +7597,16 @@
         },
         {
             "name": "tonysm/rich-text-laravel",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/rich-text-laravel.git",
-                "reference": "9b24c4d04e48dba53d3d954fb3063fce4c9b51b9"
+                "reference": "cf9327a6c1ee288eb15d72c3b45f4b1381442a7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/9b24c4d04e48dba53d3d954fb3063fce4c9b51b9",
-                "reference": "9b24c4d04e48dba53d3d954fb3063fce4c9b51b9",
+                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/cf9327a6c1ee288eb15d72c3b45f4b1381442a7c",
+                "reference": "cf9327a6c1ee288eb15d72c3b45f4b1381442a7c",
                 "shasum": ""
             },
             "require": {
@@ -7656,7 +7656,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/rich-text-laravel/issues",
-                "source": "https://github.com/tonysm/rich-text-laravel/tree/0.0.1"
+                "source": "https://github.com/tonysm/rich-text-laravel/tree/0.0.2"
             },
             "funding": [
                 {
@@ -7664,7 +7664,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-08-01T18:21:50+00:00"
+            "time": "2021-08-01T23:12:50+00:00"
         },
         {
             "name": "tonysm/turbo-laravel",
