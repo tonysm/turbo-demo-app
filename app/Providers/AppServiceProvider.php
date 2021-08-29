@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Tonysm\TurboLaravel\Facades\Turbo;
 
 class AppServiceProvider extends ServiceProvider
 {
