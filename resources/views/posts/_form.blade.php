@@ -5,7 +5,7 @@
     action="{{ route('posts.store') }}"
     @endif
     method="POST"
-    class="relative p-4 space-y-4"
+    class="relative space-y-4"
 >
     @csrf
     @if($post->exists)
