@@ -23,7 +23,7 @@
 
 <div
     x-data="{
-        show: true,
+        show: false,
         focusables() {
             // All focusable element types...
             let selector = 'a, button, input, textarea, select, details, [tabindex]:not([tabindex=\'-1\'])'
