@@ -1,14 +1,26 @@
 <?php
 
 use App\Http\Controllers;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::post('attachments', function () {
+        request()->validate([
+            'attachment' => ['required', 'file'],
+        ]);
+
+        $path = request()->file('attachment')->store('trix-attachments', 'public');
+
+        return [
+            'image_url' => Storage::disk('public')->url($path),
+        ];
+    })->name('attachments.store');
+
     Route::get('mentions', [Controllers\MentionsController::class, 'index'])->name('mentions.index');
 
     Route::resource('posts', Controllers\PostsController::class);

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Mentions\HasMentions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Tonysm\RichTextLaravel\Casts\AsRichTextContent;
+use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 use Tonysm\TurboLaravel\Models\Broadcasts;
 
 class Comment extends Model
@@ -12,9 +12,10 @@ class Comment extends Model
     use HasFactory;
     use Broadcasts;
     use HasMentions;
+    use HasRichText;
 
-    protected $casts = [
-        'content' => AsRichTextContent::class,
+    protected $richTextFields = [
+        'content',
     ];
 
     public function user()

@@ -24,7 +24,7 @@
         <div class="mt-2">
             <x-trix-editor
                 :id="\Tonysm\TurboLaravel\dom_id($comment, 'content')"
-                value="{{ $comment->content }}"
+                value="{{ $comment->content->toTrixHtml() }}"
                 name="content"
                 x-ref="contentField"
             />

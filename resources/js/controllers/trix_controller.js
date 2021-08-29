@@ -63,6 +63,30 @@ export default class extends Controller {
             .catch(error => callback([]))
     }
 
+    upload(event) {
+        if (! event?.attachment?.file) {
+            return;
+        }
+
+        this._uploadFile(event.attachment);
+    }
+
+    _uploadFile(attachment) {
+        const form = new FormData();
+        form.append('attachment', attachment.file);
+
+        window.axios.post('/attachments', form, {
+            onUploadProgress: (progressEvent) => {
+                attachment.setUploadProgress(progressEvent.loaded / progressEvent.total * 100);
+            }
+        }).then(resp => {
+            attachment.setAttributes({
+                url: resp.data.image_url,
+                href: resp.data.image_url,
+            });
+        });
+    }
+
     get editor() {
         return this.element.editor;
     }

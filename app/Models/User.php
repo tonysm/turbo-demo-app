@@ -98,7 +98,12 @@ class User extends Authenticatable implements AttachableContract
         return $this->hasMany(Mention::class, 'mentionee_id');
     }
 
-    public function richTextRender(): string
+    public function richTextAsPlainText()
+    {
+        return e($this->name);
+    }
+
+    public function richTextRender(array $options = []): string
     {
         return view('users._mention', [
             'user' => $this,

@@ -23,7 +23,7 @@
         "pusher/pusher-php-server": "~4.0",
         "spiral/roadrunner": "^2.0",
         "tonysm/turbo-laravel": "^0.9",
-        "tonysm/rich-text-laravel": "^0.0.2"
+        "tonysm/rich-text-laravel": "^0.0.7"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",
@@ -51,7 +51,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
