@@ -43,7 +43,7 @@
     @apply leading-5 font-semibold mb-4;
 }
 
-.trix-content a {
+.trix-content a:not(.no-underline) {
     @apply underline;
 }
 
