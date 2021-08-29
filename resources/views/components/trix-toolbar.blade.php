@@ -72,7 +72,7 @@
         </div>
 
         <div>
-            <div class="flex items-center mb-3 mr-3 overflow-hidden bg-white border border-gray-300 rounded" data-trix-button-group="history-tools">
+            <div class="flex items-center mb-3 overflow-hidden bg-white border border-gray-300 rounded" data-trix-button-group="history-tools">
                 <button type="button" class="flex items-center justify-center text-gray-700 w-9 h-9"
                     data-trix-action="undo" data-trix-key="z" title="Undo" tabindex="-1">
                     <x-icon type="undo" />
