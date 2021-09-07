@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d19608fbf02612e76e4e1b3b42bd6bdb",
+    "content-hash": "69b73486b6e4bb038d3f810e89c2cea0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7865,16 +7865,16 @@
         },
         {
             "name": "tonysm/globalid-laravel",
-            "version": "1.0.0-BETA",
+            "version": "1.0.0-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/globalid-laravel.git",
-                "reference": "685ef4390e9640722a3a608ebf7c7d4938cf3ee0"
+                "reference": "aef65d13bbc9ff9d2d3806f81771ff08d1d21da2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/globalid-laravel/zipball/685ef4390e9640722a3a608ebf7c7d4938cf3ee0",
-                "reference": "685ef4390e9640722a3a608ebf7c7d4938cf3ee0",
+                "url": "https://api.github.com/repos/tonysm/globalid-laravel/zipball/aef65d13bbc9ff9d2d3806f81771ff08d1d21da2",
+                "reference": "aef65d13bbc9ff9d2d3806f81771ff08d1d21da2",
                 "shasum": ""
             },
             "require": {
@@ -7928,29 +7928,29 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/globalid-laravel/issues",
-                "source": "https://github.com/tonysm/globalid-laravel/tree/1.0.0-BETA"
+                "source": "https://github.com/tonysm/globalid-laravel/tree/1.0.0-RC1"
             },
-            "time": "2021-08-29T17:30:48+00:00"
+            "time": "2021-09-07T01:26:49+00:00"
         },
         {
             "name": "tonysm/rich-text-laravel",
-            "version": "1.0.0-BETA",
+            "version": "1.0.0-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/rich-text-laravel.git",
-                "reference": "777201a02737e19caaad15995d29fc2190749e1d"
+                "reference": "1baa7a37d584a020dbe476fbf563763c33cb191b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/777201a02737e19caaad15995d29fc2190749e1d",
-                "reference": "777201a02737e19caaad15995d29fc2190749e1d",
+                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/1baa7a37d584a020dbe476fbf563763c33cb191b",
+                "reference": "1baa7a37d584a020dbe476fbf563763c33cb191b",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^8.37",
                 "php": "^8.0",
                 "spatie/laravel-package-tools": "^1.4.3",
-                "tonysm/globalid-laravel": "^1.0.0-BETA"
+                "tonysm/globalid-laravel": "^1.0.0-RC1"
             },
             "require-dev": {
                 "brianium/paratest": "^6.2",
@@ -7994,15 +7994,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/rich-text-laravel/issues",
-                "source": "https://github.com/tonysm/rich-text-laravel/tree/1.0.0-BETA"
+                "source": "https://github.com/tonysm/rich-text-laravel/tree/1.0.0-RC1"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/tonysm",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-08-30T02:01:08+00:00"
+            "time": "2021-09-07T01:30:23+00:00"
         },
         {
             "name": "tonysm/turbo-laravel",
