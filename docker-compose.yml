@@ -41,6 +41,8 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
+        depends_on:
+            - laravel.test
     mysql:
         image: 'mysql:8.0'
         ports:
