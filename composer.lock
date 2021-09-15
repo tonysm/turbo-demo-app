@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08884b46ee846d58c85bc58e1a23f2df",
+    "content-hash": "17189b723bad54b4f6eecd339ab3dc7f",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -8000,16 +8000,16 @@
         },
         {
             "name": "tonysm/turbo-laravel",
-            "version": "0.9.0",
+            "version": "0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/turbo-laravel.git",
-                "reference": "1ee49ace01fe1c9dee0c6d719f73331af3b0265b"
+                "reference": "de38ac1d418c69dcdd34401796544971f9968618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/1ee49ace01fe1c9dee0c6d719f73331af3b0265b",
-                "reference": "1ee49ace01fe1c9dee0c6d719f73331af3b0265b",
+                "url": "https://api.github.com/repos/tonysm/turbo-laravel/zipball/de38ac1d418c69dcdd34401796544971f9968618",
+                "reference": "de38ac1d418c69dcdd34401796544971f9968618",
                 "shasum": ""
             },
             "require": {
@@ -8059,9 +8059,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/turbo-laravel/issues",
-                "source": "https://github.com/tonysm/turbo-laravel/tree/0.9.0"
+                "source": "https://github.com/tonysm/turbo-laravel/tree/0.14.0"
             },
-            "time": "2021-06-17T01:55:40+00:00"
+            "time": "2021-09-15T22:58:14+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
