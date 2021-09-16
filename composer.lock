@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17189b723bad54b4f6eecd339ab3dc7f",
+    "content-hash": "b869ea15b5f9631b5656e2aa6284a22c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -7934,23 +7934,23 @@
         },
         {
             "name": "tonysm/rich-text-laravel",
-            "version": "1.0.0-RC1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/rich-text-laravel.git",
-                "reference": "1baa7a37d584a020dbe476fbf563763c33cb191b"
+                "reference": "7a8bb297408e098cc076de49c92c3323c4075599"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/1baa7a37d584a020dbe476fbf563763c33cb191b",
-                "reference": "1baa7a37d584a020dbe476fbf563763c33cb191b",
+                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/7a8bb297408e098cc076de49c92c3323c4075599",
+                "reference": "7a8bb297408e098cc076de49c92c3323c4075599",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^8.37",
                 "php": "^8.0",
                 "spatie/laravel-package-tools": "^1.4.3",
-                "tonysm/globalid-laravel": "^1.0.0-RC1"
+                "tonysm/globalid-laravel": "^1.0.0"
             },
             "require-dev": {
                 "brianium/paratest": "^6.2",
@@ -7994,9 +7994,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/rich-text-laravel/issues",
-                "source": "https://github.com/tonysm/rich-text-laravel/tree/1.0.0-RC1"
+                "source": "https://github.com/tonysm/rich-text-laravel/tree/1.0.0"
             },
-            "time": "2021-09-07T01:30:23+00:00"
+            "time": "2021-09-15T23:56:34+00:00"
         },
         {
             "name": "tonysm/turbo-laravel",
