@@ -9,11 +9,6 @@
         <meta name="current-user-id" content="{{ auth()->id() }}" />
         <meta name="current-team-id" content="{{ optional(auth()->user()->currentTeam)->id }}">
 
-        @if (config('jetstream-page'))
-            <meta name="turbo-cache-control" content="no-cache">
-            <meta name="turbo-visit-control" content="reload">
-        @endif
-
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -52,6 +47,6 @@
         @stack('modals')
 
         @livewireScripts
-        <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+        <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.4/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
     </body>
 </html>
