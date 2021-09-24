@@ -1,6 +1,6 @@
 @props(['id'])
 
-<div class="sticky top-0 px-2 pt-3 pb-0 bg-white border-b border-gray-300 rounded-t-md trix-toolbar" id="{{ $id }}">
+<div class="sticky top-0 z-50 px-2 pt-3 pb-0 bg-white border-b border-gray-300 rounded-t-md trix-toolbar" id="{{ $id }}">
     <div class="flex flex-wrap items-center justify-between" data-controller="reveal" data-reveal-hide-keys-value="escape,enter">
         <div class="flex flex-wrap items-center">
             <div class="flex items-center mb-3 mr-3 overflow-hidden bg-white border border-gray-300 rounded">
