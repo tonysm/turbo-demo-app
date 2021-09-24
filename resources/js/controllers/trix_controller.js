@@ -1,6 +1,6 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 import Tribute from 'tributejs';
-import Trix from 'trix';
+import Trix from '../libs/trix';
 
 require('tributejs/tribute.css');
 

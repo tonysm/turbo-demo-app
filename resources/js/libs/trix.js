@@ -15,4 +15,6 @@ Trix.config.blockAttributes.heading3 = {
     group: false
 }
 
+window.Trix = Trix;
+
 export default Trix;
