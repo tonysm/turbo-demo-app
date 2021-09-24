@@ -11,10 +11,10 @@
     },
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "^7.12.1",
-        "@hotwired/turbo": "^7.0.0-rc.4",
+        "@hotwired/turbo": "^7.0.0",
         "@stimulus/webpack-helpers": "^2.0.0",
-        "@tailwindcss/custom-forms": "^0.2.1",
-        "@tailwindcss/ui": "^0.3.1",
+        "@tailwindcss/forms": "^0.3.3",
+        "@tailwindcss/typography": "^0.4.1",
         "alpinejs": "^3.0.6",
         "axios": "^0.21.1",
         "chokidar": "^3.5.2",
