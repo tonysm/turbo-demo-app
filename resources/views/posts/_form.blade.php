@@ -16,7 +16,7 @@
         <label class="block">
             <span class="text-gray-700 sr-only">Title</span>
             <input type="text"
-                   class="block w-full text-2xl border-0 outline-none"
+                   class="block w-full p-0 py-1 text-2xl border-0 outline-none"
                    placeholder="Enter a title..."
                    value="{!! old('title', $post->title) !!}"
                    name="title"
@@ -32,6 +32,7 @@
                 value="{{ old('content', $post->content->toTrixHtml()) }}"
                 name="content"
                 style="min-height: 300px"
+                placeholder="Write something here..."
             ></x-trix-editor>
             @error('content')
                 <span class="text-sm text-red-600">{{ $message }}</span>
