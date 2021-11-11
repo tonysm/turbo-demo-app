@@ -5,7 +5,7 @@
     action="{{ route('posts.comments.store', $post) }}"
     @endif
     method="POST"
-    class="p-4 my-4 bg-white rounded"
+    class=""
     x-data="{ sending: false }"
     x-init="$refs.contentField.focus()"
     @turbo:submit-start="sending = true"
@@ -17,7 +17,7 @@
     @endif
 
     <div class="block">
-        <label class="text-gray-700 {{ $comment->exists ? 'sr-only' : '' }}">
+        <label class="text-gray-700 sr-only">
             {{ $comment->exists ? 'Edit Comment' : 'New Comment' }}
         </label>
 
@@ -27,6 +27,7 @@
                 value="{{ $comment->content->toTrixHtml() }}"
                 name="content"
                 x-ref="contentField"
+                placeholder="Say something nice..."
             />
         </div>
 
@@ -36,12 +37,7 @@
     </div>
 
 
-    <div class="flex items-center justify-between mt-4">
-        <x-jet-button x-bind:disabled="sending" data-controller="loading-button">
-            <span x-show="sending">{{ __('Sending...') }}</span>
-            <span x-show="!sending">{{ __('Save') }}</span>
-        </x-jet-button>
-
+    <div class="flex items-center justify-end mt-4 space-x-4">
         <a
             @if($comment->exists)
             href="{{ route('comments.show', $comment) }}"
@@ -52,5 +48,10 @@
         >
             Cancel
         </a>
+
+        <x-jet-button x-bind:disabled="sending" data-controller="loading-button">
+            <span x-show="sending">{{ __('Saving...') }}</span>
+            <span x-show="!sending">{{ __('Save') }}</span>
+        </x-jet-button>
     </div>
 </form>

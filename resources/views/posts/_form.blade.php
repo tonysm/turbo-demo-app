@@ -38,19 +38,21 @@
                 <span class="text-sm text-red-600">{{ $message }}</span>
             @enderror
         </div>
-        <div class="flex items-center justify-between">
-            <x-jet-button data-controller="loading-button">
-                {{ __('Save') }}
-            </x-jet-button>
+        <div class="flex items-center justify-end space-x-4">
             <a
                 @if($post->exists)
                 href="{{ route('posts.show', $post) }}"
                 @else
                 href="{{ route('posts.index') }}"
                 @endif
+                class="text-base text-gray-500"
             >
                 Cancel
             </a>
+
+            <x-jet-button data-controller="loading-button">
+                <span>{{ __('Save') }}</span>
+            </x-jet-button>
         </div>
     </div>
 </form>

@@ -1,5 +1,5 @@
 <turbo-frame id="@domid($comment)">
-    <div class="p-4 my-4 bg-white rounded shadow">
+    <div class="p-8 bg-white rounded shadow">
         <p class="flex justify-between text-sm">
             <span>{{ $comment->user->name }} said:</span>
             <span class="flex items-center space-x-2 text-gray-500">
