@@ -1,6 +1,6 @@
 <turbo-frame id="@domid($comment)">
-    <div class="p-8 bg-white rounded shadow">
-        <p class="flex justify-between text-sm">
+    <div class="px-16 py-8 border-t border-b">
+        <p class="flex justify-between text-sm text-gray-600">
             <span>{{ $comment->user->name }} said:</span>
             <span class="flex items-center space-x-2 text-gray-500">
                 <span
@@ -12,9 +12,9 @@
                     @if($deleting ?? false)
                         <strong class="transition duration-300 ease-in-out delay-150">Are you sure?</strong>
                         <a href="{{ route('comments.show', $comment) }}"
-                           data-controller="hide-actions"
-                           data-hide-actions-owner-id-value="{{ $comment->user_id }}"
-                           class="underline"
+                            data-controller="hide-actions"
+                            data-hide-actions-owner-id-value="{{ $comment->user_id }}"
+                            class="underline"
                         >
                             No, cancel
                         </a>
@@ -29,24 +29,24 @@
                         </button>
                     @else
                         <a href="{{ route('comments.edit', $comment) }}"
-                           data-controller="hide-actions"
-                           data-hide-actions-owner-id-value="{{ $comment->user_id }}"
+                            data-controller="hide-actions"
+                            data-hide-actions-owner-id-value="{{ $comment->user_id }}"
                         >
                             <svg class="inline-block w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
                             </svg>
                         </a>
 
                         <a href="{{ route('comments.delete', $comment) }}"
-                           data-controller="hide-actions"
-                           data-hide-actions-owner-id-value="{{ $comment->user_id }}"
+                            data-controller="hide-actions"
+                            data-hide-actions-owner-id-value="{{ $comment->user_id }}"
                         >
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                             </svg>
                         </a>
                     @endif
@@ -58,13 +58,13 @@
             </span>
         </p>
 
-        <div class="mt-3 trix-content">
+        <div class="mt-3 text-lg trix-content">
             {!! clean($comment->content) !!}
         </div>
 
         @if($deleting ?? false)
             <form id="@domid($comment, 'delete_form')" action="{{ route('comments.destroy', $comment) }}" method="POST"
-                  hidden="true">
+                    hidden="true">
                 @csrf
                 @method('DELETE')
                 <div class="flex items-center justify-center space-x-1">

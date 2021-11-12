@@ -9,8 +9,8 @@
 
     <div class="py-12">
         <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
-            <div class="p-4 bg-white rounded-lg shadow">
-                <turbo-frame id="@domid($post, 'comments')" class="flex flex-col space-y-2">
+            <div class="p-16 bg-white rounded-lg shadow">
+                <turbo-frame id="@domid($post, 'comments')" class="flex flex-col">
                     @foreach($comments as $comment)
                         @include('comments._comment', ['comment' => $comment])
                     @endforeach

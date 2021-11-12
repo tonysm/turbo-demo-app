@@ -5,7 +5,7 @@
     action="{{ route('posts.comments.store', $post) }}"
     @endif
     method="POST"
-    class=""
+    class="px-16 py-8 border-t border-b"
     x-data="{ sending: false }"
     x-init="$refs.contentField.focus()"
     @turbo:submit-start="sending = true"
@@ -21,13 +21,14 @@
             {{ $comment->exists ? 'Edit Comment' : 'New Comment' }}
         </label>
 
-        <div class="mt-2">
+        <div class="p-4 mt-2 border rounded shadow">
             <x-trix-editor
                 :id="\Tonysm\TurboLaravel\dom_id($comment, 'content')"
                 value="{{ $comment->content->toTrixHtml() }}"
                 name="content"
                 x-ref="contentField"
                 placeholder="Say something nice..."
+                class="py-2 text-lg"
             />
         </div>
 

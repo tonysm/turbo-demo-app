@@ -16,28 +16,28 @@
         <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
             <div class="p-16 bg-white rounded shadow">
                 @include('posts._post', ['post' => $post])
-            </div>
 
-            <div class="space-y-4">
-                <h3 class="text-lg font-semibold leading-tight text-gray-800">Comments
-                    <turbo-frame id="@domid($post, 'comments_count')">
-                        @include('posts._post_comments_count', ['post' => $post])
+                <div class="pt-8 mt-8 border-t border-gray-100">
+                    <h3 class="flex items-center mb-8 space-x-1 text-xl font-semibold leading-tight text-gray-800">
+                        <div>Comments</div>
+                        <div id="@domid($post, 'comments_count')">
+                            @include('posts._post_comments_count', ['post' => $post])
+                        </div>
+                    </h3>
+
+                    <turbo-frame id="@domid($post, 'comments')" src="{{ route('posts.comments.index', $post) }}" class="flex flex-col">
                     </turbo-frame>
-                </h3>
 
-                <turbo-frame id="@domid($post, 'comments')" src="{{ route('posts.comments.index', $post) }}" class="flex flex-col space-y-2">
-                    <p>Loading comments...</p>
-                </turbo-frame>
-
-                <div class="mt-4">
-                    <turbo-frame id="new_comment">
-                        <a
-                            class="block p-4 text-base text-center text-gray-500 bg-white rounded shadow"
-                            href="{{ route('posts.comments.create', $post) }}"
-                        >
-                            New Comment
-                        </a>
-                    </turbo-frame>
+                    <div class="">
+                        <turbo-frame id="new_comment">
+                            <a
+                                class="block px-16 py-10 text-gray-500 bg-white border-t border-b rounded"
+                                href="{{ route('posts.comments.create', $post) }}"
+                            >
+                                <span class="text-lg text-gray-500">Add a comment here...</span>
+                            </a>
+                        </turbo-frame>
+                    </div>
                 </div>
             </div>
         </div>

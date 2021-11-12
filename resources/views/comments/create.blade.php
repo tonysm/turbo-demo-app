@@ -10,9 +10,7 @@
     <div class="py-12">
         <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
             <turbo-frame id="new_comment">
-                <div class="p-8 bg-white rounded-lg shadow">
-                    @include('comments._form', ['post' => $post, 'comment' => $newComment])
-                </div>
+                @include('comments._form', ['post' => $post, 'comment' => $newComment])
             </turbo-frame>
         </div>
     </div>
