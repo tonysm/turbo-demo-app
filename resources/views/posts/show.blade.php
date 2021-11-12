@@ -17,8 +17,10 @@
             <div class="p-16 bg-white rounded shadow">
                 @include('posts._post', ['post' => $post])
 
-                <div class="pt-8 mt-8 border-t border-gray-100">
-                    <h3 class="flex items-center mb-8 space-x-1 text-xl font-semibold leading-tight text-gray-800">
+                <div class="w-2/12 mx-auto mt-8 border-b"></div>
+
+                <div class="pt-8">
+                    <h3 class="flex items-center justify-center mb-8 space-x-1 text-xl font-semibold leading-tight text-gray-800">
                         <div>Comments</div>
                         <div id="@domid($post, 'comments_count')">
                             @include('posts._post_comments_count', ['post' => $post])
