@@ -14,7 +14,7 @@
 
     <div class="py-12">
         <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
-            <div class="p-16 bg-white rounded shadow">
+            <div class="p-2 bg-white rounded shadow md:p-8 lg:p-16">
                 @include('posts._post', ['post' => $post])
 
                 <div class="w-2/12 mx-auto mt-8 border-b"></div>
@@ -33,7 +33,7 @@
                     <div class="">
                         <turbo-frame id="new_comment">
                             <a
-                                class="block px-16 py-10 text-gray-500 bg-white border-t border-b rounded"
+                                class="block px-2 py-10 text-gray-500 bg-white border-t border-b rounded md:px-8 lg:px-16"
                                 href="{{ route('posts.comments.create', $post) }}"
                             >
                                 <span class="text-lg text-gray-500">Add a comment here...</span>

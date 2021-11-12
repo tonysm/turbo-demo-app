@@ -6,7 +6,7 @@
     <input id="{{ $id }}" {{ $attributes->except(['class', 'style']) }} type="hidden">
 
     <trix-editor input="{{ $id }}" toolbar="{{ $id }}_toolbar"
-        {{ $attributes->merge(['style' => '', 'class' => 'p-0 outline-none trix-content border-0 mt-2']) }} data-controller="trix"
+        {{ $attributes->merge(['style' => '', 'class' => 'p-0 py-2 lg:text-lg outline-none trix-content border-0 mt-2']) }} data-controller="trix"
         data-action="
             click->trix#prevent
             trix-attachment-add->trix#upload

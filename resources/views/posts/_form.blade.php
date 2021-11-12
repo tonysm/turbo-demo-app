@@ -15,7 +15,7 @@
     <div class="space-y-4">
         <label class="block">
             <span class="text-gray-700 sr-only">Title</span>
-            <x-textarea class="px-8" :value="old('title', $post->title)" name="title" placeholder="Enter a title..." />
+            <x-textarea class="px-8 text-2xl md:text-4xl lg:text-5xl" :value="old('title', $post->title)" name="title" placeholder="Enter a title..." />
             @error('title')
                 <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
             @enderror
@@ -27,7 +27,6 @@
                 value="{{ old('content', $post->content->toTrixHtml()) }}"
                 name="content"
                 style="min-height: 300px"
-                class="py-2 text-lg"
                 placeholder="Write something here..."
             ></x-trix-editor>
             @error('content')

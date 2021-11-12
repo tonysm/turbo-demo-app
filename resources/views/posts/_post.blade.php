@@ -1,10 +1,10 @@
 <turbo-frame id="@domid($post)" class="flex flex-col space-y-4">
-    <div class="relative px-8">
-        <h1 class="text-5xl font-semibold leading-tight text-center text-gray-800">{{ $post->title }}</h1>
+    <div class="relative">
+        <h1 class="px-4 text-2xl font-semibold leading-tight text-center text-gray-800 md:px-8 md:text-4xl lg:text-5xl">{{ $post->title }}</h1>
 
         @if($showActions ?? true)
             <div
-                class="absolute top-0 right-0"
+                class="absolute top-0 right-0 bg-white rounded-full"
                 data-controller="hide-actions"
                 data-hide-actions-owner-id-value="{{ $post->user_id }}"
             >
@@ -30,6 +30,6 @@
     </div>
 
     <div class="flex justify-between text-sm">
-        <div class="text-lg trix-content">{!! clean($post->content) !!}</div>
+        <div class="text-base md:text-lg trix-content">{!! clean($post->content) !!}</div>
     </div>
 </turbo-frame>

@@ -1,6 +1,6 @@
-<div id="@domid($post, 'card')" class="p-16 bg-white rounded shadow hover:shadow-md">
+<div id="@domid($post, 'card')" class="p-2 bg-white rounded shadow md:p-8 lg:p-16 hover:shadow-md">
     <a href="{{ route('posts.show', $post) }}" class="block group">
-        <h2 class="px-8 mb-8 text-5xl text-center text-gray-900">
+        <h2 class="px-4 mb-8 text-2xl font-semibold text-center text-gray-900 md:px-8 md:text-4xl lg:text-5xl">
             {{ $post->title }}
         </h2>
         <div class="flex flex-col items-center pb-4">
@@ -19,7 +19,7 @@
             <div class="w-2/12 border-b"></div>
         </div>
 
-        <div class="mt-3 text-lg">
+        <div class="px-2 mt-3 text-base md:px-0 md:text-lg">
             {{ Str::limit($post->content->toPlainText(), 600) }}
         </div>
     </a>

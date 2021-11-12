@@ -5,7 +5,7 @@
     action="{{ route('posts.comments.store', $post) }}"
     @endif
     method="POST"
-    class="px-16 py-8 border-t border-b"
+    class="px-2 py-8 border-t border-b md:px-8 lg:px-16"
     x-data="{ sending: false }"
     x-init="$refs.contentField.focus()"
     @turbo:submit-start="sending = true"
@@ -28,7 +28,6 @@
                 name="content"
                 x-ref="contentField"
                 placeholder="Say something nice..."
-                class="py-2 text-lg"
             />
         </div>
 

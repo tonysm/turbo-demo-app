@@ -1,7 +1,7 @@
 <x-jet-dropdown align="right" width="48" contentClasses="py-1 bg-gray-100">
     <x-slot name="trigger">
         <button
-            class="flex text-sm border-2 border-transparent rounded-full text-gray-500 hover:text-gray-700 focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+            class="flex text-sm text-gray-500 transition duration-150 ease-in-out border-2 border-transparent rounded-full hover:text-gray-700 focus:outline-none focus:border-gray-300"
         >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                  xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +17,7 @@
                 href="{{ route('posts.edit', $post) }}"
                 data-controller="hide-actions"
                 data-hide-actions-owner-id-value="{{ $post->user_id }}"
-                class="p-2 flex space-x-2 items-center"
+                class="flex items-center p-2 space-x-2"
             >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                      xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +30,7 @@
                 href="{{ route('posts.delete', $post) }}"
                 data-controller="hide-actions"
                 data-hide-actions-owner-id-value="{{ $post->user_id }}"
-                class="p-2 flex space-x-2 items-center"
+                class="flex items-center p-2 space-x-2"
             >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                      xmlns="http://www.w3.org/2000/svg">

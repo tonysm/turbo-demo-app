@@ -1,5 +1,28 @@
 <turbo-frame id="@domid($comment)">
-    <div class="px-16 py-8 border-t border-b">
+    <div class="px-2 py-8 border-t border-b md:px-8 lg:px-16">
+        @if ($deleting ?? false)
+        <div class="flex flex-col w-full max-w-xs p-4 mx-auto mb-8 space-x-2 border rounded">
+            <p><strong class="transition duration-300 ease-in-out delay-150">Are you sure?</strong></p>
+            <div class="flex items-center justify-between">
+                <a href="{{ route('comments.show', $comment) }}"
+                    data-controller="hide-actions"
+                    data-hide-actions-owner-id-value="{{ $comment->user_id }}"
+                    class="underline"
+                >
+                    No, cancel
+                </a>
+                <button
+                    form="@domid($comment, 'delete_form')"
+                    data-controller="hide-actions loading-button"
+                    data-hide-actions-owner-id-value="{{ $comment->user_id }}"
+                    class="px-2 py-1 -my-1 text-white bg-indigo-500 rounded"
+                >
+                    Yes, delete it!
+                </button>
+            </div>
+        </div>
+        @endif
+
         <p class="flex justify-between text-sm text-gray-600">
             <span>{{ $comment->user->name }} said:</span>
             <span class="flex items-center space-x-2 text-gray-500">
@@ -9,25 +32,7 @@
                     data-replace-class-remove-class-value="scale-0"
                     data-replace-class-add-class-value="scale-100"
                 >
-                    @if($deleting ?? false)
-                        <strong class="transition duration-300 ease-in-out delay-150">Are you sure?</strong>
-                        <a href="{{ route('comments.show', $comment) }}"
-                            data-controller="hide-actions"
-                            data-hide-actions-owner-id-value="{{ $comment->user_id }}"
-                            class="underline"
-                        >
-                            No, cancel
-                        </a>
-
-                        <button
-                            form="@domid($comment, 'delete_form')"
-                            data-controller="hide-actions loading-button"
-                            data-hide-actions-owner-id-value="{{ $comment->user_id }}"
-                            class="px-2 py-1 -my-1 text-white bg-indigo-500 rounded"
-                        >
-                            Yes, delete it!
-                        </button>
-                    @else
+                    @unless ($deleting ?? false)
                         <a href="{{ route('comments.edit', $comment) }}"
                             data-controller="hide-actions"
                             data-hide-actions-owner-id-value="{{ $comment->user_id }}"
@@ -57,6 +62,7 @@
                 </time>
             </span>
         </p>
+
 
         <div class="mt-3 text-lg trix-content">
             {!! clean($comment->content) !!}
