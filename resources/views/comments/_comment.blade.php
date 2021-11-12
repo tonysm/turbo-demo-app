@@ -63,8 +63,7 @@
             </span>
         </p>
 
-
-        <div class="mt-3 text-lg trix-content">
+        <div class="mt-3 text-base md:text-lg trix-content">
             {!! clean($comment->content) !!}
         </div>
 

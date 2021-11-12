@@ -36,7 +36,7 @@
                                 class="block px-2 py-10 text-gray-500 bg-white border-t border-b rounded md:px-8 lg:px-16"
                                 href="{{ route('posts.comments.create', $post) }}"
                             >
-                                <span class="text-lg text-gray-500">Add a comment here...</span>
+                                <span class="text-base text-gray-500 md:text-lg">Add a comment here...</span>
                             </a>
                         </turbo-frame>
                     </div>
