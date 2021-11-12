@@ -1,5 +1,5 @@
 <turbo-frame id="@domid($post)" class="flex flex-col space-y-4">
-    <div class="relative flex items-center justify-between space-x-2">
+    <div class="relative px-8">
         <h1 class="text-5xl font-semibold leading-tight text-center text-gray-800">{{ $post->title }}</h1>
 
         @if($showActions ?? true)

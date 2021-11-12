@@ -1,6 +1,6 @@
 <div id="@domid($post, 'card')" class="p-16 bg-white rounded shadow hover:shadow-md">
     <a href="{{ route('posts.show', $post) }}" class="block group">
-        <h2 class="mb-8 text-5xl text-center text-gray-900">
+        <h2 class="px-8 mb-8 text-5xl text-center text-gray-900">
             {{ $post->title }}
         </h2>
         <div class="flex flex-col items-center pb-4">

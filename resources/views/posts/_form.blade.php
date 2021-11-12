@@ -15,7 +15,7 @@
     <div class="space-y-4">
         <label class="block">
             <span class="text-gray-700 sr-only">Title</span>
-            <x-textarea :value="old('title', $post->title)" name="title" placeholder="Enter a title..." />
+            <x-textarea class="px-8" :value="old('title', $post->title)" name="title" placeholder="Enter a title..." />
             @error('title')
                 <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
             @enderror
