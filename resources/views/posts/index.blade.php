@@ -4,8 +4,8 @@
     ></turbo-echo-stream-source>
 
     <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <div class="flex items-center justify-between">
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">
                 {{ __('Posts') }}
             </h2>
 
@@ -14,17 +14,14 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="space-y-8">
-                <div id="post_cards" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-2 md:gap-3 lg:gap-4">
-                    @foreach($posts as $post)
-                        @include('posts._post_card', ['post' => $post])
-                    @endforeach
-                </div>
+        <div class="mx-auto max-w-7xl sm:px-8 lg:px-18">
+            <div id="post_cards" class="space-y-4">
+                @foreach($posts as $post)
+                    @include('posts._post_card', ['post' => $post])
+                @endforeach
             </div>
-
             @if($posts->isEmpty())
-                <div id="empty_posts" class="bg-white rounded shadow p-4 text-gray-700 text-center">
+                <div id="empty_posts" class="p-4 text-center text-gray-700 bg-white rounded shadow">
                     <p>Nothing was shared just yet. Create your first post!</p>
                 </div>
             @endif
