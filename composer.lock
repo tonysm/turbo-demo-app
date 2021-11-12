@@ -7935,16 +7935,16 @@
         },
         {
             "name": "tonysm/rich-text-laravel",
-            "version": "1.0.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/rich-text-laravel.git",
-                "reference": "7a8bb297408e098cc076de49c92c3323c4075599"
+                "reference": "60fa2c18822f3d7643b3c01fa2a3d7ab4e9555cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/7a8bb297408e098cc076de49c92c3323c4075599",
-                "reference": "7a8bb297408e098cc076de49c92c3323c4075599",
+                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/60fa2c18822f3d7643b3c01fa2a3d7ab4e9555cd",
+                "reference": "60fa2c18822f3d7643b3c01fa2a3d7ab4e9555cd",
                 "shasum": ""
             },
             "require": {
@@ -7995,9 +7995,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/rich-text-laravel/issues",
-                "source": "https://github.com/tonysm/rich-text-laravel/tree/1.0.0"
+                "source": "https://github.com/tonysm/rich-text-laravel/tree/1.2.0"
             },
-            "time": "2021-09-15T23:56:34+00:00"
+            "time": "2021-10-29T01:21:52+00:00"
         },
         {
             "name": "tonysm/turbo-laravel",
