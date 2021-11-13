@@ -8,7 +8,7 @@ const echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     forceTLS: process.env.MIX_PUSHER_USE_SSL === "true",
     disableStats: true,
-    wsHost: process.env.MIX_PUSHER_HOST,
+    wsHost: process.env.MIX_PUSHER_HOST || window.location.host,
     wsPort: process.env.MIX_PUSHER_PORT || null,
 });
 
