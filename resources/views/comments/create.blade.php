@@ -1,4 +1,6 @@
 <x-app-layout>
+    <x-slot name="title">New Comment on {{ $post->title }}</x-slot>
+
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
             <a href="{{ route('posts.index') }}" class="text-cool-gray-500">Posts</a> / <a

@@ -1,4 +1,4 @@
-<div id="@domid($post, 'card')" class="p-2 bg-white rounded shadow md:p-8 lg:p-16 hover:shadow-md">
+<div id="@domid($post, 'card')" class="px-2 py-8 bg-white rounded shadow md:p-8 lg:p-16 hover:shadow-md">
     <a href="{{ route('posts.show', $post) }}" class="block group">
         <h2 class="px-4 mb-8 text-2xl font-semibold text-center text-gray-900 md:px-8 md:text-4xl lg:text-5xl">
             {{ $post->title }}

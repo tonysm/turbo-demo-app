@@ -1,5 +1,5 @@
 <x-app-layout>
-    <turbo-echo-stream-source channel="App.Models.Post.{{ $post->id }}"></turbo-echo-stream-source>
+    <x-slot name="title">{{ $post->title }}</x-slot>
 
     <x-slot name="header">
         <a href="{{ route('posts.index') }}"
@@ -12,9 +12,11 @@
         </a>
     </x-slot>
 
-    <div class="py-12">
+    <turbo-echo-stream-source channel="App.Models.Post.{{ $post->id }}"></turbo-echo-stream-source>
+
+    <div class="py-4 md:py-12">
         <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
-            <div class="p-2 bg-white rounded shadow md:p-8 lg:p-16">
+            <div class="p-2 m-4 bg-white rounded shadow md:p-8 lg:p-16">
                 @include('posts._post', ['post' => $post])
 
                 <div class="w-2/12 mx-auto mt-8 border-b"></div>

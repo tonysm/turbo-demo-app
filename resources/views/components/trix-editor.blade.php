@@ -1,7 +1,6 @@
 @props(['id' => '', 'toolbar' => ''])
 
 <div class="relative border-0 rounded-md">
-    <x-trix-toolbar id="{{ $id }}_toolbar" />
 
     <input id="{{ $id }}" {{ $attributes->except(['class', 'style']) }} type="hidden">
 
@@ -11,5 +10,8 @@
             click->trix#prevent
             trix-attachment-add->trix#upload
             tribute-replaced->trix#tributeReplaced
-        "></trix-editor>
+        "
+    ></trix-editor>
+
+    <x-trix-toolbar id="{{ $id }}_toolbar" />
 </div>

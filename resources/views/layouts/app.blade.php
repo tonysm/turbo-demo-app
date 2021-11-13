@@ -9,7 +9,7 @@
         <meta name="current-user-id" content="{{ auth()->id() }}" />
         <meta name="current-team-id" content="{{ optional(auth()->user()->currentTeam)->id }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -25,13 +25,13 @@
         <div class="min-h-screen bg-gray-100">
             @include('demo-heading')
 
-            <div id="app-navigation" data-turbo-permanent>
+            <div id="app-navigation" data-turbo-permanent class="hidden md:block">
                 @livewire('navigation-menu')
             </div>
 
             <!-- Page Heading -->
             @isset($header)
-            <header class="bg-white shadow">
+            <header class="hidden bg-white shadow md:block">
                 <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>

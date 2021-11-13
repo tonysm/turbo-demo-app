@@ -1,6 +1,6 @@
 @props(['id'])
 
-<div class="sticky top-0 z-50 px-0 pt-3 pb-0 bg-white border-t border-b border-gray-300 rounded-t-md trix-toolbar" id="{{ $id }}">
+<div class="sticky bottom-0 z-50 px-0 pt-3 pb-0 bg-white border-t border-b border-gray-300 rounded-t-md trix-toolbar" id="{{ $id }}">
     <div class="flex flex-wrap items-center justify-between" data-controller="reveal" data-reveal-hide-keys-value="escape,enter">
         <div class="flex flex-wrap items-center">
             <div class="flex items-center mb-3 mr-3 overflow-hidden bg-white border border-gray-300 rounded">
@@ -16,7 +16,7 @@
                     data-trix-attribute="strike" title="Strike" tabindex="-1">
                     <x-icon type="strike" />
                 </button>
-                <button type="button" class="flex items-center justify-center text-gray-700 w-9 h-9"
+                <button type="button" class="items-center justify-center hidden text-gray-700 sm:flex w-9 h-9"
                     data-trix-attribute="href" data-trix-action="link" data-action="click->reveal#toggle mousedown->reveal#toggle" data-trix-key="k"
                     title="Link" tabindex="-1">
                     <x-icon type="link" />
@@ -37,7 +37,7 @@
                     <x-icon type="h3" />
                 </button>
             </div>
-            <div class="flex items-center mb-3 mr-3 overflow-hidden bg-white border border-gray-300 rounded">
+            <div class="items-center hidden mb-3 mr-3 overflow-hidden bg-white border border-gray-300 rounded md:flex">
                 <button type="button" class="flex items-center justify-center text-gray-700 w-9 h-9"
                     data-trix-attribute="quote" title="Quotes" tabindex="-1">
                     <x-icon type="quotes" />
@@ -71,7 +71,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="hidden md:block">
             <div class="flex items-center mb-3 overflow-hidden bg-white border border-gray-300 rounded" data-trix-button-group="history-tools">
                 <button type="button" class="flex items-center justify-center text-gray-700 w-9 h-9"
                     data-trix-action="undo" data-trix-key="z" title="Undo" tabindex="-1">
