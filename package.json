@@ -13,7 +13,7 @@
         "@babel/plugin-proposal-class-properties": "^7.12.1",
         "@hotwired/stimulus": "^3.0.0",
         "@hotwired/stimulus-webpack-helpers": "^1.0.1",
-        "@hotwired/turbo": "^7.0.0",
+        "@hotwired/turbo": "^7.1.0-rc.1",
         "@tailwindcss/forms": "^0.3.3",
         "@tailwindcss/typography": "^0.4.1",
         "alpinejs": "^3.0.6",
