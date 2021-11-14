@@ -5,7 +5,7 @@
     action="{{ route('posts.comments.store', $post) }}"
     @endif
     method="POST"
-    class="px-2 py-8 border-t border-b md:px-8 lg:px-16"
+    class="px-2 py-8 md:px-8 lg:px-16"
     x-data="{ sending: false }"
     x-init="$refs.contentField.focus()"
     @turbo:submit-start="sending = true"
@@ -44,7 +44,7 @@
             @else
             href="{{ route('posts.show', $post) }}"
             @endif
-            class="text-base text-gray-500"
+            class="hidden text-base text-gray-500 md:inline-block"
         >
             Cancel
         </a>

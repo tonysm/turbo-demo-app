@@ -40,7 +40,7 @@
                 @else
                 href="{{ route('posts.index') }}"
                 @endif
-                class="text-base text-gray-500"
+                class="hidden text-base text-gray-500 sm:inline-block"
             >
                 Cancel
             </a>

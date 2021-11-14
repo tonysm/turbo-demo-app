@@ -38,7 +38,7 @@ class CommentsController extends Controller
 
         $comment->broadcastReplaceTo($comment->post)->toOthers()->later();
 
-        if (Request::wantsTurboStream()) {
+        if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
             return Response::turboStream()->replace($comment);
         }
 
@@ -67,7 +67,7 @@ class CommentsController extends Controller
             ->partial('posts._post_comments_count', ['post' => $comment->post])
             ->later();
 
-        if (Request::wantsTurboStream()) {
+        if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
             return Response::turboStream()->remove($comment);
         }
 

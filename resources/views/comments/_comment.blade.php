@@ -1,4 +1,9 @@
-<turbo-frame id="@domid($comment)">
+<turbo-frame
+    id="@domid($comment)"
+    data-controller="bridge"
+    data-action="init-turbo-native@window->bridge#changeFrameTargetOnNative"
+    data-target-on-native="_top"
+>
     <div class="px-2 py-8 border-t border-b md:px-8 lg:px-16">
         @if ($deleting ?? false)
         <div class="flex flex-col w-full max-w-xs p-4 mx-auto mb-8 space-x-2 border rounded">
@@ -8,6 +13,8 @@
                     data-controller="hide-actions"
                     data-hide-actions-owner-id-value="{{ $comment->user_id }}"
                     class="underline"
+                    data-turbo-action="replace"
+                    data-turbo-frame="@domid($comment)"
                 >
                     No, cancel
                 </a>
@@ -16,6 +23,7 @@
                     data-controller="hide-actions loading-button"
                     data-hide-actions-owner-id-value="{{ $comment->user_id }}"
                     class="px-2 py-1 -my-1 text-white bg-indigo-500 rounded"
+                    data-turbo-frame="@domid($comment)"
                 >
                     Yes, delete it!
                 </button>
@@ -47,6 +55,7 @@
                         <a href="{{ route('comments.delete', $comment) }}"
                             data-controller="hide-actions"
                             data-hide-actions-owner-id-value="{{ $comment->user_id }}"
+                            data-turbo-frame="@domid($comment)"
                         >
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">

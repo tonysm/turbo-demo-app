@@ -31,6 +31,7 @@
                 data-controller="hide-actions"
                 data-hide-actions-owner-id-value="{{ $post->user_id }}"
                 class="flex items-center p-2 space-x-2"
+                data-turbo-frame="@domid($post)"
             >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                      xmlns="http://www.w3.org/2000/svg">

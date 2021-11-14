@@ -47,7 +47,7 @@ class PostCommentsController extends Controller
             ->partial('posts._post_comments_count', ['post' => $comment->post])
             ->later();
 
-        if (Request::wantsTurboStream()) {
+        if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
             return Response::turboStreamView('comments.turbo.created_stream', [
                 'comment' => $comment,
             ]);

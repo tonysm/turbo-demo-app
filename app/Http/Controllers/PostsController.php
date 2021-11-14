@@ -55,7 +55,7 @@ class PostsController extends Controller
 
         $post->update($this->postParams());
 
-        if (Request::wantsTurboStream()) {
+        if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
             return Response::turboStream($post);
         }
 

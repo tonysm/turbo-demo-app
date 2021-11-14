@@ -7,3 +7,5 @@ import './libs/stimulus';
 import './libs/alpine';
 import './libs/trix';
 import './libs/turbo';
+
+import './libs/bridge';

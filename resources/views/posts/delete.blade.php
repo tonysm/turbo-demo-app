@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
             <a href="{{ route('posts.index') }}" class="text-cool-gray-500">Posts</a> / <a
                 href="{{ route('posts.show', $post) }}"
                 class="text-cool-gray-500">{{ $post->title }}</a> / Delete Post Confirmation
@@ -8,12 +8,12 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-12">
-            <div class="bg-white rounded shadow p-8">
+        <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
+            <div class="p-8 bg-white rounded shadow">
                 <turbo-frame id="@domid($post)">
                     <form action="{{ route('posts.destroy', $post) }}" method="post"
                           data-turbo-frame="_top"
-                          class="inline-block mx-auto text-center p-4 rounded shadow-lg border border-gray-200 bg-gray-100">
+                          class="inline-block p-4 mx-auto text-center bg-gray-100 border border-gray-200 rounded shadow-lg">
                         @csrf
                         @method('DELETE')
 
@@ -26,6 +26,7 @@
                                 <a
                                     href="{{ route('posts.show', $post) }}"
                                     class="px-2 py-1 underline"
+                                    data-turbo-frame="@domid($post)"
                                 >Nevermind</a>
                                 <button
                                     type="submit"

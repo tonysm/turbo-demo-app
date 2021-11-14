@@ -9,10 +9,10 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
-            <div class="p-2 bg-white rounded-lg shadow md:p-8 lg:p-16">
-                <turbo-frame id="@domid($comment)">
+    <div class="flex-1 h-screen md:h-auto md:py-12">
+        <div class="h-full mx-auto space-y-12 md:h-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="h-full p-2 bg-white rounded-lg shadow md:h-auto md:p-8 lg:p-16">
+                <turbo-frame id="@domid($comment)" target="_top">
                         @include('comments._form', ['comment' => $comment])
                 </turbo-frame>
             </div>

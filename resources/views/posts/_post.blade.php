@@ -1,4 +1,10 @@
-<turbo-frame id="@domid($post)" class="flex flex-col space-y-4">
+<turbo-frame
+    id="@domid($post)"
+    class="flex flex-col space-y-4"
+    data-controller="bridge"
+    data-action="init-turbo-native@window->bridge#changeFrameTargetOnNative"
+    data-target-on-native="_top"
+>
     <div class="relative py-8">
         <h1 class="px-4 text-2xl font-semibold leading-tight text-center text-gray-800 md:px-8 md:text-4xl lg:text-5xl">{{ $post->title }}</h1>
 

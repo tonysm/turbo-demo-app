@@ -15,7 +15,7 @@
         channel="App.Models.Team.{{ auth()->user()->currentTeam->id }}"
     ></turbo-echo-stream-source>
 
-    <div class="py-4 md:py-12">
+    <div class="py-2 md:py-12">
         <div class="mx-auto max-w-7xl sm:px-8 lg:px-18">
             <div id="post_cards" class="m-4 space-y-4">
                 @foreach($posts as $post)
