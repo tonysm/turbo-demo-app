@@ -21,7 +21,7 @@
             {{ $comment->exists ? 'Edit Comment' : 'New Comment' }}
         </label>
 
-        <div class="p-4 mt-2 border rounded shadow">
+        <div class="mt-2">
             <x-trix-editor
                 :id="\Tonysm\TurboLaravel\dom_id($comment, 'content')"
                 value="{{ $comment->content->toTrixHtml() }}"

@@ -1,6 +1,6 @@
 @props(['id' => '', 'toolbar' => ''])
 
-<div class="relative border-0 rounded-md">
+<div class="relative border border-gray-300 p-4 shadow rounded-md">
 
     <input id="{{ $id }}" {{ $attributes->except(['class', 'style']) }} type="hidden">
 
