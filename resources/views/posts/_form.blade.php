@@ -13,14 +13,14 @@
     @endif
 
     <div class="space-y-4">
-        <label class="block">
+        <label class="block border border-2 rounded-lg p-2">
             <span class="text-gray-700 sr-only">Title</span>
             <x-textarea class="px-8 text-2xl md:text-4xl lg:text-5xl" :value="old('title', $post->title)" name="title" placeholder="Enter a title..." />
             @error('title')
                 <span class="mt-2 text-sm text-red-600">{{ $message }}</span>
             @enderror
         </label>
-        <div class="block mt-2">
+        <div class="block mt-2 border border-2 rounded-lg p-2">
             <label class="mb-2 text-gray-700 sr-only">Content</label>
             <x-trix-editor
                 id="{{ dom_id($post, 'content') }}"

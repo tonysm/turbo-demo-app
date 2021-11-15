@@ -6,7 +6,7 @@
 </a>
 
 <a
-    class="block px-4 py-2 m-4 text-base font-semibold text-center text-white bg-indigo-400 rounded-full md:hidden"
+    class="block px-4 py-2 m-4 text-base font-semibold text-center text-white bg-gray-800 rounded-full md:hidden"
     href="{{ route('posts.comments.create', $post) }}"
     data-turbo-frame="_top"
 >
