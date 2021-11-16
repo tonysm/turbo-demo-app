@@ -22,50 +22,32 @@
 @endphp
 
 <div
-    x-data="{
-        show: false,
-        focusables() {
-            // All focusable element types...
-            let selector = 'a, button, input, textarea, select, details, [tabindex]:not([tabindex=\'-1\'])'
-
-            return [...$el.querySelectorAll(selector)]
-                // All non-disabled elements...
-                .filter(el => ! el.hasAttribute('disabled'))
-        },
-        firstFocusable() { return this.focusables()[0] },
-        lastFocusable() { return this.focusables().slice(-1)[0] },
-        nextFocusable() { return this.focusables()[this.nextFocusableIndex()] || this.firstFocusable() },
-        prevFocusable() { return this.focusables()[this.prevFocusableIndex()] || this.lastFocusable() },
-        nextFocusableIndex() { return (this.focusables().indexOf(document.activeElement) + 1) % (this.focusables().length + 1) },
-        prevFocusableIndex() { return Math.max(0, this.focusables().indexOf(document.activeElement)) -1 },
-    }"
-    x-on:close.stop="show = false"
-    x-on:keydown.escape.window="show = false"
-    x-on:keydown.tab.prevent="$event.shiftKey || nextFocusable().focus()"
-    x-on:keydown.shift.tab.prevent="prevFocusable().focus()"
-    x-show="show"
+    data-controller="modal"
+    data-action="
+        close->modal#close
+        keydown->modal#handleKeydown
+        toggle-modal-{{ $id }}@window->modal#toggle
+        close-modal-{{ $id }}@window->modal#close
+    "
     id="{{ $id }}"
-    class="fixed inset-x-0 top-0 px-4 pt-6 sm:px-0 sm:flex sm:items-top sm:justify-center"
-    style="display: none; z-index: 9999999999;"
-    x-on:toggle-modal-{{ $id }}.window="show = !show"
-    x-on:close-modal-{{ $id }}.window="show = false"
+    class="fixed inset-x-0 top-0 px-4 pt-6 z-50 sm:px-0 sm:flex sm:items-top sm:justify-center hidden"
 >
-    <div x-show="show" class="fixed inset-0 transition-all transform" x-on:click="show = false" x-transition:enter="ease-out duration-300"
-         x-transition:enter-start="opacity-0"
-         x-transition:enter-end="opacity-100"
-         x-transition:leave="ease-in duration-200"
-         x-transition:leave-start="opacity-100"
-         x-transition:leave-end="opacity-0">
+    <div data-modal-target="backdrop" class="fixed inset-0 transition-all transform hidden" data-action="click->modal#close" data-transition-enter="ease-out duration-300"
+         data-transition-enter-start="opacity-0"
+         data-transition-enter-end="opacity-100"
+         data-transition-leave="ease-in duration-200"
+         data-transition-leave-start="opacity-100"
+         data-transition-leave-end="opacity-0">
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
     </div>
 
-    <div x-show="show" class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full {{ $maxWidth }}"
-         x-transition:enter="ease-out duration-300"
-         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-         x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-         x-transition:leave="ease-in duration-200"
-         x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-         x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+    <div data-modal-target="box" class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full {{ $maxWidth }} hidden"
+         data-transition-enter="ease-out duration-300"
+         data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+         data-transition-enter-end="opacity-100 translate-y-0 sm:scale-100"
+         data-transition-leave="ease-in duration-200"
+         data-transition-leave-start="opacity-100 translate-y-0 sm:scale-100"
+         data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
         {{ $slot }}
     </div>
 </div>

@@ -20,6 +20,7 @@
         "axios": "^0.21.1",
         "chokidar": "^3.5.2",
         "cross-env": "^7.0",
+        "el-transition": "^0.0.7",
         "laravel-echo": "^1.10.0",
         "laravel-mix": "^6.0.20",
         "lodash": "^4.17.19",
