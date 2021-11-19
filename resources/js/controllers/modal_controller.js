@@ -4,12 +4,35 @@ import { enter, leave } from 'el-transition'
 export default class extends Controller {
     static targets = ['backdrop', 'box'];
 
-    connect() {
-        this.show = false;
-    }
+    static values = {
+        showing: {
+            type: Boolean,
+            default: false,
+        },
+    };
 
     close() {
-        this.show = false;
+        this.showingValue = false;
+    }
+
+    closeBeforeCache() {
+        this.close();
+
+        // This has to be done here because the hooks on the showingValueChanged
+        // are async, so they never really "hide" the modal before Turbo caches
+        // the page HTML. That's why we need to manually add these classes.
+
+        this.element.classList.add('hidden');
+        this.boxTarget.classList.add('hidden');
+        this.backdropTarget.classList.add('hidden');
+    }
+
+    showingValueChanged() {
+        if (this.showingValue) {
+            this._ensureVisible();
+        } else {
+            this._ensureHidden();
+        }
     }
 
     handleKeydown(event) {
@@ -37,7 +60,7 @@ export default class extends Controller {
     }
 
     _handleEscape() {
-        this.show = false;
+        this.showingValue = false;
     }
 
     _previousFocusable() {
@@ -57,7 +80,7 @@ export default class extends Controller {
     }
 
     toggle() {
-        this.show = !this.show;
+        this.showingValue = !this.showingValue;
     }
 
     _ensureVisible() {
@@ -77,13 +100,5 @@ export default class extends Controller {
 
         return [...this.element.querySelectorAll(selector)]
             .filter((el) => ! el.hasAttribute('disabled'))
-    }
-
-    set show(show) {
-        if (show) {
-            this._ensureVisible();
-        } else {
-            this._ensureHidden();
-        }
     }
 }

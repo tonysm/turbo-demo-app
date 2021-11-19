@@ -28,6 +28,7 @@
         keydown->modal#handleKeydown
         toggle-modal-{{ $id }}@window->modal#toggle
         close-modal-{{ $id }}@window->modal#close
+        turbo:before-cache@window->modal#closeBeforeCache
     "
     id="{{ $id }}"
     class="fixed inset-x-0 top-0 px-4 pt-6 z-50 sm:px-0 sm:flex sm:items-top sm:justify-center hidden"
