@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "beyondcode/laravel-websockets": "^1.12",
+        "cerbero/lazy-json": "^1.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -21,8 +22,8 @@
         "mews/purifier": "^3.3",
         "pusher/pusher-php-server": "~4.0",
         "spiral/roadrunner": "^2.0",
-        "tonysm/turbo-laravel": "^0.18",
-        "tonysm/rich-text-laravel": "^1.0.0"
+        "tonysm/rich-text-laravel": "^1.0.0",
+        "tonysm/turbo-laravel": "^0.18"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",

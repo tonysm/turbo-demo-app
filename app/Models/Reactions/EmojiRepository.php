@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Models\Reactions;
+
+use Illuminate\Support\LazyCollection;
+
+class EmojiRepository
+{
+    const MAX_COUNT = 100;
+
+    private LazyCollection $data;
+
+    public function __construct(?string $sourcePath = null)
+    {
+        $this->data = lazyJson($sourcePath ?: __DIR__ . '/emoji.json');
+    }
+
+    public function get(int $count = 50, int $offset = 0, string $query = null)
+    {
+        return $this->data
+            ->when($query, $this->applySearch($query))
+            ->skip($offset)
+            ->take(min($count, static::MAX_COUNT));
+    }
+
+    private function applySearch(string $query = null)
+    {
+        return function (LazyCollection $emojis) use ($query) {
+            return $emojis
+                ->filter(fn ($emoji) => (
+                    str_contains(strtolower($emoji['name']), $query)
+                    || str_contains(strtolower($emoji['short_name']), $query)
+                ))
+                ->sortBy(fn ($emoji) => levenshtein(strtolower($emoji['short_name']), $query));
+        };
+    }
+}
