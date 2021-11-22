@@ -35,4 +35,11 @@ class PostFactory extends Factory
             $post->team()->associate($post->user->currentTeam)->save();
         });
     }
+
+    public function withComments(CommentFactory $commentFactory)
+    {
+        return $this->afterCreating(function ($post) use ($commentFactory) {
+            $commentFactory->for($post->entry)->create();
+        });
+    }
 }

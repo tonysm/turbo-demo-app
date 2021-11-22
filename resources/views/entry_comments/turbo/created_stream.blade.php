@@ -1,4 +1,4 @@
-<turbo-stream target="@domid($comment->post, 'comments')" action="append">
+<turbo-stream target="@domid($comment->parent->entryable, 'comments')" action="append">
     <template>
         @include('comments._comment', ['comment' => $comment])
     </template>
@@ -6,6 +6,6 @@
 
 <turbo-stream target="new_comment" action="update">
     <template>
-        @include('posts._create_comment_trigger', ['post' => $comment->post])
+        @include('entries._create_comment_trigger', ['entry' => $comment->parent])
     </template>
 </turbo-stream>

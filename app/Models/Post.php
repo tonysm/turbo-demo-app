@@ -24,6 +24,9 @@ class Post extends Model
     use HasMentions;
     use HasRichText;
     use HasGlobalIdentification;
+    use Entryable;
+
+    protected $allowCommentsOnEntry = true;
 
     protected $dispatchesEvents = [
         'created' => PostCreated::class,
@@ -71,11 +74,6 @@ class Post extends Model
         $query->whereNotNull('published_at');
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class)->oldest();
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -84,5 +82,10 @@ class Post extends Model
     public function team()
     {
         return $this->belongsTo(Team::class);
+    }
+
+    public function entryableTitle()
+    {
+        return $this->title;
     }
 }

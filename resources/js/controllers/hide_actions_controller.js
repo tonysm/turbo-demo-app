@@ -8,6 +8,7 @@ export default class extends Controller {
 
         if (currentUserId !== this.ownerIdValue) {
             this.element.hidden = "true";
+            this.element.classList.add('hidden');
         }
     }
 }

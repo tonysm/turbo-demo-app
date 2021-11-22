@@ -2,7 +2,7 @@
     @if($comment->exists)
     action="{{ route('comments.update', $comment) }}"
     @else
-    action="{{ route('posts.comments.store', $post) }}"
+    action="{{ route('entries.comments.store', $entry) }}"
     @endif
     method="POST"
     class="px-2 py-8 md:px-8 lg:px-16"

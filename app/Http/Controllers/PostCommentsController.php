@@ -33,18 +33,18 @@ class PostCommentsController extends Controller
     {
         $this->authorize('addComment', $post);
 
-        $comment = $post->comments()->create(
+        $comment = $post->entry->comments()->create(
             $this->commentParams() + ['user_id' => request()->user()->id]
         );
 
-        $comment->broadcastAppendTo($comment->post)
-            ->target(dom_id($comment->post, 'comments'))
+        $comment->broadcastAppendTo($post)
+            ->target(dom_id($post, 'comments'))
             ->toOthers()
             ->later();
 
-        $comment->broadcastUpdateTo($comment->post)
-            ->target(dom_id($comment->post, 'comments_count'))
-            ->partial('posts._post_comments_count', ['post' => $comment->post])
+        $comment->broadcastUpdateTo($post)
+            ->target(dom_id($post, 'comments_count'))
+            ->partial('posts._post_comments_count', ['post' => $post])
             ->later();
 
         if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {

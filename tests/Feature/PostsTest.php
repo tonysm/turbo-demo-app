@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Tonysm\TurboLaravelTestHelpers\Testing\InteractsWithTurbo;
+use Tonysm\TurboLaravel\Testing\InteractsWithTurbo;
 use function Tonysm\TurboLaravel\dom_id;
 
 class PostsTest extends TestCase
