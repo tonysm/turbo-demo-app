@@ -10,11 +10,6 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
-    public function addComment(User $user, Post $post)
-    {
-        return $user->allTeams()->contains($post->team);
-    }
-
     public function update(User $user, Post $post)
     {
         return $user->id === $post->user_id;
