@@ -3,9 +3,9 @@
 
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            <a href="{{ route('posts.index') }}" class="text-cool-gray-500">Posts</a> / <a
-                href="{{ route('posts.show', $comment->post) }}"
-                class="text-cool-gray-500">{{ $comment->post->title }}</a> / Edit Comment
+            <a href="{{ $comment->parent->entryableIndexRoute() }}" class="text-cool-gray-500">{{ $comment->parent->entryableResourceName() }}</a> / <a
+                href="{{ $comment->parent->entryableShowRoute() }}"
+                class="text-cool-gray-500">{{ $comment->parent->title }}</a> / Edit Comment
         </h2>
     </x-slot>
 

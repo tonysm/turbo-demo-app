@@ -24,16 +24,16 @@
                 <div class="pt-8">
                     <h3 class="flex items-center justify-center mb-8 space-x-1 text-xl font-semibold leading-tight text-gray-800">
                         <div>Comments</div>
-                        <div id="@domid($post, 'comments_count')">
-                            @include('posts._post_comments_count', ['post' => $post])
+                        <div id="@domid($post->entry, 'comments_count')">
+                            @include('entry_comments._entry_comments_count', ['entry' => $post->entry])
                         </div>
                     </h3>
 
-                    <turbo-frame id="@domid($post, 'comments')" src="{{ route('posts.comments.index', $post) }}" class="flex flex-col">
+                    <turbo-frame id="@domid($post->entry, 'comments')" src="{{ route('entries.comments.index', $post->entry) }}" class="flex flex-col">
                     </turbo-frame>
 
                     <div>
-                        <turbo-frame id="new_comment">
+                        <turbo-frame id="@domid($post->entry, 'create_comment')">
                             @include('entries._create_comment_trigger', ['entry' => $post->entry])
                         </turbo-frame>
                     </div>

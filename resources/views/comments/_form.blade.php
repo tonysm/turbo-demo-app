@@ -42,7 +42,7 @@
             @if($comment->exists)
             href="{{ route('comments.show', $comment) }}"
             @else
-            href="{{ route('posts.show', $post) }}"
+            href="{{ $entry->entryableShowRoute() }}"
             @endif
             class="hidden text-base text-gray-500 md:inline-block"
         >

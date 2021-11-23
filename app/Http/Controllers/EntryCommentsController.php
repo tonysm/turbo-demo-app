@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entry;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Response;
 
 class EntryCommentsController extends Controller
 {
@@ -31,17 +31,17 @@ class EntryCommentsController extends Controller
         $this->authorize('addComments', $entry);
 
         $comment = $entry->comments()->create(
-            $this->commentsParams() + ['user_id' => auth()->id()]
+            $this->commentParams() + ['user_id' => auth()->id()]
         );
 
         $comment->broadcastAppendTo($entry->entryable)
-            ->target(dom_id($entry->entryable, 'comments'))
+            ->target(dom_id($entry, 'comments'))
             ->toOthers()
             ->later();
 
         $comment->broadcastUpdateTo($entry->entryable)
-            ->target(dom_id($entry->entryable, 'comments_count'))
-            ->partial('entries._entryable_comments_count', ['entry' => $entry])
+            ->target(dom_id($entry, 'comments_count'))
+            ->partial('entry_comments._entry_comments_count', ['entry' => $entry])
             ->later();
 
         if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
@@ -49,5 +49,14 @@ class EntryCommentsController extends Controller
                 'comment' => $comment,
             ]);
         }
+
+        return redirect($entry->entryableShowRoute());
+    }
+
+    private function commentParams()
+    {
+        return request()->validate([
+            'content' => 'required|min:1|string',
+        ]);
     }
 }

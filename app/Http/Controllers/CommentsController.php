@@ -36,7 +36,7 @@ class CommentsController extends Controller
             'content' => 'required|min:10|string',
         ]));
 
-        $comment->broadcastReplaceTo($comment->post)->toOthers()->later();
+        $comment->broadcastReplaceTo($comment->parent->entryable)->toOthers()->later();
 
         if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
             return Response::turboStream()->replace($comment);
@@ -51,11 +51,11 @@ class CommentsController extends Controller
 
         $comment->delete();
 
-        $comment->broadcastRemoveTo($comment->post)->toOthers()->later();
+        $comment->broadcastRemoveTo($comment->parent->entryable)->toOthers()->later();
 
-        $comment->broadcastUpdateTo($comment->post)
-            ->target(dom_id($comment->post, 'comments_count'))
-            ->partial('posts._post_comments_count', ['post' => $comment->post])
+        $comment->broadcastUpdateTo($comment->parent->entryable)
+            ->target(dom_id($comment->parent, 'comments_count'))
+            ->partial('entry_comments._entry_comments_count', ['entry' => $comment->parent])
             ->later();
 
         if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
