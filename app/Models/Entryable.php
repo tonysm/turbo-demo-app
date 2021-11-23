@@ -43,18 +43,28 @@ trait Entryable
         return false;
     }
 
+    public function entryableTeam()
+    {
+        return $this->team;
+    }
+
     public function entryableResource(): string
     {
-        return Str::plural(basename(static::class));
+        return (string) Str::of(class_basename(static::class))->pluralStudly();
+    }
+
+    public function entryableResourceForRoute(): string
+    {
+        return (string) Str::of($this->entryableResource())->snake()->lower();
     }
 
     public function entryableIndexRoute(): string
     {
-        return route($this->entryableResource() . '.index');
+        return route($this->entryableResourceForRoute() . '.index');
     }
 
     public function entryableShowRoute(): string
     {
-        return route($this->entryableResource() . '.show', $this);
+        return route($this->entryableResourceForRoute() . '.show', $this);
     }
 }

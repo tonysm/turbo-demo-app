@@ -34,7 +34,7 @@
 
                     <div>
                         <turbo-frame id="new_comment">
-                            @include('posts._create_comment_trigger', ['post' => $post])
+                            @include('entries._create_comment_trigger', ['entry' => $post->entry])
                         </turbo-frame>
                     </div>
                 </div>

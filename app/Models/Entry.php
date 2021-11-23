@@ -16,7 +16,7 @@ class Entry extends Model
         try {
             static::$entryableShouldAutoCreate = false;
 
-            $scope();
+            return $scope();
         } finally {
             static::$entryableShouldAutoCreate = true;
         }
@@ -39,9 +39,9 @@ class Entry extends Model
 
     public function entryableResourceName()
     {
-        return Str::of($this->entryable->entryableResource())
+        return (string) Str::of($this->entryable->entryableResource())
             ->snake()
-            ->split('_')
+            ->explode('_')
             ->map(fn ($word) => ucfirst($word))
             ->join(' ');
     }
@@ -59,5 +59,20 @@ class Entry extends Model
     public function getTitleAttribute()
     {
         return $this->entryable->entryableTitle();
+    }
+
+    public function entryableHasComments()
+    {
+        return $this->entryable->canHaveComments();
+    }
+
+    public function entryableTeam()
+    {
+        return $this->entryable->entryableTeam();
+    }
+
+    public function belongsToTeam(User $user)
+    {
+        return $user->belongsToTeam($this->entryableTeam());
     }
 }

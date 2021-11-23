@@ -25,13 +25,28 @@ class Comment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function entryableTitle()
+    public function getTeamAttribute()
     {
-        return Str::limit($this->content->toPlainText(), 100, '...');
+        return $this->parent->entryable->team;
     }
 
     public function parent()
     {
         return $this->belongsTo(Entry::class, 'parent_entry_id');
+    }
+
+    public function entryableTeam()
+    {
+        return $this->parent->entryableTeam();
+    }
+
+    public function entryableTitle()
+    {
+        return Str::limit($this->content->toPlainText(), 100, '...');
+    }
+
+    public function entryableIndexRoute()
+    {
+        return route('entries.comments.index', $this->parent);
     }
 }
