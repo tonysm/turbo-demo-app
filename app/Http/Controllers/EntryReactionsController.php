@@ -6,6 +6,11 @@ use App\Models\Entry;
 
 class EntryReactionsController extends Controller
 {
+    public function index(Entry $entry)
+    {
+        $this->authorize('viewReactions', $entry);
+    }
+
     public function create(Entry $entry)
     {
         $this->authorize('addReactions', $entry);

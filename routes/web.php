@@ -29,7 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::resource('entries.comments', Controllers\EntryCommentsController::class)->only(['index', 'create', 'store']);
     Route::resource('comments', Controllers\CommentsController::class)->only(['show', 'edit', 'update', 'destroy']);
 
-    Route::resource('entries.reactions', Controllers\EntryReactionsController::class)->only(['create', 'store']);
+    Route::resource('entries.reactions', Controllers\EntryReactionsController::class)->only(['index', 'create', 'store']);
 
     Route::prefix('merch')->group(function () {
         Route::get('/', [Controllers\ShopController::class, 'index'])->name('shop.index');
