@@ -35,7 +35,12 @@ class EntryReactionsController extends Controller
         $reaction = $entry->addReaction(auth()->user(), request('emoji'));
 
         if (request()->wantsTurboStream() && ! request()->wasFromTurboNative()) {
-            return response()->turboStream($reaction, 'append')->target(dom_id($entry, 'reactions'));
+            if ($reaction->wasRecentlyCreated) {
+                return response()->turboStream()->before($reaction, dom_id($entry, 'create_reaction_trigger'));
+
+            }
+
+            return response()->turboStream()->replace($reaction);
         }
 
         return redirect($entry->entryableShowRoute());

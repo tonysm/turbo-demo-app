@@ -45,3 +45,12 @@ Artisan::command('app:prune-emojis', function (EmojiRepository $emojis) {
 
     File::put(app_path('Models/Reactions/cleaned-emojis.json'), json_encode($exists, JSON_PRETTY_PRINT));
 })->purpose('Loops-through the emojis list and checks clears the ones created.');
+
+Artisan::command('app:reorder-emojis', function (EmojiRepository $emojis) {
+    $sorted = $emojis->getLazyCollection()
+        ->sortBy('sort_order')
+        ->values()
+        ->all();
+
+    File::put(app_path('Models/Reactions/emoji.json'), json_encode($sorted, JSON_PRETTY_PRINT));
+})->purpose('Loops-through the emojis to reoder them.');

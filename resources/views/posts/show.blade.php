@@ -19,10 +19,8 @@
             <div class="p-2 m-4 bg-white rounded shadow md:p-8 lg:p-16">
                 @include('posts._post', ['post' => $post])
 
-                <div class="flex items-center space-x-1">
-                    <turbo-frame id="@domid($post->entry, 'reactions')" src="{{ route('entries.reactions.index', $post->entry) }}" class="inline-block mt-4"></turbo-frame>
-
-                    @include('entry_reactions._new_reaction_trigger', ['entry' => $post->entry])
+                <div class="mt-4">
+                    <turbo-frame id="@domid($post->entry, 'reactions')" src="{{ route('entries.reactions.index', $post->entry) }}" class="flex flex-wrap items-center justify-start -m-1"></turbo-frame>
                 </div>
 
                 <div class="w-2/12 mx-auto mt-8 border-b"></div>

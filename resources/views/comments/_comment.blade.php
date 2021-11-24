@@ -58,9 +58,8 @@
             {!! clean($comment->content) !!}
         </div>
 
-        <div class="flex items-center space-x-1">
-            <turbo-frame id="@domid($comment->entry, 'reactions')" src="{{ route('entries.reactions.index', $comment->entry) }}" class="block mt-4"></turbo-frame>
-            @include('entry_reactions._new_reaction_trigger', ['entry' => $comment->entry])
+        <div class="mt-4">
+            <turbo-frame id="@domid($comment->entry, 'reactions')" src="{{ route('entries.reactions.index', $comment->entry) }}" class="flex flex-wrap items-center justify-start -m-1"></turbo-frame>
         </div>
 
         @if($deleting ?? false)

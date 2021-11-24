@@ -19,6 +19,7 @@ class EmojiRepository
     {
         return $this->data
             ->when($query, $this->applySearch($query))
+            ->when(!$query, fn ($items) => $items->sortBy('sort_order'))
             ->skip($offset)
             ->take(min($count, static::MAX_COUNT));
     }
@@ -48,6 +49,11 @@ class EmojiRepository
                 ))
                 ->sortBy(fn ($emoji) => levenshtein(strtolower($emoji['short_name']), $query));
         };
+    }
+
+    public function getLazyCollection(): LazyCollection
+    {
+        return $this->data;
     }
 
     public function findSvgImageByName(string $emoji): string
