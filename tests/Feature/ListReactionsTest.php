@@ -43,5 +43,19 @@ class ListReactionsTest extends TestCase
     /** @test */
     public function can_list_reactions_of_an_entry()
     {
+        $user = User::factory()->withPersonalTeam()->create();
+
+        [$entry] = $this->postEntry([
+            'user_id' => $user->id,
+            'team_id' => $user->current_team_id,
+        ]);
+
+        $entry->addReaction($user, 'ok');
+
+        $this->actingAs($user)
+            ->get(route('entries.reactions.index', $entry))
+            ->assertOk()
+            ->assertViewIs('entry_reactions.index')
+            ->assertViewHas('reactions', $entry->refresh()->reactions()->oldest()->get());
     }
 }

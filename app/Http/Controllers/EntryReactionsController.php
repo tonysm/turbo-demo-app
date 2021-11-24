@@ -9,6 +9,11 @@ class EntryReactionsController extends Controller
     public function index(Entry $entry)
     {
         $this->authorize('viewReactions', $entry);
+
+        return view('entry_reactions.index', [
+            'entry' => $entry,
+            'reactions' => $entry->reactions()->oldest()->get(),
+        ]);
     }
 
     public function create(Entry $entry)

@@ -19,4 +19,9 @@ class EntryPolicy
     {
         return $entry->entryableHasReactions() && $entry->belongsToTeam($user);
     }
+
+    public function viewReactions(User $user, Entry $entry)
+    {
+        return $entry->entryableHasReactions() && $entry->belongsToTeam($user);
+    }
 }
