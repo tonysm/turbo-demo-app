@@ -19,6 +19,8 @@
             <div class="p-2 m-4 bg-white rounded shadow md:p-8 lg:p-16">
                 @include('posts._post', ['post' => $post])
 
+                <turbo-frame id="@domid($post->entry, 'reactions')" src="{{ route('entries.reactions.index', $post->entry) }}" class="block mt-4"></turbo-frame>
+
                 <div class="w-2/12 mx-auto mt-8 border-b"></div>
 
                 <div class="pt-8">
