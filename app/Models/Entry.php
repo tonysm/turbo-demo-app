@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Entries\Commentable;
+use App\Models\Entries\Reactionable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;
 
@@ -10,6 +11,7 @@ class Entry extends Model
 {
     use HasFactory;
     use Commentable;
+    use Reactionable;
 
     public static $entryableShouldAutoCreate = true;
 

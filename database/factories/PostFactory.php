@@ -25,6 +25,7 @@ class PostFactory extends Factory
             ]),
             'user_id' => User::factory(),
             'published_at' => $this->faker->optional()->dateTime,
+            'team_id' => Team::factory(),
         ];
     }
 

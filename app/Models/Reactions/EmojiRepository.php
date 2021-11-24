@@ -34,4 +34,11 @@ class EmojiRepository
                 ->sortBy(fn ($emoji) => levenshtein(strtolower($emoji['short_name']), $query));
         };
     }
+
+    public function findSvgImageByName(string $emoji): string
+    {
+        $emoji = $this->data->firstWhere('short_name', $emoji);
+
+        return 'https://abs.twimg.com/emoji/v2/svg/' . str_replace('.png', '.svg', $emoji['image']);
+    }
 }

@@ -5,7 +5,6 @@ namespace App\Listeners\Posts;
 use App\Events\PostCreated;
 use App\Notifications\NewPostNotification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Notification;
 
 class NotifyTeamMembers implements ShouldQueue

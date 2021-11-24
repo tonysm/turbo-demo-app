@@ -98,6 +98,13 @@ class User extends Authenticatable implements AttachableContract
         return $this->hasMany(Mention::class, 'mentionee_id');
     }
 
+    public function reactions()
+    {
+        return $this->belongsToMany(Reaction::class)
+            ->withTimestamps()
+            ->using(ReactionUser::class);
+    }
+
     public function richTextAsPlainText()
     {
         return e($this->name);

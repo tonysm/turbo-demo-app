@@ -14,4 +14,9 @@ class EntryPolicy
     {
         return $entry->entryableHasComments() && $entry->belongsToTeam($user);
     }
+
+    public function addReactions(User $user, Entry $entry)
+    {
+        return $entry->entryableHasReactions() && $entry->belongsToTeam($user);
+    }
 }

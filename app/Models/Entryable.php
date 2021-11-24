@@ -34,6 +34,12 @@ trait Entryable
             ->where('entryable_type', $this->getMorphClass());
     }
 
+    public function reactions(): HasManyThrough
+    {
+        return $this->hasManyThrough(Reaction::class, Entry::class, 'entryable_id')
+            ->where('entryable_type', $this->getMorphClass());
+    }
+
     public function canHaveComments(): bool
     {
         if (property_exists($this, 'allowCommentsOnEntry')) {
@@ -41,6 +47,15 @@ trait Entryable
         }
 
         return false;
+    }
+
+    public function canHaveReactions(): bool
+    {
+        if (property_exists($this, 'allowReactionsOnEntry')) {
+            return $this->allowReactionsOnEntry;
+        }
+
+        return true;
     }
 
     public function entryableTeam()

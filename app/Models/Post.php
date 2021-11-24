@@ -43,6 +43,10 @@ class Post extends Model
     public static function booted()
     {
         static::created(function (Post $post) {
+            if (! static::$isBroadcasting) {
+                return true;
+            }
+
             $post->broadcastPrependTo($post->team)
                 ->target('post_cards')
                 ->partial('posts._post_card', ['post' => $post])
@@ -56,6 +60,10 @@ class Post extends Model
         });
 
         static::updated(queueable(function (Post $post) {
+            if (! static::$isBroadcasting) {
+                return true;
+            }
+
             $post->broadcastReplaceTo($post->team)
                 ->target(dom_id($post, 'card'))
                 ->partial('posts._post_card', ['post' => $post]);
@@ -64,6 +72,10 @@ class Post extends Model
         }));
 
         static::deleted(queueable(function (Post $post) {
+            if (! static::$isBroadcasting) {
+                return true;
+            }
+
             $post->broadcastRemoveTo($post->team)
                 ->target(dom_id($post, 'card'));
         }));
