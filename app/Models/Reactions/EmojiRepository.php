@@ -23,6 +23,21 @@ class EmojiRepository
             ->take(min($count, static::MAX_COUNT));
     }
 
+    public function findByName(string $emoji): ?array
+    {
+        return $this->data->firstWhere('short_name', $emoji);
+    }
+
+    public function filter(callable $callback)
+    {
+        return $this->data->filter($callback);
+    }
+
+    public function chunk($size = 100): LazyCollection
+    {
+        return $this->data->chunk($size);
+    }
+
     private function applySearch(string $query = null)
     {
         return function (LazyCollection $emojis) use ($query) {

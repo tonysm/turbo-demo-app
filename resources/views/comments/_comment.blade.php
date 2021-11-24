@@ -56,10 +56,12 @@
 
         <div class="mt-3 text-base md:text-lg trix-content">
             {!! clean($comment->content) !!}
-
         </div>
 
-        <turbo-frame id="@domid($comment->entry, 'reactions')" src="{{ route('entries.reactions.index', $comment->entry) }}" class="block mt-4"></turbo-frame>
+        <div class="flex items-center space-x-1">
+            <turbo-frame id="@domid($comment->entry, 'reactions')" src="{{ route('entries.reactions.index', $comment->entry) }}" class="block mt-4"></turbo-frame>
+            @include('entry_reactions._new_reaction_trigger', ['entry' => $comment->entry])
+        </div>
 
         @if($deleting ?? false)
             <form id="@domid($comment, 'delete_form')" action="{{ route('comments.destroy', $comment) }}" method="POST"
