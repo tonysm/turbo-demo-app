@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Entries\Commentable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;
 
 class Entry extends Model
 {
     use HasFactory;
+    use Commentable;
 
     public static $entryableShouldAutoCreate = true;
 
@@ -32,11 +34,6 @@ class Entry extends Model
         return $this->morphTo();
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class, 'parent_entry_id');
-    }
-
     public function entryableResourceName()
     {
         return (string) Str::of($this->entryable->entryableResource())
@@ -59,11 +56,6 @@ class Entry extends Model
     public function getTitleAttribute()
     {
         return $this->entryable->entryableTitle();
-    }
-
-    public function entryableHasComments()
-    {
-        return $this->entryable->canHaveComments();
     }
 
     public function entryableTeam()
