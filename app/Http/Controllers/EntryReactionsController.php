@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entry;
+use App\Models\Reactions\EmojiRepository;
 
 class EntryReactionsController extends Controller
 {
@@ -16,9 +17,15 @@ class EntryReactionsController extends Controller
         ]);
     }
 
-    public function create(Entry $entry)
+    public function create(Entry $entry, EmojiRepository $emojis)
     {
         $this->authorize('addReactions', $entry);
+
+        return view('entry_reactions.create', [
+            'entry' => $entry,
+            'emojis' => $emojis->get(query: request('search', null)),
+            'newReaction' => $entry->reactions()->make(),
+        ]);
     }
 
     public function store(Entry $entry)

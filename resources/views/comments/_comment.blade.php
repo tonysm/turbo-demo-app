@@ -56,7 +56,10 @@
 
         <div class="mt-3 text-base md:text-lg trix-content">
             {!! clean($comment->content) !!}
+
         </div>
+
+        <turbo-frame id="@domid($comment->entry, 'reactions')" src="{{ route('entries.reactions.index', $comment->entry) }}" class="block mt-4"></turbo-frame>
 
         @if($deleting ?? false)
             <form id="@domid($comment, 'delete_form')" action="{{ route('comments.destroy', $comment) }}" method="POST"
