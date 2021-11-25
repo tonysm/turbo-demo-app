@@ -11,7 +11,6 @@ class ReactionsController extends Controller
         $this->authorize('toggle', $reaction);
 
         $reaction->users()->toggle(auth()->user());
-        $reaction->touch();
 
         if ($reaction->users()->count() === 0) {
             $reaction->delete();

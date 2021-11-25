@@ -90,8 +90,8 @@ class CreateReactionsTest extends TestCase
             ->assertOk()
             ->assertTurboStream(fn (AssertableTurboStream $streams) => (
                 $streams->has(1)->hasTurboStream(fn (TurboStreamMatcher $stream) => (
-                    $stream->where('target', dom_id($entry, 'reactions'))
-                        ->where('action', 'append')
+                    $stream->where('target', dom_id($entry, 'create_reaction_trigger'))
+                        ->where('action', 'before')
                         ->see('ok')
                 ))
             ));
