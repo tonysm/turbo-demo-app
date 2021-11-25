@@ -20,7 +20,7 @@
                 @include('posts._post', ['post' => $post])
 
                 <div class="mt-4">
-                    <turbo-frame id="@domid($post->entry, 'reactions')" src="{{ route('entries.reactions.index', $post->entry) }}" class="flex flex-wrap items-center justify-start -m-1"></turbo-frame>
+                    <turbo-frame id="@domid($post->entry, 'reactions')" src="{{ route('entries.reactions.index', $post->entry) }}" class="flex flex-wrap items-center justify-start -m-1 group"></turbo-frame>
                 </div>
 
                 <div class="w-2/12 mx-auto mt-8 border-b"></div>

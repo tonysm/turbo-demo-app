@@ -11,12 +11,13 @@ class ReactionsController extends Controller
         $this->authorize('toggle', $reaction);
 
         $reaction->users()->toggle(auth()->user());
+        $reaction->touch();
 
         if ($reaction->users()->count() === 0) {
             $reaction->delete();
         }
 
-        if (request()->wantsTurboStream() && ! request()->wasFromTurboNative()) {
+        if (request()->wantsTurboStream()) {
             if ($reaction->exists) {
                 return response()->turboStream()->replace($reaction);
             }

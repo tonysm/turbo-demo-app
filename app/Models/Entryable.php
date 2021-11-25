@@ -82,4 +82,14 @@ trait Entryable
     {
         return route($this->entryableResourceForRoute() . '.show', $this);
     }
+
+    public function entryableRedirectAfterReaction()
+    {
+        return $this->entryableShowRoute();
+    }
+
+    public function entryableStreamableForReactions()
+    {
+        return $this;
+    }
 }

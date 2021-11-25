@@ -69,4 +69,14 @@ class Entry extends Model
     {
         return $user->belongsToTeam($this->entryableTeam());
     }
+
+    public function entryableRedirectAfterReaction()
+    {
+        return $this->entryable->entryableRedirectAfterReaction();
+    }
+
+    public function entryableStreamableForReactions()
+    {
+        return $this->entryable->entryableStreamableForReactions();
+    }
 }

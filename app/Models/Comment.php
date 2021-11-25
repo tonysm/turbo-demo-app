@@ -49,4 +49,14 @@ class Comment extends Model
     {
         return route('entries.comments.index', $this->parent);
     }
+
+    public function entryableRedirectAfterReaction()
+    {
+        return $this->parent->entryableShowRoute();
+    }
+
+    public function entryableStreamableForReactions()
+    {
+        return $this->parent->entryableStreamableForReactions();
+    }
 }

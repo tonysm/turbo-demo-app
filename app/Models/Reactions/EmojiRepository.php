@@ -15,7 +15,7 @@ class EmojiRepository
         $this->data = lazyJson($sourcePath ?: __DIR__ . '/emoji.json');
     }
 
-    public function get(int $count = 50, int $offset = 0, string $query = null)
+    public function get(int $count = 90, int $offset = 0, string $query = null)
     {
         return $this->data
             ->when($query, $this->applySearch($query))

@@ -37,12 +37,11 @@ class EntryReactionsController extends Controller
         if (request()->wantsTurboStream() && ! request()->wasFromTurboNative()) {
             if ($reaction->wasRecentlyCreated) {
                 return response()->turboStream()->before($reaction, dom_id($entry, 'create_reaction_trigger'));
-
             }
 
             return response()->turboStream()->replace($reaction);
         }
 
-        return redirect($entry->entryableShowRoute());
+        return redirect($entry->entryableRedirectAfterReaction());
     }
 }
