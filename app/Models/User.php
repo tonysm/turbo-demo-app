@@ -29,6 +29,7 @@ class User extends Authenticatable implements AttachableContract
      */
     protected $fillable = [
         'name', 'email', 'password',
+        'preferred_skin_tone',
     ];
 
     /**

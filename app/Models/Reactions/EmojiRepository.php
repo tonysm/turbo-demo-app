@@ -24,9 +24,15 @@ class EmojiRepository
             ->take(min($count, static::MAX_COUNT));
     }
 
-    public function findByName(string $emoji): ?array
+    public function findByName(string $emoji, ?string $skinTone = null): ?array
     {
-        return $this->data->firstWhere('short_name', $emoji);
+        $emoji = $this->data->firstWhere('short_name', $emoji);
+
+        if (! isset($emoji['skin_variations']) || ! $skinTone) {
+            return $emoji;
+        }
+
+        return $emoji['skin_variations'][$skinTone];
     }
 
     public function filter(callable $callback)
@@ -56,9 +62,9 @@ class EmojiRepository
         return $this->data;
     }
 
-    public function findSvgImageByName(string $emoji): string
+    public function findSvgImageByName(string $emoji, ?string $skinTone = null): string
     {
-        $emoji = $this->data->firstWhere('short_name', $emoji);
+        $emoji = $this->findByName($emoji, $skinTone);
 
         return 'https://abs.twimg.com/emoji/v2/svg/' . str_replace('.png', '.svg', $emoji['image']);
     }
