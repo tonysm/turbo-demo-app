@@ -6,6 +6,7 @@ use App\Events\PostCreated;
 use App\Models\Mentions\HasMentions;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Prunable;
 use Tonysm\GlobalId\Models\HasGlobalIdentification;
 use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 use Tonysm\TurboLaravel\Models\Broadcasts;
@@ -25,6 +26,7 @@ class Post extends Model
     use HasRichText;
     use HasGlobalIdentification;
     use Entryable;
+    use Prunable;
 
     protected $allowCommentsOnEntry = true;
 
@@ -79,6 +81,16 @@ class Post extends Model
             $post->broadcastRemoveTo($post->team)
                 ->target(dom_id($post, 'card'));
         }));
+    }
+
+    public function prunable()
+    {
+        return static::where('created_at', '<=', now()->subWeek());
+    }
+
+    public function pruning()
+    {
+        $this->entry->prune();
     }
 
     public function scopePublished(Builder $query)

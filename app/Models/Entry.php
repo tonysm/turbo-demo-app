@@ -26,6 +26,21 @@ class Entry extends Model
         }
     }
 
+    public function prune()
+    {
+        $this->reactions()->oldest()->cursor()
+            ->each(function (Reaction $reaction) {
+                $reaction->users()->detach();
+                $reaction->delete();
+            });
+
+        $this->comments()->oldest()->cursor()
+            ->each(function (Comment $comment) {
+                $comment->entry->prune();
+                $comment->delete();
+            });
+    }
+
     public function setEntryableAttribute($model)
     {
         $this->entryable()->associate($model);
