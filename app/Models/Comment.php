@@ -4,7 +4,10 @@ namespace App\Models;
 
 use App\Models\Mentions\HasMentions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Tonysm\RichTextLaravel\Attachables\RemoteImage;
+use Tonysm\RichTextLaravel\Attachment;
 use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 use Tonysm\TurboLaravel\Models\Broadcasts;
 
@@ -19,6 +22,22 @@ class Comment extends Model
     protected $richTextFields = [
         'content',
     ];
+
+    public function prune()
+    {
+        $this->content->attachments()->each(function (Attachment $attachment) {
+            if ($attachment->attachable instanceof RemoteImage) {
+                Storage::disk('public')->delete(str_replace(
+                    Storage::disk('public')->url('trix-attachments'),
+                    '',
+                    $attachment->attachable->url,
+                ));
+            }
+        });
+
+        $this->entry->prune();
+        $this->delete();
+    }
 
     public function user()
     {
