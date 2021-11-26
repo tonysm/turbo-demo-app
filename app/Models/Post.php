@@ -98,7 +98,7 @@ class Post extends Model
         $this->content->attachments()->each(function (Attachment $attachment) {
             if ($attachment->attachable instanceof RemoteImage) {
                 Storage::disk('public')->delete(str_replace(
-                    Storage::disk('public')->url('trix-attachments'),
+                    Storage::disk('public')->url(''),
                     '',
                     $attachment->attachable->url,
                 ));
