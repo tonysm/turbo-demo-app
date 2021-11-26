@@ -16,7 +16,7 @@
                     <div class="relative">
                         <form x-data class="sticky top-0" x-data @click.stop action="{{ route('entries.reactions.create', $entry) }}" method="GET" data-turbo-frame="@domid($entry, 'create_reaction')">
                             <x-jet-label class="sr-only">Type to search...</x-jet-label>
-                            <x-jet-input x-model="" name="search" value="{{ old('search', request('search')) }}" placeholder="Type to search..." class="w-full p-2 my-2 text-base border rounded-full sm:border-transparent" autofocus autocomplete="off" />
+                            <x-jet-input name="search" value="{{ old('search', request('search')) }}" placeholder="Type to search..." class="w-full p-2 my-2 text-base border rounded-full sm:border-transparent" autofocus autocomplete="off" />
                             <button type="submit" hidden>Submit</button>
                         </form>
                         <div class="grid grid-cols-7 gap-2 py-2 mt-2 overflow-y-auto border-t sm:max-h-40 group-busy:opacity-50" x-data x-on:click.stop>
