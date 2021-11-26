@@ -7,7 +7,11 @@ use App\Models\Mentions\HasMentions;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Prunable;
+use Illuminate\Support\Facades\Storage;
 use Tonysm\GlobalId\Models\HasGlobalIdentification;
+use Tonysm\RichTextLaravel\Attachables\RemoteImage;
+use Tonysm\RichTextLaravel\Attachment;
+use Tonysm\RichTextLaravel\Content;
 use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 use Tonysm\TurboLaravel\Models\Broadcasts;
 
@@ -17,6 +21,7 @@ use function Tonysm\TurboLaravel\dom_id;
 /**
  * @property \App\Models\Team $team
  * @property \App\Models\User $user
+ * @property Content $content
  */
 class Post extends Model
 {
@@ -90,6 +95,16 @@ class Post extends Model
 
     public function pruning()
     {
+        $this->content->attachments()->each(function (Attachment $attachment) {
+            if ($attachment->attachable instanceof RemoteImage) {
+                Storage::disk('public')->delete(str_replace(
+                    Storage::disk('public')->url('trix-attachments'),
+                    '',
+                    $attachment->attachable->url,
+                ));
+            }
+        });
+
         $this->entry->prune();
     }
 
