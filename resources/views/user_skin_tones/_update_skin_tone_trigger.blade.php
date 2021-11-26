@@ -38,6 +38,6 @@
         title="Change Skin Tone"
         href="{{ route('skin-tones.create') }}"
     >
-        <x-emoji name="+1" :skin-tones="[auth()->user()->preferred_skin_tone]" />
+        <x-emoji name="+1" :for-current-user="true" />
     </a>
 </div>
