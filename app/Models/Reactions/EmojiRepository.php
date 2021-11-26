@@ -45,6 +45,11 @@ class EmojiRepository
         return $this->data->chunk($size);
     }
 
+    public function urlFor(string $image): string
+    {
+        return 'https://abs.twimg.com/emoji/v2/svg/' . str_replace('.png', '.svg', $image);
+    }
+
     private function applySearch(string $query = null)
     {
         return function (LazyCollection $emojis) use ($query) {
@@ -66,6 +71,6 @@ class EmojiRepository
     {
         $emoji = $this->findByName($emoji, $skinTone);
 
-        return 'https://abs.twimg.com/emoji/v2/svg/' . str_replace('.png', '.svg', $emoji['image']);
+        return $this->urlFor($emoji['image']);
     }
 }

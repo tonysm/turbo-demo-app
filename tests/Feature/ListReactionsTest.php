@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -56,6 +57,8 @@ class ListReactionsTest extends TestCase
             ->get(route('entries.reactions.index', $entry))
             ->assertOk()
             ->assertViewIs('entry_reactions.index')
-            ->assertViewHas('reactions', $entry->refresh()->reactions()->oldest()->get());
+            ->assertViewHas('reactions', fn (Collection $reations) => (
+                $reations->every(fn ($reaction) => $entry->refresh()->reactions->contains($reaction))
+            ));
     }
 }

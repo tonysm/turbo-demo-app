@@ -14,17 +14,17 @@
             <div class="h-full p-2 bg-white rounded-lg shadow md:p-8 lg:p-16">
                 <turbo-frame id="@domid($entry, 'create_reaction')" target="_top">
                     <div class="relative">
-                        <form class="sticky top-0" x-data @click.stop action="{{ route('entries.reactions.create', $entry) }}" method="GET" data-turbo-frame="@domid($entry, 'create_reaction')">
+                        <form x-data class="sticky top-0" x-data @click.stop action="{{ route('entries.reactions.create', $entry) }}" method="GET" data-turbo-frame="@domid($entry, 'create_reaction')">
                             <x-jet-label class="sr-only">Type to search...</x-jet-label>
-                            <x-jet-input name="search" value="{{ old('search', request('search')) }}" placeholder="Type to search..." class="w-full p-2 my-2 text-base border rounded-full sm:border-transparent" autofocus autocomplete="off" />
+                            <x-jet-input x-model="" name="search" value="{{ old('search', request('search')) }}" placeholder="Type to search..." class="w-full p-2 my-2 text-base border rounded-full sm:border-transparent" autofocus autocomplete="off" />
                             <button type="submit" hidden>Submit</button>
                         </form>
-                        <div class="grid grid-cols-7 gap-2 py-2 mt-2 overflow-y-auto border-t border-b sm:max-h-40 group-busy:opacity-50" x-data x-on:click.stop>
+                        <div class="grid grid-cols-7 gap-2 py-2 mt-2 overflow-y-auto border-t sm:max-h-40 group-busy:opacity-50" x-data x-on:click.stop>
                             @forelse ($emojis as $emoji)
                                 <form x-data x-on:turbo:submit-end="$dispatch('close')" action="{{ route('entries.reactions.store', $entry) }}" method="POST" class="block mx-auto">
                                     <input type="hidden" name="emoji" value="{{ $emoji['short_name'] }}" />
                                     <button class="px-1.5 pt-1 bg-white border rounded-full" title="React with {{ $emoji['short_name'] }}">
-                                        <x-emoji :name="$emoji['short_name']" :skin-tones="[auth()->user()->preferred_skin_tone]" />
+                                        <x-emoji :name="$emoji['short_name']" :for-current-user="true" />
                                     </button>
                                 </form>
                             @empty
@@ -32,7 +32,7 @@
                             @endforelse
                         </div>
 
-                        <div class="sticky bottom-0" x-data @click.stop>
+                        <div class="fixed bottom-0 w-full border-t md:sticky md:bg-gray-100" x-data @click.stop>
                             @include('user_skin_tones._update_skin_tone_trigger')
                         </div>
                     </div>
