@@ -19,17 +19,21 @@
                             <x-jet-input name="search" value="{{ old('search', request('search')) }}" placeholder="Type to search..." class="w-full p-2 my-2 text-base border rounded-full sm:border-transparent" autofocus autocomplete="off" />
                             <button type="submit" hidden>Submit</button>
                         </form>
-                        <div class="grid grid-cols-7 gap-2 pt-2 mt-2 overflow-y-auto border-t sm:max-h-40 group-busy:opacity-50" x-data x-on:click.stop>
+                        <div class="grid grid-cols-7 gap-2 py-2 mt-2 overflow-y-auto border-t border-b sm:max-h-40 group-busy:opacity-50" x-data x-on:click.stop>
                             @forelse ($emojis as $emoji)
                                 <form x-data x-on:turbo:submit-end="$dispatch('close')" action="{{ route('entries.reactions.store', $entry) }}" method="POST" class="block mx-auto">
                                     <input type="hidden" name="emoji" value="{{ $emoji['short_name'] }}" />
-                                    <button class="p-2 bg-white border rounded-full" title="React with {{ $emoji['short_name'] }}">
-                                        <x-emoji :name="$emoji['short_name']" />
+                                    <button class="px-1.5 pt-1 bg-white border rounded-full" title="React with {{ $emoji['short_name'] }}">
+                                        <x-emoji :name="$emoji['short_name']" :skin-tones="[auth()->user()->preferred_skin_tone]" />
                                     </button>
                                 </form>
                             @empty
                                 <p class="text-center text-gray-400">No emojis found.</p>
                             @endforelse
+                        </div>
+
+                        <div class="sticky bottom-0" x-data @click.stop>
+                            @include('user_skin_tones._update_skin_tone_trigger')
                         </div>
                     </div>
                 </turbo-frame>
