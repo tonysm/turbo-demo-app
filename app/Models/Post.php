@@ -90,7 +90,7 @@ class Post extends Model
 
     public function prunable()
     {
-        return static::where('created_at', '<=', now()->subWeek());
+        return static::where('created_at', '<=', now()->subWeek())->where('team_id', 1)->take(1);
     }
 
     public function pruning()
