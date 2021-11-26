@@ -7,10 +7,10 @@
         }
     "
 >
-    <x-jet-dropdown align="left" class="hidden m-1 md:inline-block" id="{{ dom_id(auth()->user(), 'change_skin_tone') }}" contentClasses="py-1 bg-gray-100">
+    <x-jet-dropdown align="left" class="inline-block m-1" id="{{ dom_id(auth()->user(), 'change_skin_tone') }}" contentClasses="py-1 bg-gray-100">
         <x-slot name="trigger">
             <button
-                class="inline-flex items-center justify-between p-1 space-x-1 text-gray-500 transition duration-150 ease-in-out bg-white border rounded-full hover:text-gray-700 focus:outline-none focus:border-gray-300"
+                class="inline-flex items-center justify-between p-1 mt-2 space-x-1 text-gray-500 transition duration-150 ease-in-out bg-white border rounded-full md:mt-0 hover:text-gray-700 focus:outline-none focus:border-gray-300"
                 title="Change Skin Tone"
             >
                 <x-emoji name="+1" :for-current-user="true" />
@@ -32,12 +32,4 @@
             </div>
         </x-slot>
     </x-jet-dropdown>
-
-    <a
-        class="inline-flex items-center justify-between p-1 space-x-1 text-gray-500 transition duration-150 ease-in-out bg-white border rounded-full md:hidden hover:text-gray-700 focus:outline-none focus:border-gray-300"
-        title="Change Skin Tone"
-        href="{{ route('skin-tones.create') }}"
-    >
-        <x-emoji name="+1" :for-current-user="true" />
-    </a>
 </div>

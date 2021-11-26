@@ -32,7 +32,7 @@
                             @endforelse
                         </div>
 
-                        <div class="fixed bottom-0 w-full border-t md:sticky md:bg-gray-100" x-data @click.stop>
+                        <div class="bottom-0 hidden w-full border-t md:block md:sticky md:bg-gray-100" x-data @click.stop>
                             @include('user_skin_tones._update_skin_tone_trigger')
                         </div>
                     </div>
