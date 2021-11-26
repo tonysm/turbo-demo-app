@@ -17,6 +17,10 @@
 
     <div class="py-2 md:py-12">
         <div class="mx-auto max-w-7xl sm:px-8 lg:px-18">
+            <p class="hidden p-2 mx-4 text-sm text-center text-gray-900 border rounded-full shadow-sm bg-yellow-50 md:block">
+                ⚠️ Since this is a demo app, Posts and Comments will automatically be deleted after a couple of days. ⚠️
+            </p>
+
             <div id="post_cards" class="m-4 space-y-4">
                 @foreach($posts as $post)
                     @include('posts._post_card', ['post' => $post])
