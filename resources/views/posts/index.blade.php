@@ -29,7 +29,7 @@
                 @endforeach
             </div>
             @if($posts->isEmpty())
-                <div id="empty_posts" class="p-4 text-center text-gray-700 bg-white rounded shadow">
+                <div id="empty_posts" class="p-2 m-4 text-center text-gray-700 bg-white rounded shadow">
                     <p>Nothing was shared just yet. Create your first post!</p>
                 </div>
             @endif
