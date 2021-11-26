@@ -28,7 +28,7 @@
                                     </button>
                                 </form>
                             @empty
-                                <p class="text-center text-gray-400">No emojis found.</p>
+                                <p class="col-span-7 text-center text-gray-400">No emojis found.</p>
                             @endforelse
                         </div>
 
