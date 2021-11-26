@@ -73,4 +73,4 @@ sail artisan queue:work --tries=1
 
 ### Legal Notices
 
-For the Reactions feature, we're using [Twemoji](https://twemoji.twitter.com/) and by giving attribution here. This is the [emoji dataset](https://github.com/iamcal/emoji-data) I'm using in combination with that service.
+For the Reactions feature, we're using [Twemoji](https://twemoji.twitter.com/) and giving attribution here. This is the [emoji dataset](https://github.com/iamcal/emoji-data) I'm using in combination with that service.
