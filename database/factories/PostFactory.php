@@ -25,6 +25,7 @@ class PostFactory extends Factory
             ]),
             'user_id' => User::factory(),
             'published_at' => $this->faker->optional()->dateTime,
+            'team_id' => Team::factory(),
         ];
     }
 
@@ -33,6 +34,13 @@ class PostFactory extends Factory
         return $this->afterCreating(function (Post $post) {
             // We're assigning the user's team as the post team.
             $post->team()->associate($post->user->currentTeam)->save();
+        });
+    }
+
+    public function withComments(CommentFactory $commentFactory)
+    {
+        return $this->afterCreating(function ($post) use ($commentFactory) {
+            $commentFactory->for($post->entry)->create();
         });
     }
 }

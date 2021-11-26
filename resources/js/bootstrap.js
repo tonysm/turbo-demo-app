@@ -14,6 +14,14 @@ import Echo  from './echo';
 
 window.Echo = Echo;
 
+let token = document.head.querySelector('meta[name="csrf-token"]');
+
 document.addEventListener('turbo:before-fetch-request', (e) => {
     e.detail.fetchOptions.headers['X-Socket-ID'] = Echo.socketId();
+
+    if (token) {
+        e.detail.fetchOptions.headers['X-CSRF-Token'] = token.content;
+    } else {
+        console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    }
 });

@@ -12,7 +12,7 @@ class CommentPolicy
 
     public function view(User $user, Comment $comment)
     {
-        return $user->allTeams()->contains($comment->post->team);
+        return $comment->parent->belongsToTeam($user);
     }
 
     public function update(User $user, Comment $comment)

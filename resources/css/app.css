@@ -69,3 +69,8 @@
 [data-trix-action][disabled], [data-trix-attribute][disabled] {
     @apply text-gray-300 cursor-not-allowed;
 }
+
+
+turbo-frame.group[aria-busy="true"] > .group-busy\:opacity-50 {
+    opacity: .5;
+}

@@ -58,6 +58,10 @@
             {!! clean($comment->content) !!}
         </div>
 
+        <div class="mt-4">
+            <turbo-frame id="@domid($comment->entry, 'reactions')" src="{{ route('entries.reactions.index', $comment->entry) }}" class="flex flex-wrap items-center justify-start -m-1"></turbo-frame>
+        </div>
+
         @if($deleting ?? false)
             <form id="@domid($comment, 'delete_form')" action="{{ route('comments.destroy', $comment) }}" method="POST"
                     hidden="true">

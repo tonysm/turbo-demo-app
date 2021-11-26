@@ -29,6 +29,7 @@ class User extends Authenticatable implements AttachableContract
      */
     protected $fillable = [
         'name', 'email', 'password',
+        'preferred_skin_tone',
     ];
 
     /**
@@ -96,6 +97,13 @@ class User extends Authenticatable implements AttachableContract
     public function mentions()
     {
         return $this->hasMany(Mention::class, 'mentionee_id');
+    }
+
+    public function reactions()
+    {
+        return $this->belongsToMany(Reaction::class)
+            ->withTimestamps()
+            ->using(ReactionUser::class);
     }
 
     public function richTextAsPlainText()

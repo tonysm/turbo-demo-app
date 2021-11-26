@@ -2,7 +2,7 @@
     @if($comment->exists)
     action="{{ route('comments.update', $comment) }}"
     @else
-    action="{{ route('posts.comments.store', $post) }}"
+    action="{{ route('entries.comments.store', $entry) }}"
     @endif
     method="POST"
     class="px-2 py-8 md:px-8 lg:px-16"
@@ -24,7 +24,7 @@
         <div class="mt-2">
             <x-trix-editor
                 :id="\Tonysm\TurboLaravel\dom_id($comment, 'content')"
-                value="{{ $comment->content->toTrixHtml() }}"
+                value="{{ old('content', $comment->content->toTrixHtml()) }}"
                 name="content"
                 x-ref="contentField"
                 placeholder="Say something nice..."
@@ -42,7 +42,7 @@
             @if($comment->exists)
             href="{{ route('comments.show', $comment) }}"
             @else
-            href="{{ route('posts.show', $post) }}"
+            href="{{ $entry->entryableShowRoute() }}"
             @endif
             class="hidden text-base text-gray-500 md:inline-block"
         >

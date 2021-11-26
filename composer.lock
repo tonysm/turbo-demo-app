@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c06641c7ff821166c371dd6bbb0af8c",
+    "content-hash": "191fde07e3d0d4094d1703e308add063",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -318,6 +318,88 @@
                 "source": "https://github.com/ratchetphp/Ratchet/tree/master"
             },
             "time": "2020-07-07T15:50:14+00:00"
+        },
+        {
+            "name": "cerbero/lazy-json",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cerbero90/lazy-json.git",
+                "reference": "50b796c9f460852f2a8dfa2cfd1a6926938a7646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cerbero90/lazy-json/zipball/50b796c9f460852f2a8dfa2cfd1a6926938a7646",
+                "reference": "50b796c9f460852f2a8dfa2cfd1a6926938a7646",
+                "shasum": ""
+            },
+            "require": {
+                "halaxa/json-machine": "^0.7",
+                "illuminate/support": ">=6.0",
+                "php": "^7.2||^8.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "^7.0",
+                "mockery/mockery": "^1.3.4",
+                "orchestra/testbench": ">=3.9",
+                "phpunit/phpunit": ">=8.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Required to load JSON from endpoints (^7.0)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Cerbero\\LazyJson\\Providers\\LazyJsonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cerbero\\LazyJson\\": "src"
+                },
+                "files": [
+                    "helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrea Marco Sartori",
+                    "email": "andrea.marco.sartori@gmail.com",
+                    "homepage": "https://github.com/cerbero90",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Load heavy JSON in Laravel lazy collections.",
+            "homepage": "https://github.com/cerbero90/lazy-json",
+            "keywords": [
+                "collection",
+                "json",
+                "laravel",
+                "lazy",
+                "lexer",
+                "parser"
+            ],
+            "support": {
+                "issues": "https://github.com/cerbero90/lazy-json/issues",
+                "source": "https://github.com/cerbero90/lazy-json/tree/1.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/AndreaMarcoSartori",
+                    "type": "custom"
+                }
+            ],
+            "time": "2021-05-06T13:08:40+00:00"
         },
         {
             "name": "composer/semver",
@@ -1408,6 +1490,57 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.8.2"
             },
             "time": "2021-04-26T09:17:50+00:00"
+        },
+        {
+            "name": "halaxa/json-machine",
+            "version": "0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/halaxa/json-machine.git",
+                "reference": "39ec702c434e72ddae25d3af14c1d0fe60b03ef6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/halaxa/json-machine/zipball/39ec702c434e72ddae25d3af14c1d0fe60b03ef6",
+                "reference": "39ec702c434e72ddae25d3af14c1d0fe60b03ef6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6",
+                "phpunit/phpunit": "^5.7.27"
+            },
+            "suggest": {
+                "ext-json": "To run JSON Machine out of the box without custom decoders."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JsonMachine\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Filip Halaxa",
+                    "email": "filip@halaxa.cz"
+                }
+            ],
+            "description": "Efficient, easy-to-use and fast JSON pull parser",
+            "support": {
+                "issues": "https://github.com/halaxa/json-machine/issues",
+                "source": "https://github.com/halaxa/json-machine/tree/0.7.0"
+            },
+            "time": "2021-05-06T11:47:56+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",

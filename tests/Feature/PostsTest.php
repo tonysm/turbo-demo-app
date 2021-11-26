@@ -6,7 +6,10 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Tonysm\TurboLaravelTestHelpers\Testing\InteractsWithTurbo;
+use Tonysm\TurboLaravel\Testing\AssertableTurboStream;
+use Tonysm\TurboLaravel\Testing\InteractsWithTurbo;
+use Tonysm\TurboLaravel\Testing\TurboStreamMatcher;
+
 use function Tonysm\TurboLaravel\dom_id;
 
 class PostsTest extends TestCase
@@ -30,7 +33,7 @@ class PostsTest extends TestCase
             ->actingAs($user)
             ->put(route('posts.update', $post), [
                 'title' => 'Updated',
-                'content' => $post->content,
+                'content' => $post->content->toTrixHtml(),
             ])
             ->assertRedirect(route('posts.show', $post));
     }
@@ -51,10 +54,16 @@ class PostsTest extends TestCase
             ->actingAs($user)
             ->put(route('posts.update', $post), [
                 'title' => 'Updated Title',
-                'content' => $post->content,
+                'content' => $post->content->toTrixHtml(),
             ])
-            ->assertTurboStream()
-            ->assertHasTurboStream(dom_id($post), 'replace')
-            ->assertSee('Updated Title');
+            ->assertOk()
+            ->assertTurboStream(fn (AssertableTurboStream $streams) => (
+                $streams->has(1)
+                    ->hasTurboStream(fn (TurboStreamMatcher $stream) => (
+                        $stream->where('action', 'replace')
+                            ->where('target', dom_id($post))
+                            ->see('Updated Title')
+                    ))
+            ));
     }
 }

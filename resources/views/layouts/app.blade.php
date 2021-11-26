@@ -7,6 +7,7 @@
         <meta name="csrf-param" content="XSRF-TOKEN">
 
         <meta name="current-user-id" content="{{ auth()->id() }}" />
+        <meta name="current-user-skin-tone" content="{{ auth()->user()->preferred_skin_tone }}" />
         <meta name="current-team-id" content="{{ optional(auth()->user()->currentTeam)->id }}">
 
         <title>{{ $title ?? config('app.name', 'Laravel') }}</title>

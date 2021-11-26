@@ -24,6 +24,9 @@ class Post extends Model
     use HasMentions;
     use HasRichText;
     use HasGlobalIdentification;
+    use Entryable;
+
+    protected $allowCommentsOnEntry = true;
 
     protected $dispatchesEvents = [
         'created' => PostCreated::class,
@@ -40,6 +43,10 @@ class Post extends Model
     public static function booted()
     {
         static::created(function (Post $post) {
+            if (! static::$isBroadcasting) {
+                return true;
+            }
+
             $post->broadcastPrependTo($post->team)
                 ->target('post_cards')
                 ->partial('posts._post_card', ['post' => $post])
@@ -53,6 +60,10 @@ class Post extends Model
         });
 
         static::updated(queueable(function (Post $post) {
+            if (! static::$isBroadcasting) {
+                return true;
+            }
+
             $post->broadcastReplaceTo($post->team)
                 ->target(dom_id($post, 'card'))
                 ->partial('posts._post_card', ['post' => $post]);
@@ -61,6 +72,10 @@ class Post extends Model
         }));
 
         static::deleted(queueable(function (Post $post) {
+            if (! static::$isBroadcasting) {
+                return true;
+            }
+
             $post->broadcastRemoveTo($post->team)
                 ->target(dom_id($post, 'card'));
         }));
@@ -71,11 +86,6 @@ class Post extends Model
         $query->whereNotNull('published_at');
     }
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class)->oldest();
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -84,5 +94,10 @@ class Post extends Model
     public function team()
     {
         return $this->belongsTo(Team::class);
+    }
+
+    public function entryableTitle()
+    {
+        return $this->title;
     }
 }
