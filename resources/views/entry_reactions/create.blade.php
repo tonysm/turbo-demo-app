@@ -12,7 +12,7 @@
     <div class="flex-1 h-screen md:h-auto md:py-12">
         <div class="h-full mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
             <div class="h-full p-2 bg-white rounded-lg shadow md:p-8 lg:p-16">
-                <turbo-frame id="@domid($entry, 'create_reaction')" target="_top">
+                <x-turbo-frame :id="[$entry, 'create_reaction']" target="_top">
                     <div class="relative">
                         <form x-data class="sticky top-0" x-data @click.stop action="{{ route('entries.reactions.create', $entry) }}" method="GET" data-turbo-frame="@domid($entry, 'create_reaction')">
                             <x-jet-label class="sr-only">Type to search...</x-jet-label>
@@ -36,7 +36,7 @@
                             @include('user_skin_tones._update_skin_tone_trigger')
                         </div>
                     </div>
-                </turbo-frame>
+                </x-turbo-frame>
             </div>
         </div>
     </div>

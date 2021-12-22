@@ -10,7 +10,7 @@
     <div class="flex-1 h-screen md:h-auto md:py-12">
         <div class="h-full mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
             <div class="h-full p-2 bg-white rounded-lg shadow md:p-8 lg:p-16">
-                <turbo-frame id="@domid(auth()->user(), 'change_skin_tone')" target="_top">
+                <x-turbo-frame :id="[auth()->user(), 'change_skin_tone']" target="_top">
                     <div class="flex items-center justify-start space-x-2">
                         @foreach (config('turbo-demo.users.skin-tones') as $skinTone)
                             <form action="{{ route('skin-tones.store') }}" method="POST">
@@ -21,7 +21,7 @@
                             </form>
                         @endforeach
                     </div>
-                </turbo-frame>
+                </x-turbo-frame>
             </div>
         </div>
     </div>

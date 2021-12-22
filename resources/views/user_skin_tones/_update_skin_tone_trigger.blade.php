@@ -18,9 +18,9 @@
         </x-slot>
         <x-slot name="content">
             <div class="px-2">
-                <turbo-frame
-                    id="@domid(auth()->user(), 'change_skin_tone')"
-                    src="{{ route('skin-tones.create') }}"
+                <x-turbo-frame
+                    :id="[auth()->user(), 'change_skin_tone']"
+                    :src="route('skin-tones.create')"
                     loading="lazy"
                     class="group"
                 >
@@ -28,7 +28,7 @@
                         <div class="w-6 h-6 mx-auto bg-gray-300 rounded-full animate-ping"></div>
                         <p class="sr-only">Loading...</p>
                     </div>
-                </turbo-frame>
+                </x-turbo-frame>
             </div>
         </x-slot>
     </x-jet-dropdown>

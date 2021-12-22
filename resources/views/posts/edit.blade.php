@@ -12,9 +12,15 @@
     <div class="flex-1 h-screen md:h-auto md:py-12">
         <div class="h-full mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
             <div class="h-full p-2 bg-white rounded-lg shadow md:p-8 lg:p-16">
-                <turbo-frame id="@domid($post)" @turbonative target="_top" @endturbonative>
-                    @include('posts._form', ['post' => $post])
-                </turbo-frame>
+                @turbonative
+                    <x-turbo-frame :id="$post" target="_top">
+                        @include('posts._form', ['post' => $post])
+                    </x-turbo-frame>
+                @else
+                    <x-turbo-frame :id="$post">
+                        @include('posts._form', ['post' => $post])
+                    </x-turbo-frame>
+                @endturbonative
             </div>
         </div>
     </div>

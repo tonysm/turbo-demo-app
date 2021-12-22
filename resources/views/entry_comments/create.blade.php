@@ -12,9 +12,9 @@
     <div class="flex-1 h-screen md:h-auto md:py-12">
         <div class="h-full mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
             <div class="h-full p-2 bg-white rounded-lg shadow md:p-8 lg:p-16">
-                <turbo-frame id="@domid($entry, 'create_comment')" target="_top">
+                <x-turbo-frame :id="[$entry, 'create_comment']" target="_top">
                     @include('comments._form', ['entry' => $entry, 'comment' => $newComment])
-                </turbo-frame>
+                </x-turbo-frame>
             </div>
         </div>
     </div>

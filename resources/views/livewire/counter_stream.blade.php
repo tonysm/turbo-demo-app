@@ -1,3 +1,3 @@
-<turbo-stream target="counter" action="update">
-    <template>{{ $counter }}</template>
-</turbo-stream>
+<x-turbo-stream target="counter" action="update">
+    {{ $counter }}
+</x-turbo-stream>

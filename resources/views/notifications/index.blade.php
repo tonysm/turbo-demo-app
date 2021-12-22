@@ -7,21 +7,21 @@
 
     <div class="py-12">
         <div class="mx-auto -my-4 space-y-12 max-w-7xl sm:px-6 lg:px-8">
-            <turbo-frame id="{{ $frame }}">
+            <x-turbo-frame :id="$frame">
                 @foreach($notifications as $notification)
                     @include('notifications._notification', ['notification' => $notification])
                 @endforeach
 
                 @if($notifications->isEmpty())
-                    <turbo-frame id="empty_notifications">
+                    <x-turbo-frame id="empty_notifications">
                         <div class="p-2 my-2 bg-white rounded shadow">
                             <div class="text-center text-gray-400">
                                 No notifications yet.
                             </div>
                         </div>
-                    </turbo-frame>
+                    </x-turbo-frame>
                 @endif
-            </turbo-frame>
+            </x-turbo-frame>
         </div>
     </div>
 </x-app-layout>

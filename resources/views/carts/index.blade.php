@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-            <turbo-frame id="carts" class="space-y-4">
+            <x-turbo-frame id="carts" class="space-y-4">
                 <x-jet-dropdown align="right" width="w-96" contentClasses="py-1 bg-gray-100">
                     <x-slot name="trigger">
                         <button
@@ -51,7 +51,7 @@
                         </div>
                     </x-slot>
                 </x-jet-dropdown>
-            </turbo-frame>
+            </x-turbo-frame>
         </div>
     </div>
 </x-app-layout>

@@ -11,9 +11,7 @@
         </div>
     </x-slot>
 
-    <turbo-echo-stream-source
-        channel="App.Models.Team.{{ auth()->user()->currentTeam->id }}"
-    ></turbo-echo-stream-source>
+    <x-turbo-stream-from :source="auth()->user()->currentTeam" />
 
     <div class="py-2 md:py-12">
         <div class="mx-auto max-w-7xl sm:px-8 lg:px-18">

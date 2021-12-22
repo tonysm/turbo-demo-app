@@ -1,5 +1,5 @@
-<turbo-frame
-    id="@domid($post)"
+<x-turbo-frame
+    :id="$post"
     class="flex flex-col space-y-4"
     data-controller="bridge"
     data-action="init-turbo-native@window->bridge#changeFrameTargetOnNative"
@@ -38,4 +38,4 @@
     <div class="flex justify-between text-sm">
         <div class="text-base md:text-lg trix-content">{!! clean($post->content) !!}</div>
     </div>
-</turbo-frame>
+</x-turbo-frame>

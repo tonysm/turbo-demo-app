@@ -1,19 +1,15 @@
-<turbo-stream target="@domid($cartItem)" action="remove"></turbo-stream>
+<x-turbo-stream :target="$cartItem" action="remove" />
 
-<turbo-stream target="cart_items_counter" action="update">
-    <template>{{ $cartItem->cart->items()->count() }}</template>
-</turbo-stream>
+<x-turbo-stream target="cart_items_counter" action="update">
+    {{ $cartItem->cart->items()->count() }}
+</x-turbo-stream>
 
 @if($cartItem->cart->items()->count() === 0)
-    <turbo-stream target="cart_items" action="append">
-        <template>
-            @include('cart_items._empty_items')
-        </template>
-    </turbo-stream>
+    <x-turbo-stream target="cart_items" action="append">
+        @include('cart_items._empty_items')
+    </x-turbo-stream>
 @endif
 
-<turbo-stream target="cart_total" action="update">
-    <template>
-        Total: {{ $cartItem->cart->total_price_for_display }}
-    </template>
-</turbo-stream>
+<x-turbo-stream target="cart_total" action="update">
+    Total: {{ $cartItem->cart->total_price_for_display }}
+</x-turbo-stream>

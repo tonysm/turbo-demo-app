@@ -11,7 +11,7 @@
                 <p>The counter state here will be updated using Turbo Streams dispatched by Livewire.</p>
                 <div class="mb-2">
                     <div class="inline-block px-4 py-2 text-xl font-semibold border border-gray-200 rounded shadow-lg">
-                        <turbo-frame id="counter">0</turbo-frame>
+                        <div id="counter">0</div>
                     </div>
                 </div>
 
@@ -28,9 +28,9 @@
                     <br>
 
                     <p>It should work even when it is inside a Turbo Frame:</p>
-                    <turbo-frame id="test-form">
+                    <x-turbo-frame id="test-form">
                         <livewire:test-form />
-                    </turbo-frame>
+                    </x-turbo-frame>
                 </div>
             </div>
         </div>

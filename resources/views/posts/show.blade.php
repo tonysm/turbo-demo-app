@@ -12,7 +12,7 @@
         </a>
     </x-slot>
 
-    <turbo-echo-stream-source channel="App.Models.Post.{{ $post->id }}"></turbo-echo-stream-source>
+    <x-turbo-stream-from :source="$post" />
 
     <div class="py-2 md:py-12">
         <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
@@ -20,11 +20,11 @@
                 @include('posts._post', ['post' => $post])
 
                 <div class="mt-4">
-                    <turbo-frame
-                        id="@domid($post->entry, 'reactions')"
-                        src="{{ route('entries.reactions.index', $post->entry) }}"
+                    <x-turbo-frame
+                        :id="[$post->entry, 'reactions']"
+                        :src="route('entries.reactions.index', $post->entry)"
                         class="flex flex-wrap items-center justify-start -m-1 group"
-                    ></turbo-frame>
+                    />
                 </div>
 
                 <div class="w-2/12 mx-auto mt-8 border-b"></div>
@@ -32,18 +32,22 @@
                 <div class="pt-8">
                     <h3 class="flex items-center justify-center mb-8 space-x-1 text-xl font-semibold leading-tight text-gray-800">
                         <div>Comments</div>
+
                         <div id="@domid($post->entry, 'comments_count')">
                             @include('entry_comments._entry_comments_count', ['entry' => $post->entry])
                         </div>
                     </h3>
 
-                    <turbo-frame id="@domid($post->entry, 'comments')" src="{{ route('entries.comments.index', $post->entry) }}" class="flex flex-col">
-                    </turbo-frame>
+                    <x-turbo-frame
+                        :id="[$post->entry, 'comments']"
+                        :src="route('entries.comments.index', $post->entry)"
+                        class="flex flex-col"
+                    />
 
                     <div>
-                        <turbo-frame id="@domid($post->entry, 'create_comment')">
+                        <x-turbo-frame :id="[$post->entry, 'create_comment']">
                             @include('entries._create_comment_trigger', ['entry' => $post->entry])
-                        </turbo-frame>
+                        </x-turbo-frame>
                     </div>
                 </div>
             </div>

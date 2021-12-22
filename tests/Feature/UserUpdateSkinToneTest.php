@@ -57,7 +57,7 @@ class UserUpdateSkinToneTest extends TestCase
             ->post(route('skin-tones.store'), [
                 'skin_tone' => $skinTone,
             ])
-            ->assertNoContent();
+            ->assertRedirect();
 
         $this->assertEquals($skinTone, $user->refresh()->preferred_skin_tone);
     }

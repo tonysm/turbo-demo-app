@@ -1,5 +1,3 @@
-<turbo-stream target="cart_total" action="update">
-    <template>
-        Total: {{ $cartItem->cart->total_price_for_display }}
-    </template>
-</turbo-stream>
+<x-turbo-stream target="cart_total" action="update">
+    Total: {{ $cartItem->cart->total_price_for_display }}
+</x-turbo-stream>

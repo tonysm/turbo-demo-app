@@ -10,7 +10,7 @@
     <div class="py-12">
         <div class="mx-auto space-y-12 max-w-7xl sm:px-6 lg:px-8">
             <div class="p-8 bg-white rounded shadow">
-                <turbo-frame id="@domid($post)">
+                <x-turbo-frame :id="$post">
                     <form action="{{ route('posts.destroy', $post) }}" method="post"
                           data-turbo-frame="_top"
                           class="inline-block p-4 mx-auto text-center bg-gray-100 border border-gray-200 rounded shadow-lg">
@@ -38,7 +38,7 @@
                     </form>
 
                     @include('posts._post', ['post' => $post, 'showActions' => false])
-                </turbo-frame>
+                </x-turbo-frame>
             </div>
         </div>
     </div>

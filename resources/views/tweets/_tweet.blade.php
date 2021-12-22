@@ -1,4 +1,4 @@
-<turbo-frame id="@domid($tweet)">
+<x-turbo-frame :id="$tweet">
     <div class="flex px-4 pt-4 pb-2 space-x-4 bg-white hover:bg-gray-50">
         <div>
             <img class="object-cover w-8 h-8 rounded-full" src="{{ $tweet->user->profile_photo_url }}" alt="{{ $tweet->user->name }}" />
@@ -66,13 +66,13 @@
         <div class="p-4 border-b">
             <span class="text-lg font-semibold">Edit Tweet</span>
         </div>
-        <turbo-frame id="@domid($tweet, 'flyout')">
+        <x-turbo-frame :id="[$tweet, 'flyout']">
             <div>
                 <div class="w-full p-8">
                     <div class="w-6 h-6 mx-auto bg-gray-300 rounded-full animate-ping"></div>
                     <p class="sr-only">Loading...</p>
                 </div>
             </div>
-        </turbo-frame>
+        </x-turbo-frame>
     </x-flyout>
-</turbo-frame>
+</x-turbo-frame>

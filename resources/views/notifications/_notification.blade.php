@@ -1,5 +1,5 @@
-<turbo-frame id="@domid($notification)">
+<x-turbo-frame :id="$notification">
     @include('notifications._' . Str::of(class_basename($notification->type))->snake(), [
         'notification' => $notification,
     ])
-</turbo-frame>
+</x-turbo-frame>

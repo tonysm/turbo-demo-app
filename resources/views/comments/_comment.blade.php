@@ -1,5 +1,5 @@
-<turbo-frame
-    id="@domid($comment)"
+<x-turbo-frame
+    :id="$comment"
     data-controller="bridge"
     data-action="init-turbo-native@window->bridge#changeFrameTargetOnNative"
     data-target-on-native="_top"
@@ -59,7 +59,11 @@
         </div>
 
         <div class="mt-4">
-            <turbo-frame id="@domid($comment->entry, 'reactions')" src="{{ route('entries.reactions.index', $comment->entry) }}" class="flex flex-wrap items-center justify-start -m-1"></turbo-frame>
+            <x-turbo-frame
+                :id="[$comment->entry, 'reactions']"
+                :src="route('entries.reactions.index', $comment->entry)"
+                class="flex flex-wrap items-center justify-start -m-1"
+            />
         </div>
 
         @if($deleting ?? false)
@@ -74,4 +78,4 @@
             </form>
         @endif
     </div>
-</turbo-frame>
+</x-turbo-frame>

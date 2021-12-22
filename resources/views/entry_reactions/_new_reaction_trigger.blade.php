@@ -10,9 +10,9 @@
         </x-slot>
         <x-slot name="content">
             <div class="px-2">
-                <turbo-frame
-                    id="@domid($entry, 'create_reaction')"
-                    src="{{ route('entries.reactions.create', $entry) }}"
+                <x-turbo-frame
+                    :id="[$entry, 'create_reaction']"
+                    :src="route('entries.reactions.create', $entry)"
                     loading="lazy"
                     class="group"
                 >
@@ -20,7 +20,7 @@
                         <div class="w-6 h-6 mx-auto bg-gray-300 rounded-full animate-ping"></div>
                         <p class="sr-only">Loading...</p>
                     </div>
-                </turbo-frame>
+                </x-turbo-frame>
             </div>
         </x-slot>
     </x-jet-dropdown>
