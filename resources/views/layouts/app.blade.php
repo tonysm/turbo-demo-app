@@ -10,17 +10,21 @@
         <meta name="current-user-skin-tone" content="{{ auth()->user()->preferred_skin_tone }}" />
         <meta name="current-team-id" content="{{ optional(auth()->user()->currentTeam)->id }}">
 
+        @include('layouts._meta_pusher')
+
         <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="https://ga.jspm.io/npm:trix@2.0.0-alpha.0/dist/trix.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tributejs/5.1.3/tribute.css">
         <link rel="stylesheet" data-turbo-track="reload" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
 
         <!-- Scripts -->
-        <script data-turbo-track="reload" src="{{ mix('js/app.js') }}" defer></script>
+        <x-importmap-tags entrypoint="app" />
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

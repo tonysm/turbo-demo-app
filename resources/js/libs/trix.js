@@ -1,5 +1,4 @@
-import * as Trix from 'trix/dist/trix';
-import 'trix/dist/trix.css';
+import Trix from 'trix';
 
 Trix.config.blockAttributes.heading2 = {
     tagName: "h2",

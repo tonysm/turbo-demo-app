@@ -43,6 +43,12 @@ return [
                 'port' => env('LARAVEL_WEBSOCKETS_PORT'),
                 'scheme' => 'http'
             ],
+            // Not Pusher options, these are used in the `layouts/app.blade.php` file...
+            'frontend' => [
+                'pusher_host' => env('PUSHER_FRONTEND_HOST'),
+                'pusher_port' => env('PUSHER_FRONTEND_PORT'),
+                'use_tls' => env('PUSHER_FRONTEND_USE_SSL', false),
+            ],
         ],
 
         'ably' => [
