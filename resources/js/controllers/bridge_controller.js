@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import Bridge from "../libs/bridge";
+import Bridge from "libs/bridge";
 
 export default class extends Controller {
     connect () {

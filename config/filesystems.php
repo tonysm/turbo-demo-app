@@ -66,8 +66,9 @@ return [
     |
     */
 
-    'links' => [
+    'links' => array_filter([
         public_path('storage') => storage_path('app/public'),
-    ],
+        public_path('js') => env('APP_ENV') === 'local' ? resource_path('js') : null,
+    ]),
 
 ];

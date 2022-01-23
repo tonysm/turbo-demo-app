@@ -1,8 +1,8 @@
 import { Controller } from "@hotwired/stimulus";
 import Tribute from 'tributejs';
-import Trix from '../libs/trix';
+import Trix from 'libs/trix';
 
-require('tributejs/tribute.css');
+// require('tributejs/tribute.css');
 
 export default class extends Controller {
     connect() {
