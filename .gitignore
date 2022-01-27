@@ -20,3 +20,5 @@ _ide_helper.php
 /workspaces
 rr
 .rr.yaml
+public/dist/
+
