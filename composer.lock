@@ -8023,12 +8023,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/importmap-laravel.git",
-                "reference": "6eee11f6b2b4c43155f36f1d6af43ed4b7a68cf8"
+                "reference": "ee1512bc1585c55fd8f0a275b4a898d8985700de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/importmap-laravel/zipball/6eee11f6b2b4c43155f36f1d6af43ed4b7a68cf8",
-                "reference": "6eee11f6b2b4c43155f36f1d6af43ed4b7a68cf8",
+                "url": "https://api.github.com/repos/tonysm/importmap-laravel/zipball/ee1512bc1585c55fd8f0a275b4a898d8985700de",
+                "reference": "ee1512bc1585c55fd8f0a275b4a898d8985700de",
                 "shasum": ""
             },
             "require": {
@@ -8093,7 +8093,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-23T23:05:29+00:00"
+            "time": "2022-01-27T03:03:56+00:00"
         },
         {
             "name": "tonysm/rich-text-laravel",
