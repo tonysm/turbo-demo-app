@@ -18,9 +18,10 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
         "pusher/pusher-php-server": "~4.0",
+        "symfony/html-sanitizer": "6.1.x-dev",
+        "tonysm/importmap-laravel": "dev-main",
         "tonysm/rich-text-laravel": "dev-main",
-        "tonysm/turbo-laravel": "dev-main",
-        "tonysm/importmap-laravel": "dev-main"
+        "tonysm/turbo-laravel": "dev-main"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",

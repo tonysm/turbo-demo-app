@@ -5,8 +5,12 @@ namespace App\Providers;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
+use App\View\HtmlSanitizer\HtmlSanitizer;
+use App\View\HtmlSanitizer\SymfonyHtmlSanitizer;
+use App\View\HtmlSanitizer\SymfonySanitizerFactory;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
+use Symfony\Component\HtmlSanitizer\HtmlSanitizer as SymfonyHtmlSanitizerBase;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(HtmlSanitizer::class, SymfonyHtmlSanitizer::class);
+        $this->app->bind(SymfonyHtmlSanitizerBase::class, fn () => SymfonySanitizerFactory::make());
     }
 
     /**

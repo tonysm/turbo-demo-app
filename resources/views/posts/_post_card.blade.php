@@ -20,7 +20,7 @@
         </div>
 
         <div class="px-2 mt-3 text-base md:px-0 md:text-lg">
-            {{ Str::limit($post->content->toPlainText(), 600) }}
+            {!! nl2br(e(Str::limit($post->content->toPlainText(), 150))) !!}
         </div>
     </a>
     <div class="flex flex-col mt-3 space-y-4">

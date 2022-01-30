@@ -1,5 +1,7 @@
 <?php
 
+use App\View\HtmlSanitizer\HtmlSanitizer;
+
 use function Tonysm\TurboLaravel\dom_id as turbo_laravel_dom_id;
 
 if (! function_exists('dom_id')) {
@@ -12,6 +14,6 @@ if (! function_exists('dom_id')) {
 if (! function_exists('clean')) {
     function clean(string $html): string
     {
-        return $html;
+        return resolve(HtmlSanitizer::class)->sanitize($html);
     }
 }
