@@ -5,9 +5,9 @@ use Tonysm\ImportmapLaravel\Facades\Importmap;
 Importmap::pinAllFrom("resources/js", to: "js/", preload: true);
 
 Importmap::pin("lodash", to: "https://ga.jspm.io/npm:lodash@4.17.21/lodash.js", preload: true);
-Importmap::pin("axios", to: "https://ga.jspm.io/npm:axios@0.21.4/index.js", preload: true);
-Importmap::pin("#lib/adapters/http.js", to: "https://ga.jspm.io/npm:axios@0.21.4/lib/adapters/xhr.js");
-Importmap::pin("process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.14/nodelibs/browser/process-production.js");
+Importmap::pin("#lib/adapters/http.js", to: "https://ga.jspm.io/npm:axios@0.21.4/lib/adapters/xhr.js", preload: true);
+Importmap::pin("process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.14/nodelibs/browser/process-production.js", preload: true);
+Importmap::pin("axios", to: "https://ga.jspm.io/npm:axios@0.21.4/index.js");
 Importmap::pin("laravel-echo", to: "https://ga.jspm.io/npm:laravel-echo@1.11.3/dist/echo.js", preload: true);
 Importmap::pin("pusher-js", to: "https://ga.jspm.io/npm:pusher-js@7.0.3/dist/web/pusher.js", preload: true);
 Importmap::pin("@hotwired/turbo", to: "https://ga.jspm.io/npm:@hotwired/turbo@7.1.0/dist/turbo.es2017-esm.js", preload: true);

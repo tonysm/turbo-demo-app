@@ -8,3 +8,10 @@ if (! function_exists('dom_id')) {
         return turbo_laravel_dom_id(...$args);
     }
 }
+
+if (! function_exists('clean')) {
+    function clean(string $html): string
+    {
+        return $html;
+    }
+}
