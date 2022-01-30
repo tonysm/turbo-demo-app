@@ -25,24 +25,15 @@ services:
             - mysql
             - redis
     websockets.test:
-        image: sail-8.0/app
-        command: 'php artisan websockets:serve --port=${LARAVEL_WEBSOCKETS_PORT} --host=0.0.0.0'
-        extra_hosts:
-            - 'host.docker.internal:host-gateway'
-        ports:
-            - '${LARAVEL_WEBSOCKETS_PORT:-6003}:6003'
+        image: 'quay.io/soketi/soketi:latest-16-alpine'
         environment:
-            WWWUSER: '${WWWUSER}'
-            LARAVEL_SAIL: 1
-            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
-            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
-            LARAVEL_WEBSOCKETS_PORT: '${LARAVEL_WEBSOCKETS_PORT}'
-        volumes:
-            - '.:/var/www/html'
+            DEBUG: '1'
+            METRICS_SERVER_PORT: '9601'
+        ports:
+            - '${PUSHER_FRONTEND_PORT:-6001}:6001'
+            - '${PUSHER_METRICS_PORT:-9601}:9601'
         networks:
             - sail
-        depends_on:
-            - laravel.test
     mysql:
         image: 'mysql:8.0'
         ports:

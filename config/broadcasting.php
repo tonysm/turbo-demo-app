@@ -36,12 +36,11 @@ return [
             'secret' => env('PUSHER_APP_SECRET'),
             'app_id' => env('PUSHER_APP_ID'),
             'options' => [
-                'cluster' => env('PUSHER_APP_CLUSTER'),
-                'useTLS' => false,
-                'encrypted' => false,
-                'host' => env('PUSHER_APP_HOST'),
-                'port' => env('LARAVEL_WEBSOCKETS_PORT'),
-                'scheme' => 'http'
+                'useTLS' => env('PUSHER_SCHEME', 'http') === 'https',
+                'encrypted' => true,
+                'host' => env('PUSHER_HOST'),
+                'port' => env('PUSHER_PORT'),
+                'scheme' => env('PUSHER_SCHEME', 'http'),
             ],
             // Not Pusher options, these are used in the `layouts/app.blade.php` file...
             'frontend' => [
