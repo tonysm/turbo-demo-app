@@ -19,7 +19,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="https://ga.jspm.io/npm:trix@2.0.0-alpha.0/dist/trix.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tributejs/5.1.3/tribute.css">
-        <link rel="stylesheet" data-turbo-track="reload" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" data-turbo-track="reload" href="{{ tailwindcss('css/app.css') }}">
 
         @livewireStyles
 

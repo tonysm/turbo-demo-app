@@ -5,6 +5,7 @@
 /public/js
 /public/*.js
 mix-manifest.json
+tailwindcss-manifest.json
 /storage/*.key
 /vendor
 .env
@@ -21,4 +22,4 @@ _ide_helper.php
 rr
 .rr.yaml
 public/dist/
-
+/tailwindcss
