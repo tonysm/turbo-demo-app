@@ -7,12 +7,6 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": {
-        "tailwindcss": {
-            "type": "path",
-            "url": "./workspaces/tailwindcss-laravel"
-        }
-    },
     "require": {
         "php": "^8.1",
         "cerbero/lazy-json": "^1.1",

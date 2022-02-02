@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ba6e5ed3d6b47ce0700c11c4513e24e",
+    "content-hash": "ce2ec848f7356b722601566dbb0f2372",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6461,10 +6461,16 @@
         {
             "name": "tonysm/tailwindcss-laravel",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tonysm/tailwindcss-laravel.git",
+                "reference": "ab57d5b8386138fdf11ca5bc4828cbf1591678b6"
+            },
             "dist": {
-                "type": "path",
-                "url": "./workspaces/tailwindcss-laravel",
-                "reference": "e14dbb6cdfaa0b7fc23be01310241e530f9fcebb"
+                "type": "zip",
+                "url": "https://api.github.com/repos/tonysm/tailwindcss-laravel/zipball/ab57d5b8386138fdf11ca5bc4828cbf1591678b6",
+                "reference": "ab57d5b8386138fdf11ca5bc4828cbf1591678b6",
+                "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^8.73|^9.0",
@@ -6483,6 +6489,7 @@
                 "phpunit/phpunit": "^9.5",
                 "spatie/laravel-ray": "^1.29"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6499,22 +6506,7 @@
                     "src/helpers.php"
                 ]
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tonysm\\TailwindCss\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "analyse": [
-                    "vendor/bin/phpstan analyse"
-                ],
-                "test": [
-                    "vendor/bin/pest"
-                ],
-                "test-coverage": [
-                    "vendor/bin/pest --coverage"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6531,9 +6523,17 @@
                 "laravel",
                 "tailwindcss"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/tonysm/tailwindcss-laravel/issues",
+                "source": "https://github.com/tonysm/tailwindcss-laravel/tree/main"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/tonysm",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-02T02:49:59+00:00"
         },
         {
             "name": "tonysm/turbo-laravel",
