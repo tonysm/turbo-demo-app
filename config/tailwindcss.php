@@ -3,17 +3,18 @@
 return [
     /*
      |---------------------------------------------------------------------
-     | Where the TailwindCSS binary can be located.
+     | The build source and destination files configuration.
      |---------------------------------------------------------------------
      |
-     | The package is a wrapper around the tailwindcss binary. Each platform needs its own
-     | version of the binary file, so the package does not ship with it out-of-the-box.
-     | Use the `tailwindcss:download` Artisan command to ensure the binary is there.
+     | These build configs will be used as arguments passed to the Tailwind CSS
+     | binary to generate the compiled version of your app's styles. Be sure
+     | that the destination file is somewhere inside the `public/` folder.
      |
      */
-    'build_destination_file_path' => public_path('/css/app.css'),
-
-    'build_source_file_path' => resource_path('/css/app.css'),
+    'build' => [
+        'source_file_path' => resource_path('/css/app.css'),
+        'destination_file_path' => public_path('/css/app.css'),
+    ],
 
     /*
      |---------------------------------------------------------------------
