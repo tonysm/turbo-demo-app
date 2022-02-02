@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17755dfe1a3eca408ef03277bee06f17",
+    "content-hash": "8ba6e5ed3d6b47ce0700c11c4513e24e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6459,6 +6459,83 @@
             "time": "2022-01-30T01:53:26+00:00"
         },
         {
+            "name": "tonysm/tailwindcss-laravel",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./workspaces/tailwindcss-laravel",
+                "reference": "e14dbb6cdfaa0b7fc23be01310241e530f9fcebb"
+            },
+            "require": {
+                "illuminate/contracts": "^8.73|^9.0",
+                "php": "^8.0|^8.1",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^5.10|^6.0",
+                "nunomaduro/larastan": "^1.0",
+                "orchestra/testbench": "^6.24",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.2",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.29"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tonysm\\TailwindCss\\TailwindCssServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tonysm\\TailwindCss\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tonysm\\TailwindCss\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "analyse": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "test-coverage": [
+                    "vendor/bin/pest --coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tony Messias",
+                    "email": "tonysm@hey.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package wraps up the standalone executable version of the Tailwind CSS framework.",
+            "homepage": "https://github.com/tonysm/tailwindcss-laravel",
+            "keywords": [
+                "laravel",
+                "tailwindcss"
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "tonysm/turbo-laravel",
             "version": "dev-main",
             "source": {
@@ -11371,6 +11448,7 @@
         "symfony/html-sanitizer": 20,
         "tonysm/importmap-laravel": 20,
         "tonysm/rich-text-laravel": 20,
+        "tonysm/tailwindcss-laravel": 20,
         "tonysm/turbo-laravel": 20
     },
     "prefer-stable": true,
