@@ -6464,12 +6464,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/tailwindcss-laravel.git",
-                "reference": "ab57d5b8386138fdf11ca5bc4828cbf1591678b6"
+                "reference": "4d8861597442babdd727541d2dcec1bf0ba42f61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/tailwindcss-laravel/zipball/ab57d5b8386138fdf11ca5bc4828cbf1591678b6",
-                "reference": "ab57d5b8386138fdf11ca5bc4828cbf1591678b6",
+                "url": "https://api.github.com/repos/tonysm/tailwindcss-laravel/zipball/4d8861597442babdd727541d2dcec1bf0ba42f61",
+                "reference": "4d8861597442babdd727541d2dcec1bf0ba42f61",
                 "shasum": ""
             },
             "require": {
@@ -6499,12 +6499,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Tonysm\\TailwindCss\\": "src"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "Tonysm\\TailwindCss\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6525,7 +6525,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/tailwindcss-laravel/issues",
-                "source": "https://github.com/tonysm/tailwindcss-laravel/tree/main"
+                "source": "https://github.com/tonysm/tailwindcss-laravel/tree/0.0.3"
             },
             "funding": [
                 {
@@ -6533,7 +6533,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-02T02:49:59+00:00"
+            "time": "2022-02-04T02:21:05+00:00"
         },
         {
             "name": "tonysm/turbo-laravel",
