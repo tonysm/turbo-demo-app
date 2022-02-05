@@ -56,11 +56,17 @@ sail up -d
 sail artisan migrate
 ```
 
-**Install and Compile the Assets**:
+**Link the Storage Folder (for Importmap)**:
 
 ```bash
-sail npm ci
-sail npm run dev
+sail artisan storage:link
+```
+
+**Download Tailwind CSS and Compile**:
+
+```bash
+sail artisan tailwindcss:download
+sail artisan tailwindcss:build
 ```
 
 **Running a Worker**:
