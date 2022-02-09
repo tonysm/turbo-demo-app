@@ -19,10 +19,10 @@
         "livewire/livewire": "^2.10",
         "pusher/pusher-php-server": "~7.0",
         "symfony/html-sanitizer": "6.1.x-dev",
-        "tonysm/importmap-laravel": "dev-main",
-        "tonysm/rich-text-laravel": "dev-main",
-        "tonysm/tailwindcss-laravel": "dev-main",
-        "tonysm/turbo-laravel": "dev-main"
+        "tonysm/importmap-laravel": "^0.3.0",
+        "tonysm/rich-text-laravel": "^1.4.0",
+        "tonysm/tailwindcss-laravel": "^0.1.0",
+        "tonysm/turbo-laravel": "^1.1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.9",

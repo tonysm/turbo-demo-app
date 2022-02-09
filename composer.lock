@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce2ec848f7356b722601566dbb0f2372",
+    "content-hash": "204d7a4ad3f69098d970e628f72af1ca",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6247,7 +6247,7 @@
         },
         {
             "name": "tonysm/globalid-laravel",
-            "version": "dev-main",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/globalid-laravel.git",
@@ -6271,7 +6271,6 @@
                 "spatie/laravel-ray": "^1.29",
                 "vimeo/psalm": "^4.8"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6310,13 +6309,13 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/globalid-laravel/issues",
-                "source": "https://github.com/tonysm/globalid-laravel/tree/main"
+                "source": "https://github.com/tonysm/globalid-laravel/tree/1.1.0"
             },
             "time": "2022-01-29T20:57:04+00:00"
         },
         {
             "name": "tonysm/importmap-laravel",
-            "version": "dev-main",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/importmap-laravel.git",
@@ -6345,7 +6344,6 @@
                 "phpunit/phpunit": "^9.5",
                 "spatie/laravel-ray": "^1.29"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6382,7 +6380,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/importmap-laravel/issues",
-                "source": "https://github.com/tonysm/importmap-laravel/tree/main"
+                "source": "https://github.com/tonysm/importmap-laravel/tree/0.3.0"
             },
             "funding": [
                 {
@@ -6394,23 +6392,23 @@
         },
         {
             "name": "tonysm/rich-text-laravel",
-            "version": "dev-main",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/rich-text-laravel.git",
-                "reference": "c47975f58a5850551df9daec0e1e278376f52343"
+                "reference": "64f59eac519cd5900486fad0e3edd92312022f4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/c47975f58a5850551df9daec0e1e278376f52343",
-                "reference": "c47975f58a5850551df9daec0e1e278376f52343",
+                "url": "https://api.github.com/repos/tonysm/rich-text-laravel/zipball/64f59eac519cd5900486fad0e3edd92312022f4e",
+                "reference": "64f59eac519cd5900486fad0e3edd92312022f4e",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^8.47|^9.0",
                 "php": "^8.0|^8.1",
                 "spatie/laravel-package-tools": "^1.9.2",
-                "tonysm/globalid-laravel": "dev-main"
+                "tonysm/globalid-laravel": "^1.1.0"
             },
             "require-dev": {
                 "nunomaduro/collision": "^5.3|^6.0",
@@ -6419,7 +6417,6 @@
                 "spatie/laravel-ray": "^1.29",
                 "vimeo/psalm": "^4.8"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6454,22 +6451,22 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/rich-text-laravel/issues",
-                "source": "https://github.com/tonysm/rich-text-laravel/tree/main"
+                "source": "https://github.com/tonysm/rich-text-laravel/tree/1.4.0"
             },
-            "time": "2022-01-30T01:53:26+00:00"
+            "time": "2022-02-09T01:28:18+00:00"
         },
         {
             "name": "tonysm/tailwindcss-laravel",
-            "version": "dev-main",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/tailwindcss-laravel.git",
-                "reference": "4d8861597442babdd727541d2dcec1bf0ba42f61"
+                "reference": "0a3b1e799f727e058fef72013d2bc6acdd1f664a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/tailwindcss-laravel/zipball/4d8861597442babdd727541d2dcec1bf0ba42f61",
-                "reference": "4d8861597442babdd727541d2dcec1bf0ba42f61",
+                "url": "https://api.github.com/repos/tonysm/tailwindcss-laravel/zipball/0a3b1e799f727e058fef72013d2bc6acdd1f664a",
+                "reference": "0a3b1e799f727e058fef72013d2bc6acdd1f664a",
                 "shasum": ""
             },
             "require": {
@@ -6489,7 +6486,6 @@
                 "phpunit/phpunit": "^9.5",
                 "spatie/laravel-ray": "^1.29"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6525,7 +6521,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/tailwindcss-laravel/issues",
-                "source": "https://github.com/tonysm/tailwindcss-laravel/tree/0.0.3"
+                "source": "https://github.com/tonysm/tailwindcss-laravel/tree/0.1.0"
             },
             "funding": [
                 {
@@ -6533,11 +6529,11 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-04T02:21:05+00:00"
+            "time": "2022-02-04T17:11:56+00:00"
         },
         {
             "name": "tonysm/turbo-laravel",
-            "version": "dev-main",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/turbo-laravel.git",
@@ -6557,7 +6553,6 @@
                 "orchestra/testbench": "^6.24",
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -6570,12 +6565,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Tonysm\\TurboLaravel\\": "src"
-                },
                 "files": [
                     "src/helpers.php"
-                ]
+                ],
+                "psr-4": {
+                    "Tonysm\\TurboLaravel\\": "src"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -6597,7 +6592,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/turbo-laravel/issues",
-                "source": "https://github.com/tonysm/turbo-laravel/tree/main"
+                "source": "https://github.com/tonysm/turbo-laravel/tree/1.1.0"
             },
             "time": "2022-01-30T04:42:09+00:00"
         },
@@ -11445,11 +11440,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/html-sanitizer": 20,
-        "tonysm/importmap-laravel": 20,
-        "tonysm/rich-text-laravel": 20,
-        "tonysm/tailwindcss-laravel": 20,
-        "tonysm/turbo-laravel": 20
+        "symfony/html-sanitizer": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
