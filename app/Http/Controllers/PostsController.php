@@ -37,6 +37,8 @@ class PostsController extends Controller
             $this->postParams() + ['user_id' => auth()->id()]
         );
 
+        $post->syncAttachmentsMeta();
+
         return redirect()->route('posts.show', $post);
     }
 

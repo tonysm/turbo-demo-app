@@ -18,6 +18,7 @@ class Comment extends Model
     use HasMentions;
     use HasRichText;
     use Entryable;
+    use HasAttachments;
 
     protected $richTextFields = [
         'content',

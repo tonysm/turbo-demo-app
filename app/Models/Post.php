@@ -32,6 +32,7 @@ class Post extends Model
     use HasGlobalIdentification;
     use Entryable;
     use Prunable;
+    use HasAttachments;
 
     protected $allowCommentsOnEntry = true;
 
@@ -89,19 +90,6 @@ class Post extends Model
         });
     }
 
-    public function syncAttachmentsMeta()
-    {
-        $this->content->attachments()
-            ->filter(fn ($attachment) => $attachment->attachable instanceof AttachmentModel)
-            ->each(function ($attachment) {
-                $attachment->attachable->update([
-                    'record' => $this,
-                    'verified_at' => now(),
-                    'caption' => $attachment->node->getAttribute('caption'),
-                ]);
-            });
-    }
-
     public function prunable()
     {
         return static::where('created_at', '<=', now()->subDays(2));
@@ -135,11 +123,6 @@ class Post extends Model
     public function team()
     {
         return $this->belongsTo(Team::class);
-    }
-
-    public function attachments()
-    {
-        return $this->morphMany(AttachmentModel::class, 'record');
     }
 
     public function entryableTitle()

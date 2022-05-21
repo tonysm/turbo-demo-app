@@ -36,6 +36,7 @@ class CommentsController extends Controller
             'content' => 'required|min:10|string',
         ]));
 
+        $comment->syncAttachmentsMeta();
         $comment->broadcastReplaceTo($comment->parent->entryable)->toOthers()->later();
 
         if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
