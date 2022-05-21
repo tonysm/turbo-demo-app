@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Attachment;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // Turbo::broadcastToOthers(true);
         Relation::enforceMorphMap([
+            'attachment' => Attachment::class,
             'user' => User::class,
             'post' => Post::class,
             'comment' => Comment::class,

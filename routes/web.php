@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers;
+use App\Models\Attachment;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,10 +14,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             'attachment' => ['required', 'file'],
         ]);
 
-        $path = request()->file('attachment')->store('trix-attachments', 'public');
+        /** @var Attachment */
+        $attachment = Attachment::create([
+            'record' => auth()->user(),
+        ]);
+
+        $media = $attachment->addMedia(request()->file('attachment'))
+            ->toMediaCollection();
 
         return [
-            'image_url' => Storage::disk('public')->url($path),
+            'attachable_sgid' => $attachment->richTextSgid(),
+            'image_url' => $media->getFullUrl(),
         ];
     })->name('attachments.store');
 

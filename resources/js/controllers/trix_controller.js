@@ -81,6 +81,7 @@ export default class extends Controller {
             }
         }).then(resp => {
             attachment.setAttributes({
+                sgid: resp.data.attachable_sgid,
                 url: resp.data.image_url,
                 href: resp.data.image_url,
             });
