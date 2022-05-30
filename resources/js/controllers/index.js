@@ -10,6 +10,7 @@ import ReplaceClassController from 'controllers/replace_class_controller'
 import RevealController from 'controllers/reveal_controller'
 import TrixController from 'controllers/trix_controller'
 import UserReactionController from 'controllers/user_reaction_controller'
+import DropdownController from 'controllers/dropdown_controller'
 
 export default (Stimulus) => {
     Stimulus.register("bridge", BridgeController)
@@ -24,4 +25,5 @@ export default (Stimulus) => {
     Stimulus.register("reveal", RevealController)
     Stimulus.register("trix", TrixController)
     Stimulus.register("user-reaction", UserReactionController)
+    Stimulus.register("dropdown", DropdownController)
 };

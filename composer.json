@@ -18,8 +18,9 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
         "pusher/pusher-php-server": "~7.0",
+        "spatie/laravel-medialibrary": "^10.0.0",
         "symfony/html-sanitizer": "6.1.x-dev",
-        "tonysm/importmap-laravel": "^0.3.0",
+        "tonysm/importmap-laravel": "^1.0.0",
         "tonysm/rich-text-laravel": "^1.4.0",
         "tonysm/tailwindcss-laravel": "^0.1.0",
         "tonysm/turbo-laravel": "^1.1.0"

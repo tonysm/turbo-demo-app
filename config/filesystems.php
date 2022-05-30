@@ -53,6 +53,12 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/media'),
+            'url'    => env('APP_URL').'/media',
+        ],
+
     ],
 
     /*
@@ -68,6 +74,7 @@ return [
 
     'links' => array_filter([
         public_path('storage') => storage_path('app/public'),
+        public_path('media') => storage_path('app/media'),
         public_path('js') => env('APP_ENV') === 'local' ? resource_path('js') : null,
     ]),
 

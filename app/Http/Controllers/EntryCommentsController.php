@@ -34,6 +34,8 @@ class EntryCommentsController extends Controller
             $this->commentParams() + ['user_id' => auth()->id()]
         );
 
+        $comment->syncAttachmentsMeta();
+
         $comment->broadcastAppendTo($entry->entryable)
             ->target(dom_id($entry, 'comments'))
             ->toOthers()

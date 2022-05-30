@@ -1,4 +1,4 @@
-<x-jet-dropdown align="right" width="48" contentClasses="py-1 bg-gray-100">
+<x-dropdown align="right" width="48" contentClasses="py-1 bg-gray-100">
     <x-slot name="trigger">
         <button
             class="flex text-sm text-gray-500 transition duration-150 ease-in-out border-2 border-transparent rounded-full hover:text-gray-700 focus:outline-none focus:border-gray-300"

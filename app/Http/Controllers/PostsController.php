@@ -37,6 +37,8 @@ class PostsController extends Controller
             $this->postParams() + ['user_id' => auth()->id()]
         );
 
+        $post->syncAttachmentsMeta();
+
         return redirect()->route('posts.show', $post);
     }
 
@@ -53,7 +55,7 @@ class PostsController extends Controller
     {
         $this->authorize('update', $post);
 
-        $post->update($this->postParams());
+        tap($post)->update($this->postParams())->syncAttachmentsMeta();
 
         if (Request::wantsTurboStream() && ! Request::wasFromTurboNative()) {
             return Response::turboStream($post);

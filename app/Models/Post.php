@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Events\PostCreated;
+use App\Models\Attachment as AttachmentModel;
 use App\Models\Mentions\HasMentions;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -15,7 +16,6 @@ use Tonysm\RichTextLaravel\Content;
 use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 use Tonysm\TurboLaravel\Models\Broadcasts;
 
-use function Illuminate\Events\queueable;
 use function Tonysm\TurboLaravel\dom_id;
 
 /**
@@ -32,6 +32,7 @@ class Post extends Model
     use HasGlobalIdentification;
     use Entryable;
     use Prunable;
+    use HasAttachments;
 
     protected $allowCommentsOnEntry = true;
 
@@ -66,26 +67,27 @@ class Post extends Model
                 ->later();
         });
 
-        static::updated(queueable(function (Post $post) {
+        static::updated(function (Post $post) {
             if (! static::$isBroadcasting) {
                 return true;
             }
 
             $post->broadcastReplaceTo($post->team)
                 ->target(dom_id($post, 'card'))
-                ->partial('posts._post_card', ['post' => $post]);
+                ->partial('posts._post_card', ['post' => $post])
+                ->later();
 
-            $post->broadcastReplace();
-        }));
+            $post->broadcastReplace()->later();
+        });
 
-        static::deleted(queueable(function (Post $post) {
+        static::deleted(function (Post $post) {
             if (! static::$isBroadcasting) {
                 return true;
             }
 
             $post->broadcastRemoveTo($post->team)
                 ->target(dom_id($post, 'card'));
-        }));
+        });
     }
 
     public function prunable()
