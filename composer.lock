@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73808ec09d2e19c36634cb3457a731a0",
+    "content-hash": "6be75ab907f9c7e6396353a1fc59a7af",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6960,27 +6960,29 @@
         },
         {
             "name": "tonysm/importmap-laravel",
-            "version": "0.3.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tonysm/importmap-laravel.git",
-                "reference": "9c1d39a476ddaf8f55d7ff453b4900db2b5f0c80"
+                "reference": "630f5b9d013039e22b8f8aa3b75b2648723171b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tonysm/importmap-laravel/zipball/9c1d39a476ddaf8f55d7ff453b4900db2b5f0c80",
-                "reference": "9c1d39a476ddaf8f55d7ff453b4900db2b5f0c80",
+                "url": "https://api.github.com/repos/tonysm/importmap-laravel/zipball/630f5b9d013039e22b8f8aa3b75b2648723171b5",
+                "reference": "630f5b9d013039e22b8f8aa3b75b2648723171b5",
                 "shasum": ""
             },
             "require": {
-                "illuminate/contracts": "^8.73|^9.0",
-                "php": "^8.0|^8.1",
+                "illuminate/contracts": "^9.0",
+                "illuminate/support": "^9.0",
+                "php": "^8.1",
                 "spatie/laravel-package-tools": "^1.9.2"
             },
             "require-dev": {
+                "guzzlehttp/guzzle": "^7.4",
                 "nunomaduro/collision": "^5.10|^6.0",
                 "nunomaduro/larastan": "^1.0",
-                "orchestra/testbench": "^6.24",
+                "orchestra/testbench": "^7.0",
                 "pestphp/pest": "^1.21",
                 "pestphp/pest-plugin-laravel": "^1.2",
                 "phpstan/extension-installer": "^1.1",
@@ -7025,7 +7027,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tonysm/importmap-laravel/issues",
-                "source": "https://github.com/tonysm/importmap-laravel/tree/0.3.0"
+                "source": "https://github.com/tonysm/importmap-laravel/tree/1.0.0"
             },
             "funding": [
                 {
@@ -7033,7 +7035,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-01-30T02:05:32+00:00"
+            "time": "2022-05-30T21:33:25+00:00"
         },
         {
             "name": "tonysm/rich-text-laravel",
