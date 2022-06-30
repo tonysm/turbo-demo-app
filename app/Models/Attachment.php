@@ -79,4 +79,9 @@ class Attachment extends Model implements HasMedia, AttachableContract
     {
         return null;
     }
+
+    public function richTextAsPlainText($caption = null): string
+    {
+        return sprintf('[%s]', $caption ?: e($this->caption));
+    }
 }
