@@ -9,7 +9,7 @@ class SymfonySanitizerFactory
 {
     public static function make(): HtmlSanitizer
     {
-        return new HtmlSanitizer(static::configuration(), PHP_INT_MAX);
+        return new HtmlSanitizer(static::configuration());
     }
 
     protected static function configuration(): HtmlSanitizerConfig
@@ -18,7 +18,6 @@ class SymfonySanitizerFactory
             ->allowSafeElements()
             ->allowElement('figure')
             ->allowElement('figcaption')
-            // ->allowElement('rich-text-attachment', ['sgid', 'content', 'contentType', 'height', 'width'])
             ->allowAttribute('class', '*')
             ->allowAttribute('data-turbo-frame', ['a', 'form', 'button'])
         ;
