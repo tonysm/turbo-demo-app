@@ -3,7 +3,7 @@ import Pusher from 'pusher-js';
 
 window.Pusher = Pusher;
 
-const echo = new Echo({
+window.Echo = new Echo({
     broadcaster: 'pusher',
     key: document.head.querySelector('meta[name=echo-pusher-app-key]').content,
     forceTLS: document.head.querySelector('meta[name=echo-pusher-use-tls]').content === "1",
@@ -17,4 +17,4 @@ const echo = new Echo({
     // wsPort: process.env.MIX_PUSHER_PORT || null,
 });
 
-export default echo;
+export default Echo;

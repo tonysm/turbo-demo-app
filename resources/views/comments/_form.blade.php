@@ -11,7 +11,6 @@
     @turbo:submit-start="sending = true"
     @turbo:submit-end="sending = false"
 >
-    @csrf
     @if($comment->exists)
         @method('PUT')
     @endif
